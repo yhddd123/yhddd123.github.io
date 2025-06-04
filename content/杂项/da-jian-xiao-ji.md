@@ -45,7 +45,7 @@ isTop: false
 
 ```#Tag``` 指向 tag。
 
-```![[]]``` 支持嵌入 pdf 文件。
+```![[]]``` 嵌入 pdf 文件。
 
 非 markdown 标准 [分段](https://quartz.jzhao.xyz/plugins/HardLineBreaks)：两行紧贴着为半行。quartz.config.ts 的 ``` transformers``` 部分加 ```Plugin.HardLineBreaks(),```。
 
