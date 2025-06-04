@@ -15,15 +15,15 @@ isTop: false
 
 仓库 ```setting``` 里的 ```Pages``` 选 ```Github Actions```。
 
-加 ```\.github\workflows\deploy.yml``` 文件。缺这个可以上传，无法更新到网站上。
+加 ```\.github\workflows\deploy.yml``` 文件。缺这个可以上传仓库，无法更新到网站。
 
-上传到仓库。先 ```npx quartz sync --no-pull``` 再 ```npx quartz sync```。
+上传到仓库。先 ```npx quartz sync --no-pull``` ，以后 ```npx quartz sync```。
 
 ```\quartz\static``` 里换 ```icon.png``` 改头像。
 
 使用 [https://obsidian.md/](https://obsidian.md/) 写作。
 
-可以直接用 Github Desktop 进行 clone 和 push。*待解决的问题：神秘原因无法完全从 upsteam 处更新*。 
+可以直接用 Github Desktop 进行 clone 和 push。*待解决的问题：神秘原因无法完全从 upsteam 处更新，可能不是最新版本*。 
 
 ### 同步时报错
 
@@ -46,8 +46,6 @@ isTop: false
 ```#Tag``` 指向 tag。
 
 ```![[]]``` 嵌入 pdf 文件。
-
-非 markdown 标准 [分段](https://quartz.jzhao.xyz/plugins/HardLineBreaks)：两行紧贴着为半行。quartz.config.ts 的 ``` transformers``` 部分加 ```Plugin.HardLineBreaks(),```。
 
 ### 配置
 
@@ -85,15 +83,9 @@ export const sharedPageComponents: SharedLayout = {
 }
 ```
 
-#### [frontmatter](https://draftz.felixnie.com/Digital-Garden/Sorting-Objects-in-Explorer#add-frontmatter-back)
-
-文件属性。```title/date/...```。需要重新添加入 ```type ContentDetails``` 中。
-
-```\quartz\plugins\emitters\contentIndex.tsx``` 内修改三处。
-
 #### [sort!!!](https://draftz.felixnie.com/Digital-Garden/Sorting-Objects-in-Explorer#define-sortfn)
 
-所有你所需要的：[Discord Community](https://discord.com/invite/cRFFHYye7t)。
+[frontmatter：文件属性](https://draftz.felixnie.com/Digital-Garden/Sorting-Objects-in-Explorer#add-frontmatter-back)。```title/date/...```。需要重新添加入 ```type ContentDetails``` 中。```\quartz\plugins\emitters\contentIndex.tsx``` 内修改三处。
 
 对 Explorer 排序。文件夹字典序，文件按时间倒序，文件夹在文件之前。
 
@@ -159,6 +151,6 @@ export const sortFn: Options["sortFn"] = (a, b) => {
 }
 ```
 
-#### [RecentNotes](https://quartz.jzhao.xyz/features/recent-notes)
+近期文章(https://quartz.jzhao.xyz/features/recent-notes)。可以放在 ```defaultContentPageLayout``` 的 ```right``` 中。```  Component.RecentNotes({ limit: 5 }),``` ，参数为最近几篇。
 
-近期文章。可以放在 ```defaultContentPageLayout``` 的 ```right``` 中。```  Component.RecentNotes({ limit: 5 }),``` ，参数为最近几篇。
+非 markdown 标准 [分段](https://quartz.jzhao.xyz/plugins/HardLineBreaks)：两行紧贴着为半行。```quartz.config.ts``` 的 ``` transformers``` 部分加 ```Plugin.HardLineBreaks(),```。
