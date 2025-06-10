@@ -1,7 +1,7 @@
 ---
 title: 'CF1854D 题解'
 date: 2023-12-31 17:10:30
-tags: [题解,非传统题]
+tags: [题解]
 published: true
 hideInList: false
 feature: 

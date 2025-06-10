@@ -1,7 +1,7 @@
 ---
 title: 'P8172 题解'
 date: 2024-11-01 14:58:49
-tags: [题解,dp,数学]
+tags: [题解,dp]
 published: true
 hideInList: false
 feature: 

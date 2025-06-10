@@ -1,7 +1,7 @@
 ---
 title: 'P7247 题解'
 date: 2023-12-31 17:25:11
-tags: [题解,数学]
+tags: [题解,dp]
 published: true
 hideInList: false
 feature: 
