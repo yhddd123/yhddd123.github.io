@@ -85,9 +85,13 @@ export const sharedPageComponents: SharedLayout = {
 
 #### [sort!!!](https://draftz.felixnie.com/Digital-Garden/Sorting-Objects-in-Explorer#define-sortfn)
 
-[frontmatter：文件属性](https://draftz.felixnie.com/Digital-Garden/Sorting-Objects-in-Explorer#add-frontmatter-back)。```title/date/...```。需要重新添加入 ```type ContentDetails``` 中。```\quartz\plugins\emitters\contentIndex.tsx``` 内修改三处。
+搞了两天。
 
 对 Explorer 排序。文件夹字典序，文件按时间倒序，文件夹在文件之前。
+
+后来又想了一下，好像这个功能用默认好看点。
+
+[frontmatter：文件属性](https://draftz.felixnie.com/Digital-Garden/Sorting-Objects-in-Explorer#add-frontmatter-back)。```title/date/...```。需要重新添加入 ```type ContentDetails``` 中。```\quartz\plugins\emitters\contentIndex.tsx``` 内修改三处。
 
 ```quartz.layout.ts
 // mod: define Explorer functions

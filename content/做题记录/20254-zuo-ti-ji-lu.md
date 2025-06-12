@@ -24,3 +24,5 @@ isTop: false
 给方案找一个易计数的特征，多个特征对应同一个方案，找一个代表元。
 
 #### [P5979](https://www.luogu.com.cn/problem/P5979)
+
+摆大烂。
