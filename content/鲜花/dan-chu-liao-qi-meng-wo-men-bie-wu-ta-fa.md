@@ -1,7 +1,7 @@
 ---
 title: '但除了启蒙我们别无他法'
 date: 2024-10-21 22:05:10
-tags: [随机说话]
+tags: [随机复读]
 published: true
 hideInList: false
 feature: 
