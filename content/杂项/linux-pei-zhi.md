@@ -17,54 +17,7 @@ isTop: false
 
 ---
 
-### vscode
-
-crtl + ```+``` 调整个页面大小。
-
-ctrl + 滚轮 调代码页面大小：ctrl + ```,``` 打开设置，输入 ```mouse zoom```，选开启。
-
-缺省源：左下角设置，User snippets，```cpp.json```。
-
-```"prefix"``` 指打出前缀后 ```enter``` 调用缺省源。代码部分用 ```"...",``` 括起来，缺省源里原来的 ```"``` 改为 ```\"```。```$1``` 表示鼠标的位置。
-
-```json
-{
-    "#include": {
-        "prefix": "#include",
-        "body": [
-			"#include<bits/stdc++.h>",
-			"#define int long long",
-			"#define mod 998244353ll",
-			"#define pii pair<int,int>",
-			"#define fi first",
-			"#define se second",
-			"#define pb push_back",
-			"using namespace std;",
-			"inline int read(){",
-			"	int x=0,fl=1;char ch=getchar();",
-			"	while(ch<'0'||ch>'9'){if(ch=='-')fl=-1;ch=getchar();}",
-			"	while(ch>='0'&&ch<='9'){x=x*10+ch-'0';ch=getchar();}",
-			"	return x*fl;",
-			"}",
-			"const int maxn=200010;",
-			"",
-			"int n;",
-			"void work(){",
-			"	n=read();$1",
-			"}",
-			"",
-			"int T;",
-			"signed main(){",
-			"	// freopen(\".in\",\"r\",stdin);",
-			"	// freopen(\".out\",\"w\",stdout);",
-			"	",
-			"	T=1;",
-			"	while(T--)work();",
-			"}",
-        ]
-    }
-}
-```
+[[ji-yu-vscode-de-ai-pei-zhi|vscode 配置]]。
 
 ---
 
@@ -74,7 +27,7 @@ ctrl + 滚轮 调代码页面大小：ctrl + ```,``` 打开设置，输入 ```mo
 
 把下载包弄下来。显示隐藏的文件。
 
-把 ```.env``` 文件弄到 vscode 里编辑。或者终端 ```vim .env```，vim 中 ```:w``` 保存，```:q``` 退出。```CLASH_URL``` 填链接。
+把 ```.env``` 文件弄到 vscode 里编辑。
 
 ```.env
 # Clash 订阅地址
