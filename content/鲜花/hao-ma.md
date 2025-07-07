@@ -1,7 +1,7 @@
 ---
 title: '好骂'
 date: 2025-01-08 22:08:03
-tags: [随机复读]
+tags: [复读]
 published: true
 hideInList: false
 feature: 

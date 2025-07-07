@@ -1,7 +1,7 @@
 ---
 title: 'Win again'
 date: 2025-06-24 22:24:55
-tags: [随机复读]
+tags: [复读]
 published: true
 hideInList: false
 feature: 

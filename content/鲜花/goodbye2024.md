@@ -1,7 +1,7 @@
 ---
 title: 'Goodbye2024'
 date: 2025-01-01 13:24:15
-tags: [随机说话]
+tags: [嘴巴]
 published: true
 hideInList: false
 feature: 

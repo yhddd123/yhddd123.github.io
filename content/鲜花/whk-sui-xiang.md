@@ -1,7 +1,7 @@
 ---
 title: 'whk 随想'
 date: 2025-06-16 22:20:45
-tags: [随机说话]
+tags: [嘴巴]
 published: true
 hideInList: false
 feature: 
