@@ -27,117 +27,6 @@ $$ans=\sum i^2-\sum_{i<j}[i\bmod 2\neq j\bmod 2]|p_i-p_j|$$
 
 差分数组单调，维护全局加一次函数，向右平移，插入 $0$。fhq treap 维护 $(g_j,j,1)$。
 
-```cpp
-int n,p[maxn],ans;
-#define ls lc[u]
-#define rs rc[u]
-struct Vec{
-    int a[3];
-    Vec(int _a=0,int _b=0,int _c=0){a[0]=_a,a[1]=_b,a[2]=_c;}
-}tree[maxn];
-int lc[maxn],rc[maxn],rt,idx;
-int w[maxn],siz[maxn];
-struct Tag{
-    int a[3][3];
-    Tag(int _a=1,int _b=0,int _c=0,int _d=0,int _e=1,int _f=0,int _g=0,int _h=0,int _i=1){
-        a[0][0]=_a,a[0][1]=_b,a[0][2]=_c,a[1][0]=_d,a[1][1]=_e,a[1][2]=_f,a[2][0]=_g,a[2][1]=_h,a[2][2]=_i;
-    }
-}tag[maxn];
-Vec operator*(const Vec &u,const Tag &v){
-    Vec res;
-    for(int i=0;i<3;i++){
-        res.a[i]=0;
-        for(int j=0;j<3;j++){
-            res.a[i]+=u.a[j]*v.a[j][i];
-        }
-    }
-    return res;
-}
-Tag operator*(const Tag &u,const Tag &v){
-    Tag res;
-    for(int i=0;i<3;i++){
-        for(int j=0;j<3;j++){
-            res.a[i][j]=0;
-            for(int k=0;k<3;k++)res.a[i][j]+=u.a[i][k]*v.a[k][j];
-        }
-    }
-    return res;
-}
-mt19937 rnd(1);
-int newnode(int g,int j){
-    int u=++idx;
-    ls=rs=0;w[u]=rnd();siz[u]=1;
-    tree[u]=Vec(g,j,1);tag[u]=Tag();
-    return idx;
-}
-void upd(int u,Tag w){tree[u]=tree[u]*w,tag[u]=tag[u]*w;}
-void down(int u){upd(ls,tag[u]),upd(rs,tag[u]),tag[u]=Tag();}
-void up(int u){siz[u]=siz[ls]+siz[rs]+1;}
-int merge(int u,int v){
-    if(!u||!v)return u|v;
-    down(u),down(v);
-    if(w[u]<w[v]){
-        rs=merge(rs,v);
-        up(u);return u;
-    }
-    else{
-        lc[v]=merge(u,lc[v]);
-        up(v);return v;
-    }
-}
-pii split(int u){
-    if(!u)return {0,0};
-    down(u);
-    if(tree[u].a[0]<0){
-        pii t=split(rs);
-        rs=t.fi;up(u);
-        return {u,t.se};
-    }
-    else{
-        pii t=split(ls);
-        ls=t.se;up(u);
-        return {t.fi,u};
-    }
-}
-int st[maxn],tp;
-void dfs(int u){
-    if(!u)return ;
-    down(u);
-    dfs(ls),st[++tp]=tree[u].a[0],dfs(rs);
-}
-void work(){
-    n=read();
-    for(int i=1;i<=n;i++)p[i]=-1;
-    for(int i=1;i<=n;i++)p[read()]=i&1;
-    idx=rt=0;
-    int l=0,r=0,x=0;
-    if(p[1]==1)l=r=1;
-    else if(p[1]==-1){
-        r=1;
-        rt=newnode(0,1);
-    }
-    for(int i=1;i<n;i++){
-        x+=2*l*l-(2*i+(n&1))*l+i*((n+1)/2);
-        upd(rt,Tag(1,0,0,4,1,0,-(2*i+(n&1))-2,0,1));
-        if(p[i+1]==1){
-            upd(rt,Tag(1,0,0,0,1,0,0,1,1));
-            l++,r++;
-        }
-        else if(p[i+1]==-1){
-            auto[u,v]=split(rt);
-            upd(v,Tag(1,0,0,0,1,0,0,1,1));
-            int w=newnode(0,l+siz[u]+1);
-            rt=merge(u,merge(w,v));
-            r++;
-        }
-    }
-    tp=0;dfs(rt);
-    st[0]=x;for(int i=1;i<=tp;i++)st[i]+=st[i-1];
-    ans=-st[(n+1)/2-l];for(int i=1;i<=n;i++)ans+=i*i;
-    printf("%lld\n",ans);
-}
-```
-
 ### [arc199c](https://www.luogu.com.cn/problem/AT_arc199_c)
 
 把 $P^1$ 弄成 $1,\dotsb,n$，$P^i_1$ 弄成 $1$。
@@ -177,3 +66,40 @@ $$(\sum f_{a_i})-1=\sum(\frac{a_i}{m}f_{a_i-1}+\frac{(m-a_i)(n-2)}{m(n-1)}f_{a_i
 $$f_x-\frac{x}{m}=\frac{x}{m}f_{x-1}+\frac{(m-x)(n-2)}{m(n-1)}f_{x}+\frac{(m-x)}{m(n-1)}f_{x+1}$$
 
 不妨设 $f_0=0$。令 $x=0$，$f_0=f_1=0$。递推即可。$ans=\sum f_{a_i}-(n-1)f_0-f_m$。
+
+### [250713 模拟赛 T3](http://goj.wiki/d/Union2024/p/P1523)
+
+快排：随机一个元素，数小于/等于的有几个，和 $k$ 比较，向两边递归。期望 $O(\log n)$。
+
+对每个左端点维护当前递归内的右端点范围。有 $(l,r)<(l,r-1)$，双指针。数据结构维护增删元素和固定区间比较。
+
+### [CF1163F](https://www.luogu.com.cn/problem/CF1163F)
+
+删边最短路。
+
+把 $1\to n$ 的最短路扔到序列上。求出每个点 $1\to u$ 和 $1\to n$ 分叉的位置 $pre_u$，和 $suf_u$。
+
+对每条边 $(u,v,w)$，把 $[pre_u,suf_u)$ 更新为 $dis(1,u)+w+dis(v,n)$。
+
+每条新最短路对应唯一 $(u,v)$。
+
+### [P9140](https://www.luogu.com.cn/problem/P9140)
+
+同余最短路。
+
+取基准物品 $(m,w)$。对剩下的物品求 $mod m$ 的最长路。连边 $(i,(i+v)\bmod m,c_i-(\lfloor\frac{v}{m}\rfloor+[i+v\ge m])\times w)$。
+
+要保证没有正权环，基准物品取性价比 $\frac{c}{v}$ 最大的即可。因为 $V>m^2$，所以保证足够。
+
+更新时，一个点不会更新回自己，在 $gcd$ 个环上转圈两次即可。
+
+### [CF1515G](https://www.luogu.com.cn/problem/CF1515G)
+
+有向图环的基。
+
+求出强连通分量。对于每个边双，求出生成树。回路走 $mod$ 次可以抵消。一定存在可以同时过 $u,v$ 的回路。$(u,v,w)$ 等价于 $(v,u,-w)$，走 $mod-1$ 加半圈即可。
+
+求出生成树，非树边 $(u,v,w)$ 可以形成 $dep_u-dep_v+w$ 的环。求出所有环的 $gcd$。
+
+裴蜀定理，$gx+ty=t-s$。
+

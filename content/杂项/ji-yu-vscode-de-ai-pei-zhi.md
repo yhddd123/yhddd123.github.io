@@ -15,7 +15,7 @@ crtl + ```+``` 调整个页面大小。
 
 ctrl + 滚轮 调代码页面大小：设置，```enable mouse zoom```。
 
-缺省源：```User snippets```，```cpp.json```。
+缺省源：```snippets```，```cpp.json```。
 
 ```"prefix"``` 指打出前缀后 ```enter``` 调用缺省源。代码部分用 ```"...",``` 括起来，缺省源里原来的 ```"``` 改为 ```\"```。```$1``` 表示鼠标的位置。
 
@@ -58,12 +58,10 @@ ctrl + 滚轮 调代码页面大小：设置，```enable mouse zoom```。
 }
 ```
 
-编译直接终端命令。
+编译直接终端命令。ctrl + shift + ``` ` ``` 新建终端，ctrl + shift + ```5``` 分屏，ctrl + ```C``` 终止命令。
 
 ### [cursor](https://www.cursor.com/ja)
 
 实则是 fork 了 vscode 的 AI。
 
-非常好用！
-
-免费两周，开点挂即可。
+免费两周，开点挂。
