@@ -39,6 +39,7 @@ ctrl + 滚轮 调代码页面大小：设置，```enable mouse zoom```。
 			"	return x*fl;",
 			"}",
 			"const int maxn=200010;",
+			"const int inf=1e9;",
 			"",
 			"int n;",
 			"void work(){",
@@ -60,8 +61,6 @@ ctrl + 滚轮 调代码页面大小：设置，```enable mouse zoom```。
 
 编译直接终端命令。ctrl + shift + ``` ` ``` 新建终端，ctrl + shift + ```5``` 分屏，ctrl + ```C``` 终止命令。
 
+### [GitHub Copilot](https://github.com/settings/copilot/features)
+
 ### [cursor](https://www.cursor.com/ja)
-
-实则是 fork 了 vscode 的 AI。
-
-免费两周，开点挂。

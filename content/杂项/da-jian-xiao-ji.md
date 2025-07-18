@@ -39,13 +39,15 @@ isTop: false
 
 ```error: ebusy: resource busy or locked, rmdir```，不会解决，可以使用 GitHub Desktop 代替。
 
-### 特殊语法
+### obsidian
 
 创建链接显示指定文本 ```[[real|text]]```。
 
 ```#Tag``` 指向 tag。
 
 ```![[]]``` 嵌入 pdf 文件。
+
+设置，文件，新附件的默认位置，设为根目录下的指定文件夹 iamge。将图片复制到 obsidian 中时，自动保存到 image 中。
 
 ### 配置
 

@@ -29,7 +29,7 @@ $$c_i=\sum_{i=j\oplus k}a_jb_k$$
 
 设 $FWT(f)_S=\sum_{T}(-1)^{popc(S\oplus T)} f_T$。然后可以递归：$fwt(a)=merge(fwt(a0)+fwt(a1),fwt(a0)-fwt(a1))$。
 
-```code
+```cpp
 void fmtor(int *a,int n,int w=1){
 	for(int i=0;i<n;i++){
 		for(int s=0;s<(1<<n);s++)if(s&(1<<i))(a[s]+=a[s^(1<<i)]*w)%=mod;
@@ -91,7 +91,7 @@ void mulxor(int *a,int *b,int *ans,int n){
 
 弄出占位幂级数，对集合幂级数一维 fmt，对形式幂级数一维做 ln 和 exp。
 
-泰勒展开：$f(x)=f_{x_0}+\sum\limits_{n=1}^{+\infty}\frac{f^{(n)}(x_{0})(x - x_{0})^n}{n!}$。所以有 $e^x=\sum_{i=0} \frac{x^i}{i!}$ 和 $ln(x+1)=\sum_{i=1} (-1)^{i+1}\frac{x^i}{i}$。
+
 
 把 $x$ 当成集合幂级数，设 $g=exp(f)$，则 $g_S=\sum_{i\ge 0} \frac{(f^i)_S}{i!}$，其中乘法为无交并。exp 的组合意义即有序取 $i$ 个子集再消除顺序，可以对应到 $O(3^n)$ 枚举子集的卷积 $g_S=\sum_{T\subseteq S,lowbit(T)=lowbit(S)} f_Tg_{S\oplus T}$。ln 则为其逆运算。
 

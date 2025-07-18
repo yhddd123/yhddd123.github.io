@@ -7,8 +7,7 @@ hideInList: false
 feature: 
 isTop: false
 ---
-![](https://yhddd123.github.io/post-images/1744774922758.png)
-
+![[1744774922758.png]]
 [Q9041](https://qoj.ac/contest/1913/problem/9041)
 
 >$n$ 个点 $m$ 条边的图。判断是否图中每个简单环长度都相同。

@@ -17,6 +17,8 @@ $$f_n=g_n-\sum_{i=1}^{n-1}\binom{n-1}{i-1}f_ig_{n-i}$$
 
 加强版 [P4841](https://www.luogu.com.cn/problem/P4841)，分治 ntt 加速。
 
+再进一步，$f=ln(g)$。
+
 ```cpp
 int n;
 int f[maxn],g[maxn];
