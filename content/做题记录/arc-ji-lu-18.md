@@ -10,6 +10,8 @@ isTop: false
 
 痛改前非。
 
+为什么从 18 开始？因为能级也是从 K 开始！
+
 ### arc180
 
 #### [arc180c](https://atcoder.jp/contests/arc180/tasks/arc180_c)

@@ -25,7 +25,7 @@ $$ans=\sum i^2-\sum_{i<j}[i\bmod 2\neq j\bmod 2]|p_i-p_j|$$
 
 等价于放在数轴上，奇数位置有 $\lceil\frac{n}{2}\rceil$ 个，最小化奇偶位置距离之和。设前 $i$ 个有 $j$ 个奇数位置的最小代价 $f_{i,j}$。在 $i$ 和 $i+1$ 的间隔加上两边跨过的贡献，为下凸的二次函数。
 
-差分数组单调，维护全局加一次函数，向右平移，插入 $0$。fhq treap 维护 $(g_j,j,1)$。
+差分数组单调，维护全局加一次函数，向右平移，插入 $0$。fhq treap 维护 $(g_j,j,1)$ 乘矩阵维护。
 
 ### [arc199c](https://www.luogu.com.cn/problem/AT_arc199_c)
 
