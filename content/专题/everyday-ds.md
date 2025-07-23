@@ -132,8 +132,70 @@ isTop: false
 
 怎么两天一道了。
 
+[P10169](https://www.luogu.com.cn/problem/P10169)
+
 > 给定 ${a_n},k$。计数区间 $[l,r]$ 满足 $\text{mex} a_j+\min a_j+k\ge \max a_j$。
 
 注意到 $\text{mex}$ 和 $\min$ 至少一个为 $0$。计数 $\text{mex}+k\ge \max$ 加 $\min+k\ge max$ 减去 $k\ge \max$。
 
 $\text{mex}$ 的部分。求出 [极小和极大 $\text{mex}$ 区间](https://www.luogu.com.cn/problem/P9970)，即 $pl\le i\le l,r\le j\le pr$ 的区间 $[i,j]$ 的 $\text{mex}$ 值相等。再二分出 $nl$ 使得 $\text{mex}+k\ge \max_{nl\le j\le r}a_j$，和 $nr$ 使得 $\text{mex}+k\ge\max_{l\le j\le nr}a_j$。对于 $nl\le i\le l,r\le j\le nr$ 的 $[i,j]$ 符合 $\text{mex}$ 部分的限制。扫描线求矩阵并。
+
+---
+
+开更！
+
+### 250722
+
+[P5841](https://www.luogu.com.cn/problem/P5841)
+
+> $n$ 个串。要求重排，最大化 $\sum lcp(s_{p_{i-1}},s_{p_i})^2$。在此基础上，依次尽量满足要求令 $x_i$ 之后为 $y_i$。
+
+每个串后加额外字符使得不存在包含关系。最大化相当于字典树上的一个 dfs 序。
+
+之后要求 $u$ 到 $v$ 路径上一些点是其父亲最前/最后的儿子，或是其父亲的儿子顺序相邻的。
+
+链表维护每个元素的前驱后继，每条链的链顶链尾和长度，每个父亲的最先最后儿子。合并的时候可以 $O(\sum)$ 合并两个链表的所有信息。
+
+缩掉只有一个儿子的点，可以保证树深 $O(\sqrt{ \sum |S_i|})$。
+
+[P5113](https://www.luogu.com.cn/problem/P5113)
+
+> 区间覆盖；区间求和；撤销覆盖。
+
+分块。维护栈描述推平值和时间戳。
+
+按每个点最后被覆盖的时间戳排序，和整块的时间戳比较。
+
+$O(n\sqrt n)$ 再补。
+
+[Q12012](https://qoj.ac/contest/2079/problem/12012)
+
+找支配对。
+
+按 $Y$ 分治，要求红蓝点必有一个是最大值。
+
+扫描线。
+
+[P6109](https://www.luogu.com.cn/problem/P6109)
+
+> 矩形加；矩形最大值。
+>
+> $n,m\le 5\times 10^4,q\le 5\times 10^5$。
+
+对第一维线段树分治，将询问挂在跨过中点的区间，修改拆到 $O(n\log n)$ 个区间。
+
+扫描线处理前后缀，维护 区间历史最大值。需要处理回滚。
+
+### 250723
+
+> 数 边界字符全相同 的矩形。
+>
+> $n,m\le 2\times 10^3$。
+
+预处理 $pl/pr/pu/pd_{i,j}$。$4$ 维。
+
+对矩形分治。左右两边独立。$3$ 维。
+
+枚举 $i$ 行和 $j$ 行，相当于数 $k\in [pl_{j,mid},mid],up_{j,k}\le i$ 的数量。
+
+单次复杂度 $O(n^2+nm)$。令 $n<m$，即对长的一边分治，复杂度 $O(nm\log nm)$。
