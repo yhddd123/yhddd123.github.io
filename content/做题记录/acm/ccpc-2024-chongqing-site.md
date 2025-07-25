@@ -1,5 +1,5 @@
 ---
-title: 'CCPC 2024 Chongqing Site 做题记录'
+title: 'CCPC 2024 Chongqing Site'
 date: 2024-11-19 15:49:04
 tags: [acm]
 published: true

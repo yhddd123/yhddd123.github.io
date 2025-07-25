@@ -1,7 +1,7 @@
 ---
 title: 'The 3rd Universal Cup 做题记录 (1)'
 date: 2024-10-18 21:53:09
-tags: [ucup,做题记录,acm]
+tags: [做题记录,acm]
 published: true
 hideInList: false
 feature: 

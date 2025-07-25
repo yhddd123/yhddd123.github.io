@@ -1,5 +1,5 @@
 ---
-title: '2024-2025 ICPC, NERC, Southern and Volga Russian Regional Contest 做题记录'
+title: '2024-2025 ICPC, NERC, Southern and Volga Russian Regional Contest'
 date: 2024-11-19 17:12:21
 tags: [acm]
 published: true
@@ -7,7 +7,7 @@ hideInList: false
 feature: 
 isTop: false
 ---
-## [CF2038](https://codeforces.com/contest/2038)
+[https://codeforces.com/contest/2038](https://codeforces.com/contest/2038)
 
 ### [A. Bonus Project](https://codeforces.com/contest/2038/problem/A)
 
