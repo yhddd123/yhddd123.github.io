@@ -1,5 +1,5 @@
 ---
-title: '网络流模型'
+title: '网络流区间覆盖模型'
 date: 2025-02-12 21:53:07
 tags: [做题记录,网络流]
 published: true

@@ -22,7 +22,7 @@ isTop: false
 
 删点最短路。
 
-线段树分治（缺一分治？？？），floyd 第一维可以按任意顺序选。
+线段树分治，floyd 第一维可以按任意顺序选。
 
 ### [P9140](https://www.luogu.com.cn/problem/P9140)
 
@@ -43,3 +43,4 @@ isTop: false
 求出生成树，非树边 $(u,v,w)$ 可以形成 $dep_u-dep_v+w$ 的环。求出所有环的 $gcd$。
 
 裴蜀定理，$gx+ty=t-s$。
+
