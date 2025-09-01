@@ -18,7 +18,7 @@ isTop: false
 
 每条新最短路对应唯一 $(u,v)$。
 
-### [9903](https://qoj.ac/contest/1875/problem/9903)
+### [Q9903](https://qoj.ac/contest/1875/problem/9903)
 
 删点最短路。
 
@@ -44,3 +44,10 @@ isTop: false
 
 裴蜀定理，$gx+ty=t-s$。
 
+### [Q14025](https://qoj.ac/problem/14025)
+
+新图连边 $(i,j)$ 的代价为 $a_i+a_j+dis(i,j)$，答案为新图最小生成树 $-\sum a_i+\min a_i$。
+
+每个点连 $(n+i,i,a_i)$，等价于新点形成的完全图，边权为最短路。
+
+等价于求出原图最短路树森林。

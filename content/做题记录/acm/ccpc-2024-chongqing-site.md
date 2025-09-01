@@ -101,7 +101,15 @@ void work(){
 
 可以取到所有度数 $\ge 2$ 的点和次大值。
 
-### [H. str(list(s))](https://qoj.ac/submission/745689)
+### [F. Pico Park](https://qoj.ac/contest/1840/problem/9624)
+
+一个 ```RRRRLLL``` 的区间能留一个人。区间内方案为考虑中间 ```RRLL``` 谁先开枪，$(\binom{x+y-1}{x}+\binom{x+y-1}{y})\times (x+y-1)$。
+
+### [G. 魔弹](https://qoj.ac/contest/1840/problem/9625)
+
+见 [[p13574-ti-jie|P13574]]。
+
+### [H. str(list(s))](https://qoj.ac/contest/1840/problem/9626)
 
 设 $dp_{i,j}$ 表示第 $i$ 轮模 $p$ 为 $j$ 的位置的和，$f_{i,j,0/1}$ 表示第 $i$ 轮模 $p$ 为 $j$ 的位置是否为 ```'``` '的方案数。按规则模拟。
 
