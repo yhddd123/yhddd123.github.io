@@ -40,23 +40,26 @@ ctrl + 滚轮 调代码页面大小：设置，```enable mouse zoom```。
 			"}",
 			"const int maxn=200010;",
 			"const int inf=1e9;",
+			"bool mbe;",
 			"",
 			"int n;",
 			"void work(){",
 			"	n=read();$1",
 			"}",
 			"",
+			"bool med;",
 			"int T;",
 			"signed main(){",
 			"	// freopen(\".in\",\"r\",stdin);",
 			"	// freopen(\".out\",\"w\",stdout);",
+			"	",
+			"	// cerr<<(&mbe-&med)/1024.0/1024.0<<\"\\n\";";
 			"	",
 			"	T=1;",
 			"	while(T--)work();",
 			"}",
         ]
     }
-}
 ```
 
 编译直接终端命令。ctrl + shift + ``` ` ``` 新建终端，ctrl + shift + ```5``` 分屏，ctrl + ```C``` 终止命令。

@@ -1,14 +1,13 @@
 ---
-title: '典题乱做 1'
+title: 2025.6 做题记录
 date: 2025-06-12 22:21:06
-tags: [做题记录]
+tags:
+  - 做题记录
 published: true
 hideInList: false
-feature: 
+feature:
 isTop: false
 ---
-1
-
 ### [P5547](https://www.luogu.com.cn/problem/P5547)
 
 强制重心为根，减去重心为边的情况。
@@ -58,3 +57,17 @@ $$f_x-\frac{x}{m}=\frac{x}{m}f_{x-1}+\frac{(m-x)(n-2)}{m(n-1)}f_{x}+\frac{(m-x)}
 快排：随机一个元素，数小于/等于的有几个，和 $k$ 比较，向两边递归。期望 $O(\log n)$。
 
 对每个左端点维护当前递归内的右端点范围。有 $(l,r)<(l,r-1)$，双指针。数据结构维护增删元素和固定区间比较。
+
+### [arc199c](https://www.luogu.com.cn/problem/AT_arc199_c)
+
+把 $P^1$ 弄成 $1,\dotsb,n$，$P^i_1$ 弄成 $1$。
+
+一个子树在所有排列中都是区间。区间 dp 设 $f_{l,r}$ 表示 $[l,r]$ 形成子树，$g_{l,r}$ 表示 $[l,r]$ 形成森林。
+
+### [arc199d](https://www.luogu.com.cn/problem/AT_arc199_d)
+
+设 $f_{i,j}$ 和 $g_{i,j}$ 表示长为 $i$ 宽为 $j$ 的矩阵的数量和权值和。考虑最后一行，设 $a_i=p-1$，有 $k$ 个 $jj>p$ 的位置 $b_{jj}=i$。挖去 $i$ 行和这 $k$ 列进入子问题。枚举 $k$，第 $i$ 行的方案数 $val=[j=0] (k+1)+[j!=0]\binom{j}{k+1}$。
+
+$$f_{i,j}=f_{i-1,j-k}\times val$$
+
+$$g_{i,j}=g_{i-1,j-k}\times val+f_{i-1,j-k}\times (val\times j\times k+\sum_p (p-1)\binom{j-p}{k})$$
