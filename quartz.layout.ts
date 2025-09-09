@@ -118,13 +118,13 @@ export const defaultContentPageLayout: PageLayout = {
     }),
   ],
   right: [
-    Component.RecentNotes({ 
-      limit: 3,
-      showTags: false,
-    }),
     Component.Graph(),
     Component.Backlinks(),
     Component.DesktopOnly(Component.TableOfContents()),
+    Component.RecentNotes({ 
+      limit: 2,
+      showTags: false,
+    }),
   ],
 }
 
