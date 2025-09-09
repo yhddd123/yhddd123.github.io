@@ -1,6 +1,6 @@
 ---
 title: yhddd's digital garden
-date: 3000-12-25 00:00:00
+date: 2000-12-25 00:00:00
 ---
 
 你好，这里是我的学习笔记。
