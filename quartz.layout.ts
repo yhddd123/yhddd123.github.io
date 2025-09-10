@@ -116,15 +116,15 @@ export const defaultContentPageLayout: PageLayout = {
       // filterFn,
       // sortFn,
     }),
-  ],
-  right: [
-    Component.Graph(),
-    Component.Backlinks(),
-    Component.DesktopOnly(Component.TableOfContents()),
     Component.RecentNotes({ 
       limit: 2,
       showTags: false,
     }),
+  ],
+  right: [
+    Component.Graph(),
+    Component.DesktopOnly(Component.TableOfContents()),
+    Component.Backlinks(),
   ],
 }
 

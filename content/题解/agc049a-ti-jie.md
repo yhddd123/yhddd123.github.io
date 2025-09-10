@@ -1,10 +1,12 @@
 ---
-title: 'agc049a 题解'
+title: agc049a 题解
 date: 2023-12-31 07:41:53
-tags: [题解,概率期望]
+tags:
+  - 题解
+  - 数学
 published: true
 hideInList: false
-feature: 
+feature:
 isTop: false
 ---
 [agc049a](https://www.luogu.com.cn/problem/AT_agc049_a)
