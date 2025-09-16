@@ -115,7 +115,7 @@ $s_p\le s_q+\lceil\frac{p-q}{k}\rceil$，维护模 $k$ 为下标的 $\min dis_q+
 
 ### [【模板】基于值域预处理的快速离散对数](https://www.luogu.com.cn/problem/P11175)
 
-[[p11175-ti-jie|题解]]。
+[[ji-yu-zhi-yu-yu-chu-li-de-kuai-su-li-san-dui-shu|题解]]。
 
 记使得 $g^x\equiv n\pmod{mod}$ 的最小非负 $x$ 为 $\log n$，有 $\log ab=\log a+\log b$。
 
