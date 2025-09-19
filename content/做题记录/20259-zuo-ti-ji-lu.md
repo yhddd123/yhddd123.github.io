@@ -69,6 +69,8 @@ ACAM 上，路径压缩跳 fail 树祖先中最近的终止节点，再传递闭
 
 #### [P13275](https://www.luogu.com.cn/problem/P13275)
 
+[[p13275-ti-jie|题解]]。
+
 #### [P10547](https://www.luogu.com.cn/problem/P10547)
 
 最后代价为 $\frac{\sum|i-p_i|}{2}$。由势能 $\sum|i-p_i|$ 代价至少这么多，一定存在 $p_j\le i<j\le p_i$ 代价至多这么多。

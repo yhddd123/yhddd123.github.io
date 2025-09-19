@@ -25,10 +25,10 @@ $$ans=\sum_{S}\sum_{T}2^{|S\cap T|}(-1)^{|S|+|T|}(\prod_{i\in U\setminus S}(2a_i
 
 令 $f_S=\prod_{S\subseteq T}(a_T+1),g_S=\prod_{S\subseteq T}(2a_T+1)$。
 
-$$ans=\sum_S\sum_T 2^{|S\cap T|}(-1)^{|S|+|T|}\frac{f_Sf_Tg_{S\cap T}}{(f_{S\cap T})^2}$$
+$$ans=\sum_S\sum_T 2^{|S\cap T|}(-1)^{|S|+|T|}\frac{f_Sf_Tg_{S\cup T}}{(f_{S\cup T})^2}$$
 
 
-$$ans=\sum_S\sum_T((-1)^{|S|}2^{|S|}f_S)((-1)^{|T|}2^{|T|}f_T)\frac{g_{S\cap T}}{(f_{S\cap T})^22^{|S\cap T|}}$$
+$$ans=\sum_S\sum_T((-1)^{|S|}2^{|S|}f_S)((-1)^{|T|}2^{|T|}f_T)\frac{g_{S\cup T}}{(f_{S\cup T})^22^{|S\cup T|}}$$
 
 or 卷积一下即可。
 
