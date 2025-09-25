@@ -24,6 +24,13 @@ export default ((opts?: Options) => {
             </li>
           ))}
         </ul>
+        <p>
+          访问次数：
+          <img
+            src="https://count.getloli.com/get/@yhddd123.github.io?theme=booru-mof"
+            alt="访问次数"
+          />
+        </p>
       </footer>
     )
   }
