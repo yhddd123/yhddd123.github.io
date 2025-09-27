@@ -160,3 +160,5 @@ export const sortFn: Options["sortFn"] = (a, b) => {
 近期文章(https://quartz.jzhao.xyz/features/recent-notes)。可以放在 ```defaultContentPageLayout``` 的 ```right``` 中。```  Component.RecentNotes({ limit: 5 }),``` ，参数为最近几篇。
 
 非 markdown 标准 [分段](https://quartz.jzhao.xyz/plugins/HardLineBreaks)：两行紧贴着为半行。```quartz.config.ts``` 的 ``` transformers``` 部分加 ```Plugin.HardLineBreaks(),```。
+
+[访问计数器](https://count.getloli.com/)：让 AI 写了一个加在 ```Footer.tsx```。

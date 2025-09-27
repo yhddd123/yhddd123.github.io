@@ -81,3 +81,58 @@ ACAM 上，路径压缩跳 fail 树祖先中最近的终止节点，再传递闭
 
 对应到置换环上，设 $f_{i,j,k,0/1}$，前 $i$ 个点 $j$ 个 $<i$ 的 $p_i$ 未决定，代价为 $k$，$0/1$ 个置换环。可以：新开链/环，拓展链，封闭链，合并链。
 
+### 0926
+
+#### [CF1942G](https://www.luogu.com.cn/problem/CF1942G)
+
+抽到 $0$ 牌减 $1$，$1$ 牌无用，$2$ 牌加 $1$。目标牌当做 $0$ 牌。
+
+初始 $5$ 张 $2$ 牌，从 $(0,5)$ 出发，除了最后一次以外不碰 $y=0$，的方案数。
+
+枚举最后用了 $x+5$ 张 $0$ 牌，反射容斥求出恰好抽掉这些牌的合法方案数，再 $\binom{x+5}5$ 选出目标牌，后面乱选。
+
+#### [CF1942H](https://www.luogu.com.cn/problem/CF1942H)
+
+厉害。
+
+$a$ 和 $b,c$ 做二分图匹配，要求每个 $b,c$ 都能被 $a$ 匹配到。$b$ 能匹配儿子和祖先的 $a$，$c$ 能匹配子树和祖先的 $a$。
+
+hall 定理，要求 $\sum_{u\in N(Sb\cup Sc)} a_u-\sum_{u\in Sb}b_u-\sum_{u\in Sc}c_u\ge 0$。设 $f_{u,0/1}$ 表示考虑 $u$ 子树，$a_uu$ 出在 $N(S)$ 中，$u$ 子树有没有全被选入 $N(S)$。
+
+- 同时不选 $b_u,c_u$，$f_{u,0}$ 可以选择一些子树转移，$f_{u,0}=\sum \min(0,f_{v,0})+a_u$。
+
+- 选 $b_u$ 不选 $c_u$，$f_{u,0}$ 必须从全部儿子转移，$f_{u,0}=\sum_{f_{v,0}}+a_u-b_u$。
+
+- 不选 $b_u$ 选 $c_u$，$b$ 的覆盖范围被 $c$ 偏序，多选上 $b$ 有 $-b_u$ 的贡献。
+
+- 同时选 $b_u,c_u$ ，此时 $u$ 子树全被选入 $N(S)$，$f_{u,0}=f_{u,1}=\sum f_{v,1}+a_u-b_u-c_u$.
+
+修改形如单点修改 $a_u,c_u$，ddp 维护 $\begin{pmatrix}f_{u,0}\\f_{u,1}\\0\end{pmatrix}$。
+
+#### [CF2096G](https://www.luogu.com.cn/problem/CF2096G)
+
+维护 $n$ 个三进制数，使得每位都有 两个值 出现次数相同，且任意两个数至少有两位不同。
+
+前 $\lceil \log_3 n\rceil$ 位均分着填，最后一位按之前的位的和模 $3$。
+
+#### [CF2097F](https://www.luogu.com.cn/problem/CF2097F)
+
+[[cf2097f-ti-jie|题解]]。
+
+#### [CF2115E](https://www.luogu.com.cn/problem/CF2115E)
+
+[[cf2115E-ti-jie|题解]]。
+
+#### [CF2122F](https://www.luogu.com.cn/problem/CF2122F)
+
+一个矩形，上边界 $a+2$ 个点，下边界 $b+2$ 个点，可以凑出组合数 $\binom{a+1+b+1}{a+1}$。
+
+多个矩形可以用一个狭窄的部分连起来，要保证连接部分剖分唯一。
+
+![[Pasted image 20250927093012.png]]
+
+分治乘控制点数。
+
+#### [CF2138E2](https://www.luogu.com.cn/problem/CF2138E2)
+
+[[zhi-hui-gou-zao#^6002ee|here]]。

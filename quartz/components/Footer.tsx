@@ -27,7 +27,7 @@ export default ((opts?: Options) => {
         <p>
           访问次数：
           <img
-            src="https://count.getloli.com/get/@yhddd123.github.io?theme=booru-mof"
+            src="https://count.getloli.com/@yhddd123.github.io?name=yhddd123.github.io&theme=booru-mof&padding=7&offset=0&align=top&scale=0.5&pixelated=1&darkmode=auto"
             alt="访问次数"
           />
         </p>

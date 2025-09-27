@@ -1,7 +1,7 @@
 ---
 title: 'abc363g 题解'
 date: 2025-09-10 16:45:10
-tags: [做题记录,网络流]
+tags: [题解,网络流]
 published: true
 hideInList: false
 feature: 
