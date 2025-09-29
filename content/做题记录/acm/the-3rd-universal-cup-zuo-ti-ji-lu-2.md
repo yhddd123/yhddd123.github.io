@@ -9,9 +9,7 @@ isTop: true
 ---
 The 3rd Universal Cup 做题记录
 
-Stage 0 - Stage 9：[[the-3rd-universal-cup-zuo-ti-ji-lu-1|The 3rd Universal Cup 做题记录 (1)]]
-
-Stage 10 - Stage 19：[[the-3rd-universal-cup-zuo-ti-ji-lu-2|The 3rd Universal Cup 做题记录 (2)]]]]
+[[the-3rd-universal-cup-zuo-ti-ji-lu-1|Stage 0 - Stage 9]]
 
 [Stage 10: West Lake](https://qoj.ac/contest/1803) ACDGHKL
 

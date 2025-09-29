@@ -9,10 +9,6 @@ isTop: false
 ---
 The 3rd Universal Cup 做题记录
 
-Stage 0 - Stage 9：[[the-3rd-universal-cup-zuo-ti-ji-lu-1|The 3rd Universal Cup 做题记录 (1)]]
-
-Stage 10 - Stage 19：[[the-3rd-universal-cup-zuo-ti-ji-lu-2|The 3rd Universal Cup 做题记录 (2)]]
-
 [Stage 0: Trial Contest](https://qoj.ac/contest/1695) ADFGHIJM
 
 [Stage 1: St. Petersburg](https://qoj.ac/contest/1696) ACDGHJKNO
@@ -30,6 +26,8 @@ Stage 10 - Stage 19：[[the-3rd-universal-cup-zuo-ti-ji-lu-2|The 3rd Universal C
 [Stage 8: Cangqian](https://qoj.ac/contest/1780) BCDEFHIJLM
 
 [Stage 9: Xi'an](https://qoj.ac/contest/1784) AEFGHIJN
+
+[[the-3rd-universal-cup-zuo-ti-ji-lu-2|Stage 10 - Stage 19：]]
 
 ## [The 3rd Universal Cup. Stage 0: Trial Contest](https://qoj.ac/contest/1695)
 
