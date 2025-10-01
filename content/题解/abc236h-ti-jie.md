@@ -1,10 +1,11 @@
 ---
-title: 'abc236h 题解'
+title: abc236h 题解
 date: 2024-12-13 20:33:58
-tags: []
+tags:
+  - 题解
 published: true
 hideInList: false
-feature: 
+feature:
 isTop: false
 ---
 [abc236h](https://www.luogu.com.cn/problem/AT_abc236_h)

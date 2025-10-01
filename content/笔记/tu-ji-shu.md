@@ -3,12 +3,15 @@ title: 图计数
 date: 2024-12-12 11:55:27
 tags:
   - 笔记
-  - 计数
+  - 容斥
 published: true
 hideInList: false
-feature: 
+feature:
 isTop: false
 ---
+
+[[zi-tu-ji-shu|配合集合幂级数技巧在子图上的应用]]。
+
 ### [无向连通图计数](https://www.luogu.com.cn/problem/P10982)
 
 总方案数 $g_n=2^{\binom{n}{2}}$，减去不连通的方案数，枚举 $1$ 所在连通块的大小。
@@ -48,19 +51,13 @@ void work(){
 }
 ```
 
-#### [abc236h](https://www.luogu.com.cn/problem/AT_abc236_h)
-
-钦定若干组组内相等，方案为 $\frac{m}{lcm (d_i)}$。状压，枚举包含 $mn_S$ 的子集乘方案数和容斥系数转移。
-
-对于 $\binom{n}{2}$ 个不等关系钦定 $i$ 个相等相等的容斥系数为 $(-1)^i$。钦定组内相等的容斥系数为构成大小为 $siz$ 无向连通图的选边方案的容斥系数之和。
-
-$n$ 个点乱连的系数为 $\sum_{i=0}^{\frac{n(n-1)}{2}}\binom{\frac{n(n-1)}{2}}{i} (-1)^i=[\frac{n(n-1)}{2}=0]=[n=1]$。减去不连通图的贡献，$n$ 个点的无向连通图的容斥系数和为 $f_n=[n=1]-\sum_{i=1}^{n-1}C(n-1,i-1)f_i[n-i==1]$。
-
 #### 欧拉图计数
 
 要求偶度数且连通。偶度数图的数量 $g_n=2^{\binom{n-1}{2}}$，$1,\dotsb,n-1$ 乱连，$n$ 调整。连通的计数同无向连通图计数。
 
 ### DAG计数
+
+^141fb2
 
 钦定入度为 $0$ 的点数，分配容斥系数使得 $\sum_{T\subseteq S}f(T)=1$。
 
