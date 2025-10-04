@@ -1,10 +1,12 @@
 ---
-title: '子图计数'
+title: 子图计数
 date: 2025-05-26 22:31:35
-tags: [笔记,计数]
+tags:
+  - 笔记
+  - 容斥
 published: true
 hideInList: false
-feature: 
+feature:
 isTop: false
 ---
 状压（集合幂级数）数符合某些性质的导出子图/边子图数。
@@ -98,3 +100,25 @@ $O(3^{n/2})$ 加速到 $O(2^{n/2}n^2)$。
 #### [重塑时光](https://www.luogu.com.cn/problem/P10221)
 
 设 $f_{i,s}$ 表示 $s$ 分为 $i$ 个非空段形成 DAG 的方案，$g_{i,s}$ 为 $s$ 分为 $i$ 个非空段段间没有边的方案数。容斥系数同 DAG 计数，可以做到 $O(3^nn^2)$。设 $F_S(x)=\sum f_{i,S} x^i$，$F_S(x)=G_T(x)F_{S\oplus T}(x)$，拉插之后算系数，复杂度 $O(3^nn)$。
+
+#### [主旋律](https://www.luogu.com.cn/problem/P11714)
+
+> 数多少个边子集，删去之后图强连通。
+
+设 $f_s$ 表示强连通的方案，$g_s$ 表示若干个 $0$ 度点拼起来的方案，交替转移。
+
+$$f_s=2^{num_s}-\sum_{t\subseteq s} g_t2^{num_{s-t}+cross(t,s-t)}$$
+
+$$g_s=f_s+\sum_{t\subset s,lowbit(s)=lowbit(t)} -f_tg_{s-t}$$
+
+先算 $g_s$，再算 $f_s$，再给 $g_s$ 加上 $f_s$。
+
+#### [岁月](https://www.luogu.com.cn/problem/P11834)
+
+> 数多少个边子集，删去之后图的最小外向生成树权值等于图的最小生成树。
+
+[[p11834-ti-jie|here]]。
+
+对于边权全相同的边，就是 主旋律。
+
+按边权从小到大加入边，旧图的根集当作点，魔改一下。

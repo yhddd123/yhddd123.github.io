@@ -1,10 +1,12 @@
 ---
-title: 'P6846 题解'
+title: P6846 题解
 date: 2025-05-22 12:14:09
-tags: [题解,计数]
+tags:
+  - 题解
+  - 容斥
 published: true
 hideInList: false
-feature: 
+feature:
 isTop: false
 ---
 [P6846](https://www.luogu.com.cn/problem/P6846)

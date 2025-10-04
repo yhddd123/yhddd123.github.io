@@ -1,10 +1,12 @@
 ---
-title: 'P13275 题解'
+title: P13275 题解
 date: 2025-09-17 22:03:25
-tags: [题解,数学]
+tags:
+  - 题解
+  - 容斥
 published: true
 hideInList: false
-feature: 
+feature:
 isTop: false
 ---
 [P13275](https://www.luogu.com.cn/problem/P13275)

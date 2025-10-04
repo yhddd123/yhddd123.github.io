@@ -41,3 +41,32 @@ $c_u$ 的方案数是儿子为 $1$ 的数量，组合意义是选一个儿子让
 
 现在开头结尾各补 $i-1$，再平均插在每个间隔中最优。
 
+### 10.3
+
+#### [P6775](https://www.luogu.com.cn/problem/P6775)
+
+$m\ge n-1$ 一定存在 $a_n\ge k$ 或 $a_1+a_n\ge k$，进入子问题。
+
+$m=n-2$，要选出一个子集，使得 $\sum_{x\in S}a_x=(|S|-1)k$。bitset。
+
+#### [Q14129](https://qoj.ac/problem/14129)
+
+$i\bmod n$ 向 $n+i\bmod m$ 连边等价于 $i\bmod (n+m)$ 向 $(i+n)\bmod (n+m)$ 连边。
+
+设 $a=n+m,b=n$。当做了 $a-b$ 步后，所有 $\bmod b$ 同余的点连通。接下来将进入 $i\bmod b$ 向 $(i+(a\bmod b))\bmod b$ 连边的子问题。
+
+对 $a-b$ 步进行二分，检查的时候如果点数还 $>k+1$ 一定不连通，否则 $O(k)$ 检查。
+
+#### [CF1017G](https://www.luogu.com.cn/problem/CF1017G)
+
+一个点为黑色，要求到根路径上一个后缀操作次数大于等于路径长度。初始赋为 $-1$，单点加，后缀和 max。
+
+让 $u$ 的子树为白色，先清空子树内的操作次数，再在 $u$ 抵消掉到根的最大后缀和，即把最大后缀和重新减成 $-1$。
+
+#### [CF2068B](https://www.luogu.com.cn/problem/CF2068B)
+
+#### [P7560](https://www.luogu.com.cn/problem/P7560)
+
+换维扫描线。
+
+找到后缀 min 的点，只用考虑其后面的操作。
