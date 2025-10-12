@@ -5,11 +5,11 @@ import path from "path"
 import { styleText } from "util"
 
 export interface Options {
-  priority: ("git" | "frontmatter" | "filesystem")[]
+  priority: ("frontmatter" | "git" | "filesystem")[]
 }
 
 const defaultOptions: Options = {
-  priority: ["git", "frontmatter", "filesystem"],
+  priority: ["frontmatter", "git", "filesystem"],
 }
 
 // YYYY-MM-DD

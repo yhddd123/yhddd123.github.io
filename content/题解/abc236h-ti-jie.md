@@ -10,7 +10,7 @@ isTop: false
 ---
 [abc236h](https://www.luogu.com.cn/problem/AT_abc236_h)
 
-[图计数相关](https://yhddd123.github.io/post/tu-ji-shu)。
+[[tu-ji-shu|图计数相关]]。
 
 ### 思路
 

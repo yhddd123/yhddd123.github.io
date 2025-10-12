@@ -11,7 +11,9 @@ The 4th Universal Cup 做题记录
 
 [[the-3rd-universal-cup-zuo-ti-ji-lu-1|The 3rd Universal Cup]]
 
-[Stage 0: Trial Contest](https://qoj.ac/contest/2041)：CDEFGHIJM
+[Stage 0: Trial Contest](https://qoj.ac/contest/2041)：CDEFGHJM
+
+[Stage 1: Korolyov](https://qoj.ac/contest/2539)：BEGH
 
 ### [The 4th Universal Cup. Stage 0: Trial Contest](https://qoj.ac/contest/2041)
 
@@ -66,3 +68,30 @@ The 4th Universal Cup 做题记录
 又因为想让他不发生相对顺序变化，大概要 $1,x,x^2,\dotsb$。这部分大概只用做 $\sqrt[n]{nV}$ 次。可以快速缩小到 $3$ 个数。
 
 对于 $[a,b,c]$ 做 $k$ 次后是 $[a,b-ka,c-(k+1)b+\frac{k(k+1)}{2}a]$。可以二分 $k$。一旦发生相对大小变化，就相当于辗转相除。
+
+### [The 4th Universal Cup. Stage 1: Grand Prix of Korolyov](https://qoj.ac/contest/2539)
+
+场上过了 ABCDEFHIKL。
+
+[A](https://qoj.ac/contest/2539/problem/14426) 是观察到可以模 $3$，合法矩阵每行每列模 $3$ 余 $0$。后面不会。
+
+#### [B. Domain Compression](https://qoj.ac/contest/2539/problem/14427)
+
+拆贡献到树上每对距离为 $d$ 的点，能有边即中间 $d-1$ 个点都被删了。
+
+点分治求距离为 $d$ 的点对数。
+
+#### [E. Coffee Shops](https://qoj.ac/contest/2539/problem/14430)
+
+上界是 $n+\frac{n-1}{2}$。
+
+#### [G. Cyclic Topsort](https://qoj.ac/contest/2539/problem/14432)
+
+如果先删 $u$ 能到达 $v$，则 $u$ 偏序 $v$。这种关系形成一颗树。
+
+每次找一个 $u$ 开始暴力拓扑排序。将点打乱随机找 $u$ 开始，跳过不优的点，则每个点只会经过 $\log n$ 次。
+
+#### [H. Misread Problem](https://qoj.ac/contest/2539/problem/14433)
+
+凸的，桶维护斜率。
+
