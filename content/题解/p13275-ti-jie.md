@@ -3,7 +3,7 @@ title: P13275 题解
 date: 2025-09-17 22:03:25
 tags:
   - 题解
-  - 容斥
+  - 计数
 published: true
 hideInList: false
 feature:

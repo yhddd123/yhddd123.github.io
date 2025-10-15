@@ -1,10 +1,12 @@
 ---
-title: 'P11834 题解'
+title: P11834 题解
 date: 2025-10-01 11:03:46
-tags: [题解,容斥]
+tags:
+  - 题解
+  - 计数
 published: true
 hideInList: false
-feature: 
+feature:
 isTop: false
 ---
 [P11834](https://www.luogu.com.cn/problem/P11834)

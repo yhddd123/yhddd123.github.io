@@ -3,7 +3,7 @@ title: 子图计数
 date: 2025-05-26 22:31:35
 tags:
   - 笔记
-  - 容斥
+  - 计数
 published: true
 hideInList: false
 feature:

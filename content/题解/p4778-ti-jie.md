@@ -3,7 +3,7 @@ title: P4778 题解
 date: 2023-12-31 17:18:02
 tags:
   - 题解
-  - 容斥
+  - 计数
 published: true
 hideInList: false
 feature:
