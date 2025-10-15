@@ -11,6 +11,8 @@ isTop: false
 
 [https://quartz.jzhao.xyz/](https://quartz.jzhao.xyz/)。
 
+还是建议使用 ```npx quartz create``` 初始化。
+
 选 ```Empty Quartz```。或直接导入已有的 content 文件夹。
 
 仓库 ```setting``` 里的 ```Pages``` 选 ```Github Actions```。
@@ -23,7 +25,7 @@ isTop: false
 
 使用 [https://obsidian.md/](https://obsidian.md/) 写作。
 
-可以直接用 Github Desktop 进行 clone 和 push。*待解决的问题：神秘原因无法完全从 upsteam 处更新，可能不是最新版本*。 
+也可以直接用 Github Desktop 进行 clone 和 push。*待解决的问题：神秘原因无法完全从 upsteam 处更新，可能不是最新版本*。 
 
 ### 同步时报错
 

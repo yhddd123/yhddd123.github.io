@@ -1,6 +1,13 @@
 ---
-title: Welcome to Quartz
----
+title: Welcome to yhddd's digital garden
+date: 2000-12-25 00:00:00
+tags: 
+published: true
+hideInList: false
+feature: 
+isTop: true
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+---
+这里是 yhddd 的数字花园。
+
+[[about]]。
