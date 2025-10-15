@@ -163,4 +163,6 @@ export const sortFn: Options["sortFn"] = (a, b) => {
 
 非 markdown 标准 [分段](https://quartz.jzhao.xyz/plugins/HardLineBreaks)：两行紧贴着为半行。```quartz.config.ts``` 的 ``` transformers``` 部分加 ```Plugin.HardLineBreaks(),```。
 
-[访问计数器](https://count.getloli.com/)：让 AI 写了一个加在 ```Footer.tsx```。
+### 功能
+
+自己后面加的功能见 [[geng-xin-ji-lu|更新日志]]。

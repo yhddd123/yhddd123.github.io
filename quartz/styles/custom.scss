@@ -1,3 +1,51 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+
+/* 自定义目录样式 - 限制目录高度为3/4 */
+.toc {
+  /* 覆盖默认的flex设置，限制目录的实际高度 */
+  flex: 0 0 auto !important; /* 覆盖默认的 flex: 0 0.5 auto */
+  max-height: 300px !important; /* 高度调整为3/4：400px * 3/4 = 300px */
+  height: auto !important; /* 强制高度自适应 */
+  
+  /* 如果内容超出，显示滚动条 */
+  overflow-y: auto;
+}
+
+.toc ul.toc-content.overflow {
+  /* 内容区域稍微小于父容器，留出标题空间和滚动条空间 */
+  max-height: 260px !important; /* 减少15px为滚动条留出空间：275px - 15px = 260px */
+  overflow-y: auto !important;
+  /* 确保滚动条不会遮挡内容 */
+  padding-bottom: 5px !important;
+}
+
+.toc:has(button.toc-header.collapsed) {
+  /* 折叠状态下的高度设置 - 增加一小半避免标题被挡住 */
+  flex: 0 1 2rem !important; /* 原来是1.4rem，增加一小半到2rem */
+  max-height: 2rem !important;
+}
+
+/* 修复Explorer组件折叠状态标题被挡住的问题 */
+.explorer.collapsed {
+  /* 增加Explorer折叠状态的高度，避免标题被挡住 */
+  flex: 0 1 2rem !important; /* 原来是1.2rem，增加到2rem */
+}
+
+/* 响应式设计 - 在小屏幕上进一步缩小 */
+@media (max-width: 768px) {
+  .toc {
+    max-height: 225px !important; /* 移动端也调整为3/4：300px * 3/4 = 225px */
+  }
+  
+  .toc ul.toc-content.overflow {
+    max-height: 185px !important; /* 减少15px为滚动条留出空间：200px - 15px = 185px */
+    padding-bottom: 5px !important; /* 移动端也添加底部间距 */
+  }
+  
+  .toc:has(button.toc-header.collapsed) {
+    /* 移动端折叠状态也增加高度 */
+    max-height: 2rem !important;
+  }
+}
