@@ -15,4 +15,4 @@ isTop: false
 
 #### 251015
 
-更改 ```custom.scss```，压缩 Table of Contents 的长度，让 backlink 能进入页面，解决折叠后的问题。
+让 AI 更改 ```custom.scss```，压缩 Table of Contents 的长度，让 backlink 能进入页面，解决折叠后的问题。

@@ -2,6 +2,44 @@
 
 // put your custom CSS here!
 
+/* 背景图片设置 */
+body {
+  background-image: url('/image/background/1.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  /* 为了确保文字可读性，添加半透明遮罩 */
+  position: relative;
+}
+
+/* 添加半透明遮罩以提高文字可读性 */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* 暗色模式下的遮罩调整 */
+@media (prefers-color-scheme: dark) {
+  body::before {
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+}
+
+/* 移动端优化 - 减少背景固定以提升性能 */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
 /* 自定义目录样式 - 限制目录高度为3/4 */
 .toc {
   /* 覆盖默认的flex设置，限制目录的实际高度 */
