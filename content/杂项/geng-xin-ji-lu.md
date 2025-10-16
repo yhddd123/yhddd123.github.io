@@ -16,3 +16,7 @@ isTop: false
 #### 251015
 
 让 AI 更改 ```custom.scss```，压缩 Table of Contents 的长度，让 backlink 能进入页面，解决折叠后的问题。
+
+#### 211016
+
+更改 ```custom.scss``` 添加背景图片，要把图片放到 ```content``` 里，然后会在 build 的时候自动放在 ```public``` 文件夹下。
