@@ -15,6 +15,8 @@ The 4th Universal Cup 做题记录
 
 [Stage 1: Korolyov](https://qoj.ac/contest/2539)：BEGH
 
+[Stage 2: Paris](https://qoj.ac/contest/2551)：EFHIJ
+
 ### [The 4th Universal Cup. Stage 0: Trial Contest](https://qoj.ac/contest/2041)
 
 场上过了 ABDEFGHIJKLM。
@@ -95,3 +97,8 @@ The 4th Universal Cup 做题记录
 
 凸的，桶维护斜率。
 
+### [The 4th Universal Cup. Stage 2: Grand Prix of Paris](https://qoj.ac/contest/2551)
+
+^416df2
+
+场上过了 ABDFGHIJKL。E 能过的假解爆 inf 了。

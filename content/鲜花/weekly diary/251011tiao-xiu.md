@@ -1,5 +1,5 @@
 ---
-title: '251011：A "Tiaoxiu" week'
+title: '251011：调休'
 date: 2025-10-11 21:39:38
 tags: [嘴巴]
 published: true
@@ -7,7 +7,7 @@ hideInList: false
 feature: 
 isTop: false
 ---
-[[a-week]]。
+[[a-week|引言]]。
 
 ---
 
@@ -29,7 +29,7 @@ isTop: false
 
 > Due to China's holiday adjustment system ("Tiaoxiu"), we added more time windows on Sunday. The last window of this stage will be ended 24 hours later than usual.
 
-这周是 [The 4th Universal Cup. Stage 2: Grand Prix of Paris](https://contest.ucup.ac/contest/2551)。
+这周是 [[the-4th-universal-cup-zuo-ti-ji-lu-1#^416df2|The 4th Universal Cup. Stage 2: Grand Prix of Paris]]。
 
 下午场。开场 1h 速通 $6$ 题，时间巨大优势，然后开始倒闭了。hla 从开始到 2.5h 才做出 L，龟在 D 又破防到 3.5h 才不知道怎么搞过去了。此时我大概已经会 I 了，但没看到题目中对线段删掉端点处 $10^{-5}$ 的部分，一直到 4:20 才过。hla 迅速声称会 J，也在 4:20 左右通过。
 
@@ -42,3 +42,5 @@ isTop: false
 > 给定 $n$ 个点 $m$ 条边的二分图，有 $p_{i,j}$ 的概率左部点 $i$ 和右部点 $j$ 有边，求二分图最大匹配的期望。
 >
 > $n,m\le 8$。
+
+[[p14170-ti-jie|题解]]。
