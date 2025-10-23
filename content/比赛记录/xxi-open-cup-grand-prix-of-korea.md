@@ -99,7 +99,7 @@ void work(){
 
 
 
-### [B.B. Cactus Competition](https://qoj.ac/contest/776/problem/3300)
+### [B. Cactus Competition](https://qoj.ac/contest/776/problem/3300)
 
 > $n\times m$ 的网格，权值为 $a_i+b_j$，权值 $\ge 0$ 可以通行，每次向右/下走。有多少对 $(s,t)$ 使得 $(s,1)$ 能到达 $(t,m)$。
 
