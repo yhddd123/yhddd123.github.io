@@ -11,17 +11,21 @@ The 4th Universal Cup 做题记录
 
 [[the-3rd-universal-cup-zuo-ti-ji-lu-1|The 3rd Universal Cup]]
 
-[Stage 0: Trial Contest](https://qoj.ac/contest/2041)：CDEFGHJM
+[Stage 0: Trial Contest](https://qoj.ac/contest/2041)：CDEFGJM
 
-[Stage 1: Korolyov](https://qoj.ac/contest/2539)：BEGH
+[Stage 1: Korolyov](https://qoj.ac/contest/2539)：BEG
 
-[Stage 2: Paris](https://qoj.ac/contest/2551)：EFHIJ
+[Stage 2: Paris](https://qoj.ac/contest/2551)：EJ
+
+[Stage 3: Polar](https://qoj.ac/contest/2559)：BEFGIJ
 
 ### [The 4th Universal Cup. Stage 0: Trial Contest](https://qoj.ac/contest/2041)
 
 场上过了 ABDEFGHIJKLM。
 
 不是我写的有一些就懒得补了。
+
+是我写的有一些就懒得写做法了。
 
 #### [C. Entrapment](https://qoj.ac/contest/2041/problem/11358)
 
@@ -52,10 +56,6 @@ The 4th Universal Cup 做题记录
 注意到：同胚与 $K4$ 不合法。
 
 广义串并联图方法。
-
-#### [H. Ornaments on a Tree](https://qoj.ac/contest/2041/problem/11363)
-
-从下往上贪，尽量让根节点的值小。先让无限制递归子树，再找无限制的儿子减。
 
 #### [J. Popping Balloons](https://qoj.ac/contest/2041/problem/11365)
 
@@ -93,12 +93,74 @@ The 4th Universal Cup 做题记录
 
 每次找一个 $u$ 开始暴力拓扑排序。将点打乱随机找 $u$ 开始，跳过不优的点，则每个点只会经过 $\log n$ 次。
 
-#### [H. Misread Problem](https://qoj.ac/contest/2539/problem/14433)
-
-凸的，桶维护斜率。
-
 ### [The 4th Universal Cup. Stage 2: Grand Prix of Paris](https://qoj.ac/contest/2551)
 
 ^416df2
 
 场上过了 ABDFGHIJKL。E 能过的假解爆 inf 了。
+
+我做的题都没啥意思。
+
+#### [E. Euclid in Manhattan](https://qoj.ac/contest/2551/problem/14134)
+
+只能在相邻行/列转移。
+
+假解是选前 $B$ 个转移，可以 hack。
+
+决策点不交？
+
+二分栈？
+
+#### [J. JamBrains](https://qoj.ac/contest/2551/problem/14139)
+
+合法位置有单调性。
+
+如果存在 $u$ 行总数量大于 $r$，后面的就无法跨过，否则都可以。
+
+### [The 4th Universal Cup. Stage 3: Polar Grand Prix](https://qoj.ac/contest/2559)
+
+^12d5f7
+
+场上过了 BCDEFGIJK。
+
+#### [B. Christmas Tree](https://qoj.ac/contest/2559/problem/14416)
+
+[P9111](https://www.luogu.com.cn/problem/P9111)。
+
+求一个点指向多少个点，设 $f_{u,j,k}$ 表示 $u$ 子树内连向 $j$ 个，钦定 $u$ 最后一个指向 $k$ 个，提前补上 $a_u\times (k-j)$。
+
+$$f_{u,j1,k}+f_{v,j2,j2}+a_u\times j2\to f'_{u,j1+j2,k}$$
+
+$$f_{u,j1,k}+f_{v,j2,j2+k}\to f'_{u,j1,k}$$
+
+#### [E. Maximum Segment Sum](https://qoj.ac/contest/2559/problem/14419)
+
+求 $\le k$ 的答案再差分。
+
+考虑后缀和，每次可以 $s+1\to s'$ 或 $\max(s-1,0)\to s'$。要求 $s\le k$。
+
+刻画路径：第奇数次 $s=0$ 时 $-1$ 向下走，并反转之后的路径，直到第偶数次 $s=0$ 时 $-1$ 向上走。这样双射从 $(0,0)$ 到 $(n,i)$，一步右上或右下，不经过 $k+1$ 和 $-k-2$ 的路径。
+
+反射容斥，预处理上指标为 $n$ 的前缀和。单次复杂度 $O(\frac{n}{k})$。
+
+#### [F. This Time I Will Be Lucky](https://qoj.ac/contest/2559/problem/14420)
+
+倒着做，维护正着 dp 的 dp 值对终点的贡献，太小就扔掉。
+
+#### [G. Far Away](https://qoj.ac/contest/2559/problem/14421)
+
+判掉 $u,v$ 所在连通块 $\le 20000$。随机选几百个点求最短路，有极大概率选到最短路上的点，检查 $\min f_{i,u}+f_{i,v}$ 即可。
+
+#### [I. Two Permutations](https://qoj.ac/contest/2559/problem/14423)
+
+从 $n\ldots 1$，每次往前跳跟目前最大值换。
+
+#### [J. One Permutation](https://qoj.ac/contest/2559/problem/14424)
+
+[ZR3343](https://zhengruioi.com/problem/3343)
+
+凸！套一个 [P10181](https://www.luogu.com.cn/problem/P10181)，根号分治段数和 wqs 的 $c$。
+
+把求区间贡献和加 wqs 分段的 $c$ 放在一个树状数组 dp 中。
+
+复杂度 $O(n\sqrt n\log n)$。

@@ -20,9 +20,9 @@ export default (() => {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-                console.log('fish.tsx is running');
+                // console.log('fish.tsx is running');
               if (typeof window !== 'undefined') {
-                console.log('🟢 fish-container script running');
+                // console.log('🟢 fish-container script running');
 
                 // ✅ 动态加载 fish.js（只加载一次）
                 if (!document.getElementById('fish-script')) {
@@ -31,15 +31,15 @@ export default (() => {
                   s.defer = true;
                   s.id = 'fish-script';
                   s.onload = () => {
-                    console.log('✅ fish.js loaded');
+                    // console.log('✅ fish.js loaded');
                     
                     // ✅ 加载完 fish.js 后绑定全局点击事件
                     window.addEventListener('click', () => {
                       if (window.RENDERER && window.RENDERER.reverseVertical) {
-                        console.log('🎣 Window click: toggling');
+                        // console.log('🎣 Window click: toggling');
                         window.RENDERER.reverseVertical();
                       } else {
-                        console.warn('⚠️ RENDERER not ready');
+                        // console.warn('⚠️ RENDERER not ready');
                       }
                     });
                   };

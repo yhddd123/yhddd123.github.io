@@ -62,9 +62,9 @@
     try {
       window.RENDERER.init();
       state.initialized = true;
-      console.log('[fish] RENDERER.init executed (reverse=' + !!window.RENDERER.reverse + ')');
+      // console.log('[fish] RENDERER.init executed (reverse=' + !!window.RENDERER.reverse + ')');
     } catch (e) {
-      console.error('[fish] RENDERER.init failed', e);
+      // console.error('[fish] RENDERER.init failed', e);
     }
   }
 
@@ -98,7 +98,7 @@
         }
       }
     } catch (e) {
-      console.warn('[fish] cleanup partial failure', e);
+      // console.warn('[fish] cleanup partial failure', e);
     }
 
     // mark uninitialized
@@ -156,7 +156,7 @@
   // register cleanup hooks per Quartz recommendations
   if (typeof window.addCleanup === 'function') {
     window.addCleanup(() => {
-      console.log('[fish] window.addCleanup -> fullCleanup');
+      // console.log('[fish] window.addCleanup -> fullCleanup');
       fullCleanup();
     });
   }
@@ -164,12 +164,12 @@
   // SPA lifecycle events
   document.addEventListener('prenav', () => {
     // clean up before navigation
-    console.log('[fish] prenav -> cleaning up before navigation');
+    // console.log('[fish] prenav -> cleaning up before navigation');
     fullCleanup();
   });
 
   document.addEventListener('nav', () => {
-    console.log('[fish] nav -> attempting init after navigation');
+    // console.log('[fish] nav -> attempting init after navigation');
     setTimeout(() => ensureInitWhenContainerReady(), 60);
   });
 
@@ -358,8 +358,8 @@ var RENDERER = {
     reverseVertical: function () {
     // Debug: log caller and state before toggling
     try {
-      console.log('[fish] reverseVertical() called — before:', !!this.reverse);
-      console.trace();
+      // console.log('[fish] reverseVertical() called — before:', !!this.reverse);
+      // console.trace();
     } catch (e) {}
 
     // toggle and persist state across SPA navigations
@@ -372,7 +372,7 @@ var RENDERER = {
     this.fishes.forEach((f) => f.reverseVertical());
 
     try {
-      console.log('[fish] reverseVertical() completed — after:', !!this.reverse, 'persisted=', window.__fishReverse);
+      // console.log('[fish] reverseVertical() completed — after:', !!this.reverse, 'persisted=', window.__fishReverse);
     } catch (e) {}
     },
 
@@ -409,7 +409,7 @@ var RENDERER = {
     var mode = getPreferredTheme();
 
 		this.context.clearRect(0, 0, this.width, this.height);
-		this.context.fillStyle = mode== 'dark' ? 'hsl(0, 0%, 15%)' : 'hsl(0, 0%, 95%)';
+		this.context.fillStyle = mode== 'dark' ? 'hsl(0, 0%, 15%)' : 'hsl(0, 0%, 90%)';
 		
 		for(var i = 0, count = this.fishes.length; i < count; i++){
 			this.fishes[i].render(this.context);
@@ -426,78 +426,6 @@ var RENDERER = {
 		this.context.closePath();
 		this.context.fill();
 		this.context.restore();
-
-    // // 保持绑定
-    // requestAnimationFrame(this.render);
-    // this.controlStatus();
-  
-    // // --- 1) 明确绘制背景（先填充整屏） ---
-    // // 检测当前深/浅模式，不依赖读取 CSS 变量的具体颜色数值。
-    // // 策略：
-    // // 1) 优先读取 document.documentElement 上的 saved-theme 属性（由框架可能设置为 "dark" 或 "light"）
-    // // 2) 如果没有 saved-theme，则使用媒体查询 prefers-color-scheme
-    // // 返回值为 'dark' 或 'light'，并映射到固定的主题背景色（不读取 --light）
-    // function getPreferredTheme() {
-    //   try {
-    //     var saved = document.documentElement.getAttribute('saved-theme');
-    //     if (saved === 'dark' || saved === 'light') return saved;
-    //   } catch (e) {
-    //     // ignore
-    //   }
-    //   try {
-    //     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
-    //   } catch (e) {
-    //     // ignore
-    //   }
-    //   return 'light';
-    // }
-
-    // var mode = getPreferredTheme();
-    // // 映射到具体颜色（根据 quartz.config.ts 中的默认值）
-    // var themeBg = mode === 'dark' ? '#161618' : '#faf8f8';
-
-    // // 行为：初始（this.reverse === false）背景用主题色，鱼为白色；点击后交换
-    // var bgColor, fishColor;
-    // if (this.reverse) {
-    //   bgColor =  mode == 'dark' ? '#000000' : '#ffffff';
-    //   fishColor = themeBg;
-    // } else {
-    //   bgColor = themeBg;
-    //   fishColor =  mode == 'dark' ? '#000000' : '#ffffff';
-    // }
-
-    // this.context.save();
-    // this.context.fillStyle = bgColor;
-    // this.context.fillRect(0, 0, this.width, this.height);
-    // this.context.restore();
-
-    // // --- 2) 明确设置鱼的颜色（与背景对比） ---
-    // // 这里把 fishColor 设为当前填充色，FISH.render 使用 ctx.fill() 时会使用它
-    // this.context.fillStyle = fishColor;
-  
-    // // 绘制鱼（fish.render 内部用 ctx.fill()）
-    // for (var i = 0, countF = this.fishes.length; i < countF; i++) {
-    //   this.fishes[i].render(this.context);
-    // }
-  
-    // // --- 3) 保留原来的水面 XOR 遮罩逻辑 ---
-    // this.context.save();
-    // this.context.globalCompositeOperation = 'xor';
-    // this.context.beginPath();
-    // this.context.moveTo(0, this.reverse ? 0 : this.height);
-  
-    // // 绘制曲线路径（points）
-    // for (var j = 0, pcount = this.points.length; j < pcount; j++) {
-    //   this.points[j].render(this.context);
-    // }
-  
-    // this.context.lineTo(this.width, this.reverse ? 0 : this.height);
-    // this.context.closePath();
-  
-    // // 用 fishColor (或 bgColor) 都可以，但使用 fishColor 保持 xor 行为更可预期
-    // this.context.fillStyle = fishColor;
-    // this.context.fill();
-    // this.context.restore();
   },
   
 };
