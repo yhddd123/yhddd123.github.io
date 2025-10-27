@@ -7,7 +7,13 @@ hideInList: false
 feature: 
 isTop: false
 ---
+总有一天会学习前端，亲自操刀改造博客的!
+
+至于现在？已经破防！
+
 配置的常见问题的基本步骤见 [[da-jian-xiao-ji|搭建小记]]。
+
+---
 
 #### 250925
 
@@ -17,6 +23,9 @@ isTop: false
 
 让 AI 更改 ```custom.scss```，压缩 Table of Contents 的长度，让 backlink 能进入页面，解决折叠后的问题。
 
-#### 211016
+#### 241016
 
 更改 ```custom.scss``` 添加背景图片，要把图片放到 ```content``` 里，然后会在 build 的时候自动放在 ```public``` 文件夹下。
+
+#### 251027
+
