@@ -1,5 +1,5 @@
 ---
-title: 'Petrozavodsk Summer 2019. Day 9. MEX Foundation Contest'
+title: 'Ptz Summer 2019. Day 9.'
 date: 2025-07-24 22:10:42
 tags: [acm]
 published: true

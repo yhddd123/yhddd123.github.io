@@ -101,6 +101,8 @@ The 4th Universal Cup 做题记录
 
 我做的题都没啥意思。
 
+[D](https://qoj.ac/contest/2551/problem/14133) 一个比较有道理的做法是，注意到这数位和和数值应该没什么关系，随机调整就 $O(k)$。 ^10f0fc
+
 #### [E. Euclid in Manhattan](https://qoj.ac/contest/2551/problem/14134)
 
 只能在相邻行/列转移。
