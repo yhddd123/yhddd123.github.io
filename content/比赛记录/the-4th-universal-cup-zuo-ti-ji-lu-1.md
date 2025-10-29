@@ -137,6 +137,8 @@ $$f_{u,j1,k}+f_{v,j2,j2+k}\to f'_{u,j1,k}$$
 
 #### [E. Maximum Segment Sum](https://qoj.ac/contest/2559/problem/14419)
 
+^92a17a
+
 求 $\le k$ 的答案再差分。
 
 考虑后缀和，每次可以 $s+1\to s'$ 或 $\max(s-1,0)\to s'$。要求 $s\le k$。

@@ -1,13 +1,13 @@
 ---
 title: 'Ptz Summer 2021. Day 4.'
 date: 2025-10-28 21:55:32
-tags: [做题记录]
+tags: [acm]
 published: true
 hideInList: false
 feature: 
 isTop: false
 ---
-[Petrozavodsk Summer 2021. Day 4. Shanghai ICPC Camp 2021 Onsite Day 1 by PKU](Petrozavodsk Summer 2021. Day 4. Shanghai ICPC Camp 2021 Onsite Day 1 by PKU)
+[Petrozavodsk Summer 2021. Day 4. Shanghai ICPC Camp 2021 Onsite Day 1 by PKU](https://qoj.ac/contest/694)
 
 #### [A. Counting Pairs](https://qoj.ac/contest/694/problem/1843)
 
@@ -41,8 +41,12 @@ beats 即可。
 
 #### [I. Directed Acyclic Graph](https://qoj.ac/contest/694/problem/1851)
 
+赛时：
+
 ![[Pasted image 20251028223447.png]]
 
 在瓶颈循环处应当把数组的值缓存到局部变量！
 
-按 $B=64$ 对询问分块。
+按 $B=64$ 对询问分块。ull 压操作 $i$ 会不会影响到 $u$，拓扑排序。
+
+当计算每个点在这一块收到的贡献时，先找最后一位赋值操作，与一下找到赋值操作后的所有取 min 操作。给取 min 重编号再压，直接位运算找最大的。
