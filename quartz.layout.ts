@@ -6,19 +6,19 @@ export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [
-    // Component.Comments({
-    //   provider: 'giscus',
-    //   options: {
-    //     // from data-repo
-    //     repo: 'yhddd123/yhddd123.github.io',
-    //     // from data-repo-id
-    //     repoId: 'R_kgDOO1OLMA',
-    //     // from data-category
-    //     category: 'Announcements',
-    //     // from data-category-id
-    //     categoryId: 'DIC_kwDOO1OLMM4CrAzF',
-    //   }
-    // }),
+    Component.Comments({
+      provider: 'giscus',
+      options: {
+        // from data-repo
+        repo: 'yhddd123/yhddd123.github.io',
+        // from data-repo-id
+        repoId: 'R_kgDOO1OLMA',
+        // from data-category
+        category: 'Announcements',
+        // from data-category-id
+        categoryId: 'DIC_kwDOO1OLMM4CrAzF',
+      }
+    }),
     Component.FlyingFish(), 
   ],
   footer: Component.Footer({

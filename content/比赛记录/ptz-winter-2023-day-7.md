@@ -13,6 +13,12 @@ isTop: false
 
 不妨 $a\ge b$，则 $a$ 至少有 $n$ 的位数减 $1$ 位，共 $20$ 种。python。
 
+#### [B. Classical Counting Problem](https://qoj.ac/contest/1223/problem/6408)
+
+按 $a_i$ 降序。设 $x$ 为最小的 $i\notin S$，$y$ 为最大的 $i\in S$，要求 $a_y+m\ge a_x$。固定 $x,y$ 后要 $S$ 合法，设 $l_i$ 和 $r_i$ 表示要 $S$ 合法 $i$ 最少/最多能加几次，要求 $\sum l_i\le mv\le \sum r_i$。以 $r_i$ 为例，$r_1\sim r_{x-1}$ 和 $r_y\sim r_n$ 都等于 $m$，对于 $i\in[x,y)$，若 $i\in S$，$r_i=m$，否则 $r_i=m+a_y-a_i$。
+
+计数时容斥为 $\sum r_i\le mv$ 减去 $\sum l_i>mv$。$r_i$ 只与 $a_y$ 有关，$l_i$ 只与 $a_x$ 有关，分别固定左右端点 dp。复杂度 $O(n^4)$。
+
 #### [C. Classical Data Structure Problem](https://qoj.ac/contest/1223/problem/6409)
 
 被击杀了。
@@ -36,6 +42,14 @@ isTop: false
 #### [H. Classical Maximization Problem](https://qoj.ac/contest/1223/problem/6414)
 
 连边后生成树上从下往上匹配，最多剩一条。
+
+#### [I. Classical Minimization Problem](https://qoj.ac/contest/1223/problem/6415)
+
+没写。
+
+设一条线上最多有 $k$ 个点。若 $k\le n$，则 $ans=0$，否则 $ans=k-n$ ?
+
+构造就是维护 X 和 Y 两维最多点的线。
 
 #### [J. Classical Scheduling Problem](https://qoj.ac/contest/1223/problem/6416)
 
