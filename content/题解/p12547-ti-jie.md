@@ -20,3 +20,59 @@ isTop: false
 可以把后缀和非负改为前缀和最大值不超过总和。这样就可以从前往后贪心加，维护对 $0$ 取 max 的前缀和 $s$，只有 $s>0$ 时才能加 $-1$。设这个过程中选了 $c1$ 个 $1$ 和 $c2$ 个 $-1$，历史最大值为 $mx$。则这个过程中可能多选了一些 $-1$，要删去这些 $-1$ 使得 $mx\le c1-c2$。当 $mx>c1-c2$ 时，在取到前缀和历史最大值的位置之后一定有至少一个 $-1$，所以一定可以删去 $mx-c1+c2$ 个 $-1$ 使选出来的数合法。此时总共选了 $c1+c2-mx+c1-c2=2c1-mx$。
 
 这个就可以上线段树了。$c1$ 是区间 $1$ 的数量，$mx$ 实际上的意义是区间内任意子段的前缀和的最大值，也就是区间内最大子段和。
+
+```cpp
+int n,q,a[maxn];
+#define mid ((l+r)>>1)
+#define ls nd<<1
+#define rs nd<<1|1
+struct node{
+	int num,sum,pre,suf,mx;
+}tree[maxn<<2];
+node operator*(node u,node v){
+	return {u.num+v.num,u.sum+v.sum,max(u.pre,u.sum+v.pre),max(v.suf,u.suf+v.sum),max({u.mx,u.suf+v.pre,v.mx})};
+}
+void build(int nd,int l,int r){
+	if(l==r){
+		if(a[l]==1)tree[nd]={1,1,1,1,1};
+		else tree[nd]={0,-1,0,0,0};
+		return ;
+	}
+	build(ls,l,mid),build(rs,mid+1,r);
+	tree[nd]=tree[ls]*tree[rs];
+}
+void modif(int nd,int l,int r,int p){
+	if(l==r){
+		if(a[l]==1)tree[nd]={1,1,1,1,1};
+		else tree[nd]={0,-1,0,0,0};
+		return ;
+	}
+	if(p<=mid)modif(ls,l,mid,p);
+	else modif(rs,mid+1,r,p);
+	tree[nd]=tree[ls]*tree[rs];
+}
+node query(int nd,int l,int r,int ql,int qr){
+	if(l>=ql&&r<=qr)return tree[nd];
+	if(qr<=mid)return query(ls,l,mid,ql,qr);
+	if(ql>mid)return query(rs,mid+1,r,ql,qr);
+	return query(ls,l,mid,ql,qr)*query(rs,mid+1,r,ql,qr);
+}
+void work(){
+	n=read();q=read();
+	for(int i=1;i<=n;i++)a[i]=read();
+	build(1,1,n);
+	while(q--){
+		int op=read();
+		if(op==1){
+			int p=read();a[p]=-a[p];
+			modif(1,1,n,p);
+		}
+		else{
+			int l=read(),r=read();
+			node res=query(1,1,n,l,r);
+			printf("%lld\n",2*res.num-res.mx);
+		}
+	}
+}
+```
+

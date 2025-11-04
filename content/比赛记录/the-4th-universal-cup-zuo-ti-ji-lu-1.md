@@ -19,6 +19,8 @@ The 4th Universal Cup 做题记录
 
 [Stage 3: Polar](https://qoj.ac/contest/2559)：BEFGIJ
 
+[Stage 4: Chengdu](https://qoj.ac/contest/2567)：HKM
+
 ### [The 4th Universal Cup. Stage 0: Trial Contest](https://qoj.ac/contest/2041)
 
 场上过了 ABDEFGHIJKLM。
@@ -168,3 +170,29 @@ $$f_{u,j1,k}+f_{v,j2,j2+k}\to f'_{u,j1,k}$$
 把求区间贡献和加 wqs 分段的 $c$ 放在一个树状数组 dp 中。
 
 复杂度 $O(n\sqrt n\log n)$。
+
+### [The 4th Universal Cup. Stage 4: Grand Prix of Chengdu](https://qoj.ac/contest/2567)
+
+^2ff9e4
+
+场上过了 ABCDGJKLM。全是签到。
+
+#### [H. Heuristic Knapsack](https://qoj.ac/contest/2567/problem/14713)
+
+贪心会不了一点。
+
+按 $w$ 排序后 A 取一个前缀，枚举是哪个前缀，然后 check。
+
+把 $w_i$ 确定的按 $w_i$ 排序，剩下的按 $v_i$ 排序。枚举 $w_i$ 确定的一个要选前缀，前缀的未确定 $v_i=inf$，后缀的未确定 $v_i=1$，然后把 $w_i$ 确定按 $v_i$ 排序。
+
+从前往后 $w_i$ 未确定的 $w_i$。考虑要不要选未确定的 $w_i$ 中 $v_i$ 最大的，考虑该位置 $w_i$ 的上界。首先不能超过当前背包剩的空间，也不能超过枚举过不选的最小 $w_i$，如果此时 $w_i>0$，那就选上以尽快填满剩下的背包空间。
+
+#### [K. K-Coverage](https://qoj.ac/contest/2567/problem/14716)
+
+按照新位置与原位置的关系分讨，拆贡献。
+
+#### [M. Meeting for Meals](https://qoj.ac/contest/2567/problem/14718)
+
+对 $a_i$ 和 $a_j$ 要求所有满足 $dis(1,p)+\max(dis(a_i,p),dis(a_j,p))\le T$ 最小的 $T-\frac{dis(a_i,p)+dis(a_j,p)}{2}$。
+
+感受一下，对于 $p$，如果确定 $a_i$，那么 $a_j$ 应当选离 $p$ 最近的那个。所以一对 $(a_i,a_j)$ 有贡献的 $p$ 应该是在他们最短路的交界处。从 $k$ 个点出发跑多元最短路，在两端是不同出发点的边合并。
