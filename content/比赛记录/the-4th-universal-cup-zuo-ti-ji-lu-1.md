@@ -75,6 +75,8 @@ The 4th Universal Cup 做题记录
 
 ### [The 4th Universal Cup. Stage 1: Grand Prix of Korolyov](https://qoj.ac/contest/2539)
 
+^058c85
+
 场上过了 ABCDEFHIKL。
 
 [A](https://qoj.ac/contest/2539/problem/14426) 是观察到可以模 $3$，合法矩阵每行每列模 $3$ 余 $0$。后面不会。

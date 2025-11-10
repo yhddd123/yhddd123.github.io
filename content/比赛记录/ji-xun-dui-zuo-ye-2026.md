@@ -53,7 +53,7 @@ $f_{i,j}$ 表示 $s,t$ 分别匹配到 $i$ 和 $j$。$|i-j|\le k$。$f_{*,j}$ �
 
 #### 19.[Q1351. Koosaga's Problem](https://qoj.ac/contest/2550/problem/1351) 20.[Q1355. Rhythm Game](https://qoj.ac/contest/506/problem/1355)
 
-[[]]
+[[ptz-summer-2020-day-6|Petrozavodsk Summer 2020. Day 6. Korean Contest]]。
 
 #### 33.[Q1844. Cactus](https://qoj.ac/contest/2550/problem/1844)
 
@@ -63,7 +63,7 @@ $f_{i,j}$ 表示 $s,t$ 分别匹配到 $i$ 和 $j$。$|i-j|\le k$。$f_{*,j}$ �
 
 #### 48.[Q2605. Soccer Match](https://qoj.ac/contest/2550/problem/2605) 49.[Q2606. Gachapon](https://qoj.ac/contest/2550/problem/2606)
 
-[[]]
+[[ptz-winter-2022-day-6|Petrozavodsk Winter 2022. Day 6. ICPC Camp Day 1]]
 
 #### 59.[Q4805. Grammy Sorting](https://qoj.ac/contest/2550/problem/4805)
 
@@ -83,7 +83,7 @@ $f_{i,j}$ 表示 $s,t$ 分别匹配到 $i$ 和 $j$。$|i-j|\le k$。$f_{*,j}$ �
 
 $2^n$ 比 $3^n$ 好想多了吧。
 
-[[]]
+[[zi-tu-ji-shu#^959686|here]]。
 
 #### 95.[Q10091](https://qoj.ac/contest/2550/problem/10091)
 
