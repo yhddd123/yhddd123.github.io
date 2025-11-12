@@ -21,6 +21,8 @@ The 4th Universal Cup 做题记录
 
 [Stage 4: Chengdu](https://qoj.ac/contest/2567)：HKM
 
+[Extra Stage 1: Xi'an](https://qoj.ac/contest/2562)：ACK
+
 ### [The 4th Universal Cup. Stage 0: Trial Contest](https://qoj.ac/contest/2041)
 
 场上过了 ABDEFGHIJKLM。
@@ -198,3 +200,19 @@ $$f_{u,j1,k}+f_{v,j2,j2+k}\to f'_{u,j1,k}$$
 对 $a_i$ 和 $a_j$ 要求所有满足 $dis(1,p)+\max(dis(a_i,p),dis(a_j,p))\le T$ 最小的 $T-\frac{dis(a_i,p)+dis(a_j,p)}{2}$。
 
 感受一下，对于 $p$，如果确定 $a_i$，那么 $a_j$ 应当选离 $p$ 最近的那个。所以一对 $(a_i,a_j)$ 有贡献的 $p$ 应该是在他们最短路的交界处。从 $k$ 个点出发跑多元最短路，在两端是不同出发点的边合并。
+
+### [The 4th Universal Cup. Extra Stage 1: Xi'an (Unrated)](https://qoj.ac/contest/2562)
+
+场上过了 ABCFGIJKLM。
+
+#### [A. Azalea Garden](https://qoj.ac/contest/2562/problem/14681)
+
+$b_i>\max a_i$ 的永远死不掉，只需要知道 $max a_i$ 的 $i$ 能不能死掉。等价于区间 $[b_i,a_i]$ 能覆盖 $[\min_{b_i>\max a_i} a_i,\max a_i]$ 之类。
+
+但是我比较蠢，直接楼房重建。调大半场。
+
+#### [K. Killing Bits](https://qoj.ac/contest/2562/problem/14691)
+
+判掉简单情况。等价于存在一个排列 $p_i$ 使得 $p_i\text{\&}b_i=b_i$。
+
+高维前缀和优化建图跑流。

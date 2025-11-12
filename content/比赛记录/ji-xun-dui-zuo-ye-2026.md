@@ -51,7 +51,7 @@ $f_{i,j}$ 表示 $s,t$ 分别匹配到 $i$ 和 $j$。$|i-j|\le k$。$f_{*,j}$ �
 
 #### 12.[Q971. Binary Search Tree](https://qoj.ac/contest/2550/problem/971)
 
-#### 19.[Q1351. Koosaga's Problem](https://qoj.ac/contest/2550/problem/1351) 20.[Q1355. Rhythm Game](https://qoj.ac/contest/506/problem/1355)
+#### 19.[Q1351. Koosaga's Problem](https://qoj.ac/contest/2550/problem/1351) & 20.[Q1355. Rhythm Game](https://qoj.ac/contest/506/problem/1355)
 
 [[ptz-summer-2020-day-6|Petrozavodsk Summer 2020. Day 6. Korean Contest]]。
 
@@ -61,7 +61,7 @@ $f_{i,j}$ 表示 $s,t$ 分别匹配到 $i$ 和 $j$。$|i-j|\le k$。$f_{*,j}$ �
 
 建圆方树，对于一个环，保留连向父亲的一对点不动，其余绕环黑白染色，删光黑点，能删掉除了这对点以外的整个环。从叶子开始删即可，最后一定能删光。
 
-#### 48.[Q2605. Soccer Match](https://qoj.ac/contest/2550/problem/2605) 49.[Q2606. Gachapon](https://qoj.ac/contest/2550/problem/2606)
+#### 48.[Q2605. Soccer Match](https://qoj.ac/contest/2550/problem/2605) & 49.[Q2606. Gachapon](https://qoj.ac/contest/2550/problem/2606)
 
 [[ptz-winter-2022-day-6|Petrozavodsk Winter 2022. Day 6. ICPC Camp Day 1]]
 
@@ -69,7 +69,7 @@ $f_{i,j}$ 表示 $s,t$ 分别匹配到 $i$ 和 $j$。$|i-j|\le k$。$f_{*,j}$ �
 
 若 $a_u<a_v$ 给图定向 $u\to v$ 使得满足：对于每个 $x$，都有 $s\to x\to t$，等价于 $s$ 是唯一 $0$ 入度点，$t$ 是唯一 $0$ 出度点，等价于 $s\to t$ 的双极定向。
 
-倒序考虑双击定向的染色过程，后缀已经经过调整满足，加入点 $x$。此时一定存在 $s\to x$ 的路径，$x$ 可以走到一个后缀，在后缀中乱走直到 $a_p<a_s<a_{p_{out}}$。换这条路径可以使 $x$ 加入后缀且符合条件。
+倒序考虑双击定向的染色过程，后缀已经经过调整满足，加入点 $x$。此时一定存在 $s\to x$ 的路径，$x$ 可以走到一个后缀，在后缀中乱走直到 $a_p<a_s<a_{p_{out}}$。换这条路径可以使 $x$ 加入后缀且符合条件。 ^25dae2
 
 #### 60.[Q4808. Great Party](https://qoj.ac/contest/2550/problem/4808)
 
@@ -88,6 +88,10 @@ $2^n$ 比 $3^n$ 好想多了吧。
 #### 95.[Q10091](https://qoj.ac/contest/2550/problem/10091)
 
 预处理小的，搜大的。
+
+#### 110.[Q11627. Rectangles](https://qoj.ac/contest/2550/problem/11627) & 111.[Q11630. Simple APSP Problem](https://qoj.ac/contest/2550/problem/11630)
+
+[[ptz-winter-2018-day-3|Petrozavodsk Winter 2018. Day 3. AtCoder Contest]]。
 
 #### 114.[Q12212](https://qoj.ac/contest/2550/problem/12212)
 
