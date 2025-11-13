@@ -14,6 +14,8 @@ isTop: false
 
 ### [无向连通图计数](https://www.luogu.com.cn/problem/P10982)
 
+^ef77b7
+
 总方案数 $g_n=2^{\binom{n}{2}}$，减去不连通的方案数，枚举 $1$ 所在连通块的大小。
 
 $$f_n=g_n-\sum_{i=1}^{n-1}\binom{n-1}{i-1}f_ig_{n-i}$$

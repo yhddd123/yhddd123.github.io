@@ -33,7 +33,9 @@ isTop: false
 
 #### [H. Generalized Insertion Sort](https://qoj.ac/contest/1800/problem/11628)
 
-[[ji-xun-dui-zuo-ye-2026#^25dae2|Q4805 的构造部分对任意图的通解]]。
+^080eae
+
+Q4805 的构造部分对任意图的通解。
 
 对于根节点挂多条链，在每条链的链底维护排好序的一部分，把根节点的值插入排序。如果根节点就是自己，就随便扔到一个链最后，当重新回到根的时候必然做完了这条链，多 $n$ 次。
 

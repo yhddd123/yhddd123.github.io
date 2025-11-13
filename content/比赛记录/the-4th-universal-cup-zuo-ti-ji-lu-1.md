@@ -203,6 +203,8 @@ $$f_{u,j1,k}+f_{v,j2,j2+k}\to f'_{u,j1,k}$$
 
 ### [The 4th Universal Cup. Extra Stage 1: Xi'an (Unrated)](https://qoj.ac/contest/2562)
 
+^c57a1b
+
 场上过了 ABCFGIJKLM。
 
 #### [A. Azalea Garden](https://qoj.ac/contest/2562/problem/14681)
