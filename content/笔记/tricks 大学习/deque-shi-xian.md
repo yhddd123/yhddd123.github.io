@@ -1,7 +1,7 @@
 ---
 title: deque 实现
 date: 2025-01-16 22:06:53
-tags: [笔记,数据结构]
+tags: [tricks,数据结构]
 published: true
 hideInList: false
 feature: 

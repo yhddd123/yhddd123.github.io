@@ -7,9 +7,11 @@ hideInList: false
 feature: 
 isTop: false
 ---
-[https://oi-wiki.org/graph/flow/min-cost/#primal-dual-%E5%8E%9F%E5%A7%8B%E5%AF%B9%E5%81%B6%E7%AE%97%E6%B3%95](https://oi-wiki.org/graph/flow/min-cost/#primal-dual-%E5%8E%9F%E5%A7%8B%E5%AF%B9%E5%81%B6%E7%AE%97%E6%B3%95)
+已完成今日 [Primal-Dual 原始对偶 (oiwiki)](https://oi-wiki.org/graph/flow/min-cost/#primal-dual-%E5%8E%9F%E5%A7%8B%E5%AF%B9%E5%81%B6%E7%AE%97%E6%B3%95) 大学习。
 
-对于带负权的费用流，正常的 spfa 求增广路的费用流复杂度 $O(nmf)$。使用 Primal-Dual 后 $O(nm+m\log nf)$。
+> 带负权的费用流，正常的 spfa 求增广路的费用流复杂度 $O(nmf)$。使用 Primal-Dual 后 $O(nm+m\log nf)$。
+
+---
 
 仿照 [Johnson 全源最短路](https://oi-wiki.org/graph/shortest-path/#johnson-%E5%85%A8%E6%BA%90%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95)。设置势能使费用为正，然后每次增广用 dij 代替 spfa。初始势能 $h_u$ 为  $s$ 到 $u$ 的最短路，$O(nm)$ 求出。设置 $(u,v,w)$ 的边权为 $w+h_u-h_v$。设置势能后新网络上的最短路径和原网络上的最短路径对应且边权为正。
 

@@ -9,6 +9,10 @@ isTop: false
 ---
 ### 已完成今日 [簡易版 LARSCH Algorithm](https://noshi91.hatenablog.com/entry/2023/02/18/005856) 大学习
 
+> 在线决策单调性单 log 分治，支持莫队。
+
+---
+
 满足决策单调性的 dp 的优化。
 
 离线：$f_i=\min_{j<i}g_j+w(j,i)$。

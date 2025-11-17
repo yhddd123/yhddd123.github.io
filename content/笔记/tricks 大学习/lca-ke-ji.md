@@ -2,7 +2,7 @@
 title: lca 科技
 date: 2024-03-01 17:13:00
 tags:
-  - 笔记
+  - tricks
   - 图论
 published: true
 hideInList: false
