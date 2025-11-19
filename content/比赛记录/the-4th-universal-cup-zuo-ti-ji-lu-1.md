@@ -23,13 +23,19 @@ The 4th Universal Cup 做题记录
 
 [Extra Stage 1: Xi'an](https://qoj.ac/contest/2562)：ACK
 
-### [The 4th Universal Cup. Stage 0: Trial Contest](https://qoj.ac/contest/2041)
+[Stage 5: Nanjing](https://qoj.ac/contest/2581) EFGLM
 
-场上过了 ABDEFGHIJKLM。
+---
 
 不是我写的有一些就懒得补了。
 
 是我写的有一些就懒得写做法了。
+
+剩下一些没写但大概直到做法的就随便提一句。
+
+### [The 4th Universal Cup. Stage 0: Trial Contest](https://qoj.ac/contest/2041)
+
+场上过了 ABDEFGHIJKLM。
 
 #### [C. Entrapment](https://qoj.ac/contest/2041/problem/11358)
 
@@ -104,8 +110,6 @@ The 4th Universal Cup 做题记录
 ^416df2
 
 场上过了 ABDFGHIJKL。E 能过的假解爆 inf 了。
-
-我做的题都没啥意思。
 
 [D](https://qoj.ac/contest/2551/problem/14133) 一个比较有道理的做法是，注意到这数位和和数值应该没什么关系，随机调整就 $O(k)$。 ^10f0fc
 
@@ -207,6 +211,8 @@ $$f_{u,j1,k}+f_{v,j2,j2+k}\to f'_{u,j1,k}$$
 
 场上过了 ABCFGIJKLM。
 
+[C](https://qoj.ac/contest/2562/problem/14683) 是一条长链挂一堆叶子才合法。
+
 #### [A. Azalea Garden](https://qoj.ac/contest/2562/problem/14681)
 
 $b_i>\max a_i$ 的永远死不掉，只需要知道 $max a_i$ 的 $i$ 能不能死掉。等价于区间 $[b_i,a_i]$ 能覆盖 $[\min_{b_i>\max a_i} a_i,\max a_i]$ 之类。
@@ -218,3 +224,47 @@ $b_i>\max a_i$ 的永远死不掉，只需要知道 $max a_i$ 的 $i$ 能不能�
 判掉简单情况。等价于存在一个排列 $p_i$ 使得 $p_i\text{\&}b_i=b_i$。
 
 高维前缀和优化建图跑流。
+
+### [The 4th Universal Cup. Stage 5: Grand Prix of Nanjing](https://qoj.ac/contest/2581)
+
+^1385b2
+
+场上过了 BCEFGHIJKLM。
+
+[B](https://qoj.ac/contest/2581/problem/14802) 是看作向量在过原点的一条直线同侧的可以一起选。
+
+#### [E. Cyan White Tree](https://qoj.ac/contest/2581/problem/14805)
+
+启发式合并。线段树维护 $depa_i-depb_u$ 之类。
+
+#### [F. Bitwise And Path](https://qoj.ac/contest/2581/problem/14806)
+
+$V$ 个并查集维护边权为超集的边的连通性。
+
+每一次成功的加边最多有 $\log V$ 的代价，一共只有 $O(nV)$ 次加边。查询可以从高位开始贪心。
+
+#### [G. Bucket Bonanza](https://qoj.ac/contest/2581/problem/14807)
+
+枚举是 $k$ 个最后有水的水桶，分别是前 $k$ 大的容量和前 $k$ 小的漏水。凸包，决策点单调。
+
+#### [L. Regional Champion](https://qoj.ac/contest/2581/problem/14812)
+
+欧拉公式。假设所有交点都能不相同。
+
+对于直线，在最外面建一个虚点。$V-E+F=1+[k\neq 0]$。
+
+$$V=n(n-1)+6nm+2nk+3m(m-1)+2mk+\frac{k(k-1)}{2}+3m$$
+
+$$E=n(2(n-1)+6m+2k)+m(6n+6(m-1)+2k+3)+k(2n+2m+k)$$
+
+构造可以在一些端点间连续的取：
+
+![[3.png]]
+
+一个更方便的做法是，把直线当作三角形的一条边。
+
+#### [M. Many Convex Polygons](https://qoj.ac/contest/2581/problem/14813)
+
+凸多边形面积是 $\frac{1}{2}|\sum x_iy_{i+1}-x_{i+1}y_i|$ 之类。一条边 $(i,i+d)$ 的出现次数是 $\binom{n-1-d}{k-2}$。
+
+循环卷积，差卷积。
