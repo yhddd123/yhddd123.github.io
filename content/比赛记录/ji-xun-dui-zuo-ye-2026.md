@@ -27,9 +27,29 @@ $f_{i,j}$ 表示 $s,t$ 分别匹配到 $i$ 和 $j$。$|i-j|\le k$。$f_{*,j}$ �
 
 或者直接广义串并联方法。
 
+#### 5.[Q857. Social Distancing](https://qoj.ac/contest/2550/problem/857)
+
+给每个点按深度从大到小重标号，一个互相可达的等价类的代表元要求字典序最小。
+
+考虑一个点 $u$ 能不能放，之前的点不会有影响。如果最后是 $x\to u$，则 $x$ 到 $u$ 路径为空，只用调整邻域，即尽量把每个点都往子树扔一步。
+
+每个点 $2n$ 次，次数不超过 $4n^2$。
+
 #### 6.[Q862. Social Justice](https://qoj.ac/contest/2550/problem/862)
 
 好像随便做。
+
+#### 8.[Q888. Travel around China](https://qoj.ac/contest/2550/problem/888)
+
+提前预处理 $(1,i)$ 到 $(3,i)$ 的最短路。
+
+分治，已经可以保证路径只在分治范围内。处理出点到 $(1/2/3,mid)$ 的最短路，二维偏序算哪个是最小的。
+
+#### 9.[Q962. Thanks to MikeMirzayanov](https://qoj.ac/contest/2550/problem/962)
+
+转化为全局 reverse，再对每个区间 reverse，最后调整奇偶性。
+
+分治，$\le mid$ 为 $0$，对 $01$ 序列排序，缩连续段。可以形如操作 $(1),(2,3),(4),(5),(6,7)\ldots$，每次可以使 $01$ 对减半。次数 $O(\log^2n)$。
 
 #### 10.[Q964. Excluded Min](https://qoj.ac/contest/2550/problem/964)
 
@@ -55,11 +75,27 @@ $f_{i,j}$ 表示 $s,t$ 分别匹配到 $i$ 和 $j$。$|i-j|\le k$。$f_{*,j}$ �
 
 [[ptz-summer-2020-day-6|Petrozavodsk Summer 2020. Day 6. Korean Contest]]。
 
+#### 27.[Q1817. AND Permutation](https://qoj.ac/contest/2550/problem/1817)
+
+递归做。
+
+先处理 $d$ 位为 $0$。
+
+对于每个 $x$ 使得 $d$ 位为 $1$，$x-2^d$ 也在集合内。把 $x$ 的答案改为 $x-2^d$ 的答案，并把 $x-2^d$ 集合继续递归。
+
 #### 33.[Q1844. Cactus](https://qoj.ac/contest/2550/problem/1844)
 
 能删就删，最后剩下一些全是偶度数的仙人掌，此时不存在只有两个点的点双，使用操作二。
 
 建圆方树，对于一个环，保留连向父亲的一对点不动，其余绕环黑白染色，删光黑点，能删掉除了这对点以外的整个环。从叶子开始删即可，最后一定能删光。
+
+#### 46.[Q2570. Maximal Subsequence](https://qoj.ac/contest/2550/problem/2570)
+
+求出 $f_i$，$m=\max f_i$。
+
+最少删几个点。可以转为最小割，即连边 $i\to i+n$，对于 $f_j+1=f_i$ 连边 $j+n\to i$。最小割等于最大流，即选 $ans$ 条不相交 lis 为 $m$ 的子序列。
+
+可以直接选最靠左的合法的子序列。
 
 #### 48.[Q2605. Soccer Match](https://qoj.ac/contest/2550/problem/2605) & 49.[Q2606. Gachapon](https://qoj.ac/contest/2550/problem/2606)
 
@@ -86,6 +122,14 @@ $f_{i,j}$ 表示 $s,t$ 分别匹配到 $i$ 和 $j$。$|i-j|\le k$。$f_{*,j}$ �
 $2^n$ 比 $3^n$ 好想多了吧。
 
 [[zi-tu-ji-shu#^959686|here]]。
+
+#### 84.[Q8184. Different Summands Counting](https://qoj.ac/contest/2550/problem/8184)
+
+枚举 $x$，容斥至少出现了 $i$ 次。
+
+$$\sum_x\sum_{i=1}^m(-1)^i\binom{m}{i}\binom{n-ix-1}{m-i-1}$$
+
+对于每个 $i$，不超过 $m-i-1$ 次多项式，求 $m-i+1$ 个前缀和插值。
 
 #### 95.[Q10091](https://qoj.ac/contest/2550/problem/10091)
 
