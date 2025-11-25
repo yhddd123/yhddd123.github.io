@@ -1,10 +1,12 @@
 ---
-title: 'Primal-Dual 原始对偶算法'
+title: Primal-Dual 原始对偶算法
 date: 2025-02-07 20:15:31
-tags: [笔记,网络流]
+tags:
+  - tricks
+  - 网络流
 published: true
 hideInList: false
-feature: 
+feature:
 isTop: false
 ---
 已完成今日 [Primal-Dual 原始对偶 (oiwiki)](https://oi-wiki.org/graph/flow/min-cost/#primal-dual-%E5%8E%9F%E5%A7%8B%E5%AF%B9%E5%81%B6%E7%AE%97%E6%B3%95) 大学习。

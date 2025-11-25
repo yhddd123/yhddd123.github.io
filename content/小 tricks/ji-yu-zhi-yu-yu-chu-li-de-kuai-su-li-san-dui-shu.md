@@ -1,7 +1,7 @@
 ---
 title: '基于值域预处理的快速离散对数'
 date: 2024-10-29 22:23:34
-tags: [笔记,数学]
+tags: [tricks,数学]
 published: true
 hideInList: false
 feature: 

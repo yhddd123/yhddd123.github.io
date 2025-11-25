@@ -1,10 +1,12 @@
 ---
-title: 'arc196c 题解'
+title: arc196c 题解
 date: 2025-07-12 15:11:39
-tags: [题解,dp]
+tags:
+  - 题解
+  - 计数
 published: true
 hideInList: false
-feature: 
+feature:
 isTop: false
 ---
 [arc196c](https://www.luogu.com.cn/problem/AT_arc196_c)

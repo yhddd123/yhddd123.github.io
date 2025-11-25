@@ -25,6 +25,10 @@ The 4th Universal Cup 做题记录
 
 [Stage 5: Nanjing](https://qoj.ac/contest/2581) EFGLM
 
+[Extra Stage 2: Wuhan](https://qoj.ac/contest/2609)：BL
+
+[Stage 6: Shenyang](https://qoj.ac/contest/2641) ADFK
+
 ---
 
 不是我写的有一些就懒得补了。
@@ -205,7 +209,7 @@ $$f_{u,j1,k}+f_{v,j2,j2+k}\to f'_{u,j1,k}$$
 
 感受一下，对于 $p$，如果确定 $a_i$，那么 $a_j$ 应当选离 $p$ 最近的那个。所以一对 $(a_i,a_j)$ 有贡献的 $p$ 应该是在他们最短路的交界处。从 $k$ 个点出发跑多元最短路，在两端是不同出发点的边合并。
 
-### [The 4th Universal Cup. Extra Stage 1: Xi'an (Unrated)](https://qoj.ac/contest/2562)
+### [The 4th Universal Cup. Extra Stage 1: Xi'an](https://qoj.ac/contest/2562)
 
 ^c57a1b
 
@@ -268,3 +272,45 @@ $$E=n(2(n-1)+6m+2k)+m(6n+6(m-1)+2k+3)+k(2n+2m+k)$$
 凸多边形面积是 $\frac{1}{2}|\sum x_iy_{i+1}-x_{i+1}y_i|$ 之类。一条边 $(i,i+d)$ 的出现次数是 $\binom{n-1-d}{k-2}$。
 
 循环卷积，差卷积。
+
+### [The 4th Universal Cup. Extra Stage 2: Wuhan](https://qoj.ac/contest/2609)
+
+^3rj239
+
+场上过了 ABCEFGHJKLM。
+
+#### [B. 77G Network](https://qoj.ac/contest/2609/problem/14720)
+
+bfs 序，线段树优化建图跑 2-sat。
+
+#### [L. ICPC](https://qoj.ac/contest/2609/problem/14730)
+
+[[]]
+
+### [The 4th Universal Cup. Stage 6: Grand Prix of Shenyang](https://qoj.ac/contest/2641)
+
+^39fj2r
+
+场上过了 BDFGIJM。A 复制样例少一个 $0$，调不出来，硬是没交上去。
+
+#### [A. Square Kingdom](https://qoj.ac/contest/2641/problem/14940)
+
+$i,j$ 的距离为 $(j+\frac{b}{a})^2-(i+\frac{b}{a})^2=(j-i)(i+j+\frac{2b}{a})$。
+
+二分答案 $\frac{mid}{a}$，上界为 $5\times 10^{18}$。枚举 $j-i=d$，$i\le \min(n-i,\frac{1}{2}(\frac{mid}{ad}-\frac{2b}{a}-d))$。合法区间的子区间也合法，$d$ 不会超过 $2\sqrt k$。
+
+#### [D. LED Display Renovation](https://qoj.ac/contest/2641/problem/14943)
+
+前 $i$ 位用了 $j$ 次，前面是否可以全部消失。维护状态的最大值和方案数。
+
+特别的，当某一位无论如何都凑不出任何一个数时，可以不只从最大值转移，而是从之前所有满足状态的方案转移。
+
+#### [F. The Bond Beyond Time](https://qoj.ac/contest/2641/problem/14945)
+
+等于找一个环，使得环上的点没有额外的边链接。
+
+dfs 生成树，找到第一个有返祖边的点，从次浅的返祖边直接走到 $u$ 再走回最浅的返祖边。
+
+#### [K. Relay Jump](https://qoj.ac/contest/2641/problem/14950)
+
+$a$ 跳过 $b$ 变为 $2b-a$，$\sum v$ 的变化量为 $2(b-a)$。接着跳 $b,c,\ldots$。变化量为 $2(t-s)$。
