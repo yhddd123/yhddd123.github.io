@@ -208,8 +208,6 @@ void work(){
 }
 ```
 
-
-
 #### [Day 2 B. Collecting Stamps 4](https://qoj.ac/contest/2062/problem/11405)
 
 每个 AABB 对不合法，每次交换必然能消除一对。
@@ -281,5 +279,8 @@ void work(){
 }
 ```
 
+#### [Day 4 B. Migration Plan](https://qoj.ac/contest/2064/problem/11411)
 
+按 dep 建线段树，dfn 为下标。线段树合并，区间查询。
 
+#### [Day 4 C. Uiro](https://qoj.ac/contest/2064/problem/11412)
