@@ -11,7 +11,7 @@ isTop: false
 ---
 ###  完全二叉树求 lca
 
-![[O(n)-O(1) lca.pdf]]
+[[O(n)-O(1) lca.pdf]]
 
 [https://blog.csdn.net/kksleric/article/details/7836649](https://blog.csdn.net/kksleric/article/details/7836649)
 
