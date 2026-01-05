@@ -285,7 +285,7 @@ bfs 序，线段树优化建图跑 2-sat。
 
 #### [L. ICPC](https://qoj.ac/contest/2609/problem/14730)
 
-[[]]
+[[ge-lu-ji-shu#^103a08|here]]。
 
 ### [The 4th Universal Cup. Stage 6: Grand Prix of Shenyang](https://qoj.ac/contest/2641)
 

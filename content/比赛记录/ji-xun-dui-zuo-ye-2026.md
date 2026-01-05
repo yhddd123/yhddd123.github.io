@@ -73,7 +73,7 @@ $f_{i,j}$ 表示 $s,t$ 分别匹配到 $i$ 和 $j$。$|i-j|\le k$。$f_{*,j}$ �
 
 #### 19.[Q1351. Koosaga's Problem](https://qoj.ac/contest/2550/problem/1351) & 20.[Q1355. Rhythm Game](https://qoj.ac/contest/506/problem/1355)
 
-[[ptz-summer-2020-day-6|Petrozavodsk Summer 2020. Day 6. Korean Contest]]。
+[[ptz-ji-lu#^eaed40|Petrozavodsk Summer 2020. Day 6. Korean Contest]]。
 
 #### 27.[Q1817. AND Permutation](https://qoj.ac/contest/2550/problem/1817)
 
@@ -99,7 +99,7 @@ $f_{i,j}$ 表示 $s,t$ 分别匹配到 $i$ 和 $j$。$|i-j|\le k$。$f_{*,j}$ �
 
 #### 48.[Q2605. Soccer Match](https://qoj.ac/contest/2550/problem/2605) & 49.[Q2606. Gachapon](https://qoj.ac/contest/2550/problem/2606)
 
-[[ptz-winter-2022-day-6|Petrozavodsk Winter 2022. Day 6. ICPC Camp Day 1]]
+[[ptz-ji-lu#^3ce89f|Petrozavodsk Winter 2022. Day 6. ICPC Camp Day 1]]
 
 #### 59.[Q4805. Grammy Sorting](https://qoj.ac/contest/2550/problem/4805)
 
@@ -107,7 +107,7 @@ $f_{i,j}$ 表示 $s,t$ 分别匹配到 $i$ 和 $j$。$|i-j|\le k$。$f_{*,j}$ �
 
 倒序考虑双击定向的染色过程，后缀已经经过调整满足，加入点 $x$。此时一定存在 $s\to x$ 的路径，$x$ 可以走到一个后缀，在后缀中乱走直到 $a_p<a_s<a_{p_{out}}$。换这条路径可以使 $x$ 加入后缀且符合条件。 
 
-对于任意图，求一棵生成树，存在通用的 $O(n\log n)$ 做法，见 [[ptz-winter-2018-day-3#^080eae|Q11628]]。
+对于任意图，求一棵生成树，存在通用的 $O(n\log n)$ 做法，见 [[ptz-ji-lu#^080eae|Q11628]]。
 
 #### 60.[Q4808. Great Party](https://qoj.ac/contest/2550/problem/4808)
 

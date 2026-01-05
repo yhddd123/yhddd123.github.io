@@ -17,7 +17,7 @@ CSP 没挂，学校 $4$ 个 ak，GD $20$ 个。
 
 ---
 
-vp 了 [[ptz-winter-2022-day-6|Petrozavodsk Winter 2022. Day 6. ICPC Camp Day 1]]，[B](https://qoj.ac/contest/824/problem/2606) 是个厉害题。
+vp 了 [[ptz-ji-lu#^3ce89f|Petrozavodsk Winter 2022. Day 6. ICPC Camp Day 1]]，[B](https://qoj.ac/contest/824/problem/2606) 是个厉害题。
 
 vp 了 [Petrozavodsk Winter 2022. Day 3. Kazakhstan Contest]，交互写不出来，怒而体锻。发现 [I](https://qoj.ac/contest/821/problem/2572) 就是 [[the-4th-universal-cup-zuo-ti-ji-lu-1#^058c85|4th ucup stage 1 J]]，场上做半天就剩：用 $k$ 个上升序列最多能覆盖几个位置，结果不可做。为啥过这么多。
 

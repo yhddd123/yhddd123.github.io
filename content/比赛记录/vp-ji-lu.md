@@ -7,4 +7,7 @@ hideInList: false
 feature: 
 isTop: false
 ---
-1
+[https://qoj.ac/user/profile/yhddd](https://qoj.ac/user/profile/yhddd)
+
+[[ptz-ji-lu|Petrozavodsk Programming Camp]]。
+

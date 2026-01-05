@@ -17,7 +17,7 @@ isTop: false
 
 ---
 
-这周 vp 了 [[ptz-winter-2018-day-3|Petrozavodsk Winter 2018. Day 3. AtCoder Contest]]。很多有意思的典题。
+这周 vp 了 [[ptz-ji-lu#^e294b4|Petrozavodsk Winter 2018. Day 3. AtCoder Contest]]。很多有意思的典题。
 
 ---
 
