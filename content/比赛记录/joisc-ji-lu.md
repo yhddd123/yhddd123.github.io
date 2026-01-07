@@ -38,13 +38,7 @@ isTop: false
 
 #### [Day 4 C. Table Tennis](https://qoj.ac/contest/1636/problem/8641)
 
-对于一个确定的比分序列，三元环数量为 $\binom{n}{3}-\sum \binom{d_i}2$。
-
-从 $\{0,\ldots,n-1\}$ 开始，到 $\{\frac{n}{2},\ldots,\frac{n+1}{2}\}$，每次找一个 $x-1$ 和 $x+1$ 调整为 $x,x$，恰好能使三元环数量加 $1$。复杂度 $O(m)$。
-
-注意到最大三元环数 $f(n)$ 是 $O(n^3)$ 的，$f(n)-f(n-1)$ 是 $O(n^2)$ 的，找到第一个满足的 $n'$ 往回调整即可。
-
-从一个合法的比分序列还原竞赛图：按 $d_i$ 排序，从后往前，赢前 $d_i$ 个，输后面的。
+[[p10441-ti-jie|here]]。
 
 ### [joisc 2025](https://qoj.ac/category/420)
 
