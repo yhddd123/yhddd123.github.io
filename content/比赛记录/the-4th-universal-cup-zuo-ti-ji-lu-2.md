@@ -1,0 +1,31 @@
+---
+title: 'The 4th Universal Cup 做题记录 (2)'
+date: 2026-01-11 22:26:57
+tags: [做题记录,acm]
+published: true
+hideInList: false
+feature: 
+isTop: false
+---
+The 4th Universal Cup 做题记录
+
+[[the-4th-universal-cup-zuo-ti-ji-lu-1|做题记录 1：Stage 0 - Stage 9]]
+
+[Stage 12: Shanghai](https://qoj.ac/contest/2908)：BIKM
+
+### [The 4th Universal Cup. Stage 12: Grand Prix of Shanghai](https://qoj.ac/contest/2908)
+
+[B](https://qoj.ac/contest/2908/problem/15315) 是找一棵生成树直接做，做完就剩根不对，再找一个奇环调。注意次数。
+
+[I](https://qoj.ac/contest/2908/problem/15322) 是 $f_i=\min f_j+(i-j-1)C+(a_i\oplus a_j)$，高低位分治。
+
+[K](https://qoj.ac/contest/2908/problem/15324) 直接 $O(n\sqrt{n\log n})$ 容易。注意单侧递归套单侧递归可以 $O(n\log^3n)$ 做 $mn_i\times mx_i$。
+
+#### [M. Yet another 01 problem](https://qoj.ac/contest/2908/problem/15326)
+
+一个节点的两个叶子儿子必须不同。一个确定的树的权值为 $2$ 的（有两个非叶子儿子的节点数）次方，也即 $2$ 的（有两个叶子儿子的节点数 $-1$ ）次方。
+
+钦定一些相邻且不交的对数，一对如果不等权值为 $-1$，剩下的乱选即 $Cat(n-k-1)$。
+
+设 $f_{i,j,0/1}$ 为前 $i$ 个选 $j$ 个最后一个选/不选。分治 ntt，$f(l,r,0/1,0/1)$.
+

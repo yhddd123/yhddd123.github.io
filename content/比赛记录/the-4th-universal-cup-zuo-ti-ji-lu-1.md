@@ -29,6 +29,8 @@ The 4th Universal Cup 做题记录
 
 [Stage 6: Shenyang](https://qoj.ac/contest/2641) ADFK
 
+[[the-4th-universal-cup-zuo-ti-ji-lu-2|做题记录 2：Stage 10 - Stage 19]]
+
 ---
 
 不是我写的有一些就懒得补了。
