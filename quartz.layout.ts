@@ -61,7 +61,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.RecentNotes({ 
       limit: 2,
       showTags: false,
-      linkToMore: "components",
+      linkToMore: "recentnote",
     }),
   ],
   right: [
