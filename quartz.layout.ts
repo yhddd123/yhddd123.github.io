@@ -62,7 +62,7 @@ export const defaultContentPageLayout: PageLayout = {
       limit: 2,
       showTags: false,
       linkToMore: "recentnote",
-      filter: (f) => f.slug !== "recentnote", // 排除recentnote页面本身，确保remaining > 0时显示"see more"
+      // filter: (f) => !f.slug?.startsWith("recentnote"), // 排除recentnote文件夹及其内部文件
     }),
   ],
   right: [
