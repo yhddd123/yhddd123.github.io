@@ -62,7 +62,7 @@ export const defaultContentPageLayout: PageLayout = {
       limit: 2,
       showTags: false,
       linkToMore: "recentnote",
-      // filter: (f) => !f.slug?.startsWith("recentnote"), // 排除recentnote文件夹及其内部文件
+      filter: (f) => !f.slug?.startsWith("recentnote"), // 排除recentnote文件夹及其内部文件
     }),
   ],
   right: [
@@ -72,6 +72,30 @@ export const defaultContentPageLayout: PageLayout = {
     })),
     Component.Backlinks(),
   ],
+}
+
+// 最近笔记页面的布局
+export const recentNoteLayout: PageLayout = {
+  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  left: [
+    Component.PageTitle(),
+    Component.MobileOnly(Component.Spacer()),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        },
+        { Component: Component.Darkmode() },
+      ],
+    }),
+    Component.Explorer({
+      // mapFn,
+      // filterFn,
+      // sortFn,
+    }),
+  ],
+  right: [],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)

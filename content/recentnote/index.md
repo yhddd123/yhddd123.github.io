@@ -1,5 +1,4 @@
 ---
 title: 最近笔记
+layout: recentnote
 ---
-
-这是最近更新的笔记列表页面。

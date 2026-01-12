@@ -9,6 +9,7 @@ import { QuartzPluginData } from "../../plugins/vfile"
 import { ComponentChildren } from "preact"
 import { concatenateResources } from "../../util/resources"
 import { trieFromAllFiles } from "../../util/ctx"
+import { byDateAndAlphabetical } from "../PageList"
 
 interface FolderContentOptions {
   /**
@@ -29,6 +30,35 @@ export default ((opts?: Partial<FolderContentOptions>) => {
 
   const FolderContent: QuartzComponent = (props: QuartzComponentProps) => {
     const { tree, fileData, allFiles, cfg } = props
+
+    // 特殊处理 recentnote 页面，显示全局最近笔记
+    if (fileData.slug === "recentnote") {
+      const allPagesExceptRecentnote = allFiles
+        .filter((f) => !f.slug?.startsWith("recentnote"))
+        .sort(options.sort || byDateAndAlphabetical(cfg))
+
+      const content = (
+        (tree as Root).children.length === 0
+          ? fileData.description
+          : htmlToJsx(fileData.filePath!, tree)
+      ) as ComponentChildren
+
+      return (
+        <div class="popover-hint">
+          <article>{content}</article>
+          <div class="page-listing">
+            <p>
+              {i18n(cfg.locale).pages.folderContent.itemsUnderFolder({
+                count: allPagesExceptRecentnote.length,
+              })}
+            </p>
+            <div>
+              <PageList {...props} allFiles={allPagesExceptRecentnote} sort={options.sort} />
+            </div>
+          </div>
+        </div>
+      )
+    }
 
     const trie = (props.ctx.trie ??= trieFromAllFiles(allFiles))
     const folder = trie.findNode(fileData.slug!.split("/"))
