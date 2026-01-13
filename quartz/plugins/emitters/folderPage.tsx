@@ -14,7 +14,11 @@ import {
   pathToRoot,
   simplifySlug,
 } from "../../util/path"
-import { defaultListPageLayout, sharedPageComponents } from "../../../quartz.layout"
+import {
+  defaultListPageLayout,
+  sharedPageComponents,
+  recentNoteLayout,
+} from "../../../quartz.layout"
 import { FolderContent } from "../../components"
 import { write } from "./helpers"
 import { i18n, TRANSLATIONS } from "../../i18n"
@@ -143,7 +147,38 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (user
       )
 
       const folderInfo = computeFolderInfo(folders, content, cfg.locale)
-      yield* processFolderInfo(ctx, folderInfo, allFiles, opts, resources)
+
+      // 为 recentnote 文件夹使用特殊的布局
+      for (const [folder, folderContent] of Object.entries(folderInfo) as [
+        SimpleSlug,
+        ProcessedContent,
+      ][]) {
+        const slug = joinSegments(folder, "index") as FullSlug
+        const [tree, file] = folderContent
+        const externalResources = pageResources(pathToRoot(slug), resources)
+        const componentData: QuartzComponentProps = {
+          ctx,
+          fileData: file.data,
+          externalResources,
+          cfg,
+          children: [],
+          tree,
+          allFiles,
+        }
+
+        // 检查是否为 recentnote 文件夹
+        const pageOpts = folder === "recentnote" 
+          ? { ...sharedPageComponents, ...recentNoteLayout }
+          : opts
+
+        const content = renderPage(cfg, slug, componentData, pageOpts, externalResources)
+        yield write({
+          ctx,
+          content,
+          slug,
+          ext: ".html",
+        })
+      }
     },
     async *partialEmit(ctx, content, resources, changeEvents) {
       const allFiles = content.map((c) => c[1].data)
@@ -163,7 +198,38 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (user
       // If there are affected folders, rebuild their pages
       if (affectedFolders.size > 0) {
         const folderInfo = computeFolderInfo(affectedFolders, content, cfg.locale)
-        yield* processFolderInfo(ctx, folderInfo, allFiles, opts, resources)
+        
+        // 为 recentnote 文件夹使用特殊的布局
+        for (const [folder, folderContent] of Object.entries(folderInfo) as [
+          SimpleSlug,
+          ProcessedContent,
+        ][]) {
+          const slug = joinSegments(folder, "index") as FullSlug
+          const [tree, file] = folderContent
+          const externalResources = pageResources(pathToRoot(slug), resources)
+          const componentData: QuartzComponentProps = {
+            ctx,
+            fileData: file.data,
+            externalResources,
+            cfg,
+            children: [],
+            tree,
+            allFiles,
+          }
+
+          // 检查是否为 recentnote 文件夹
+          const pageOpts = folder === "recentnote" 
+            ? { ...sharedPageComponents, ...recentNoteLayout }
+            : opts
+
+          const content = renderPage(cfg, slug, componentData, pageOpts, externalResources)
+          yield write({
+            ctx,
+            content,
+            slug,
+            ext: ".html",
+          })
+        }
       }
     },
   }

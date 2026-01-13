@@ -76,7 +76,21 @@ export const defaultContentPageLayout: PageLayout = {
 
 // 最近笔记页面的布局
 export const recentNoteLayout: PageLayout = {
-  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  beforeBody: [
+    Component.Breadcrumbs(),
+    Component.ArticleTitle(),
+    Component.ContentMeta(),
+    Component.ConditionalRender({
+      component: Component.RecentNotes({
+        title: "所有笔记",
+        limit: 100,
+        showTags: true,
+        linkToMore: false,
+        filter: (f) => !f.slug?.startsWith("recentnote"),
+      }),
+      condition: (page) => page.fileData.slug === "recentnote",
+    }),
+  ],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
@@ -87,6 +101,7 @@ export const recentNoteLayout: PageLayout = {
           grow: true,
         },
         { Component: Component.Darkmode() },
+        { Component: Component.ReaderMode() },
       ],
     }),
     Component.Explorer({
