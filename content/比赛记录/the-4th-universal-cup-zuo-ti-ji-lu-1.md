@@ -15,7 +15,7 @@ The 4th Universal Cup 做题记录
 
 [Stage 1: Korolyov](https://qoj.ac/contest/2539)：BEG
 
-[Stage 2: Paris](https://qoj.ac/contest/2551)：DEJ
+[Stage 2: Paris](https://qoj.ac/contest/2551)：EJ
 
 [Stage 3: Polar](https://qoj.ac/contest/2559)：BEFGIJ
 
@@ -23,7 +23,7 @@ The 4th Universal Cup 做题记录
 
 [Extra Stage 1: Xi'an](https://qoj.ac/contest/2562)：ACK
 
-[Stage 5: Nanjing](https://qoj.ac/contest/2581)：BEFGLM
+[Stage 5: Nanjing](https://qoj.ac/contest/2581) EFGLM
 
 [Extra Stage 2: Wuhan](https://qoj.ac/contest/2609)：BL
 

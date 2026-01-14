@@ -11,7 +11,7 @@ The 4th Universal Cup 做题记录
 
 [[the-4th-universal-cup-zuo-ti-ji-lu-1|做题记录 1：Stage 0 - Stage 9]]
 
-[Stage 12: Shanghai](https://qoj.ac/contest/2908)：BIKLM
+[Stage 12: Shanghai](https://qoj.ac/contest/2908)：BIKM
 
 ### [The 4th Universal Cup. Stage 12: Grand Prix of Shanghai](https://qoj.ac/contest/2908)
 
@@ -20,16 +20,6 @@ The 4th Universal Cup 做题记录
 [I](https://qoj.ac/contest/2908/problem/15322) 是 $f_i=\min f_j+(i-j-1)C+(a_i\oplus a_j)$，高低位分治。
 
 [K](https://qoj.ac/contest/2908/problem/15324) 直接 $O(n\sqrt{n\log n})$ 容易。注意单侧递归套单侧递归可以 $O(n\log^3n)$ 做 $mn_i\times mx_i$。
-
-#### [L. Yet another permutation problem](https://qoj.ac/contest/2908/problem/15325)
-
-判定一个序列能否变为另一个：从左到右能分段就分段，不能分段再考虑交换最大最小值并重新分段。
-
-即，对 $[l,r]$，之前的操作会导致：没变化、原来最小值的位置是来自外面的最大值、最大值位置是最小值。还有一些位置被 ban 掉不能分段：全部不能、全部能、最小值右边不能、最大值右边不能。
-
-直接枚举分段的位置转移即可。
-
-[submission](https://qoj.ac/submission/1908622)
 
 #### [M. Yet another 01 problem](https://qoj.ac/contest/2908/problem/15326)
 
