@@ -295,7 +295,7 @@ void work(){
 
 二分答案，取 $a_i-x$ 前缀和的最长上升子序列和 $k$ 比较。
 
-剩下的待补。
+待补。
 
 ## [The 3rd Universal Cup. Stage 4: Hongō](https://qoj.ac/contest/1738)
 

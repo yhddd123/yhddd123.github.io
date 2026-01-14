@@ -15,7 +15,7 @@ The 4th Universal Cup 做题记录
 
 [Stage 1: Korolyov](https://qoj.ac/contest/2539)：BEG
 
-[Stage 2: Paris](https://qoj.ac/contest/2551)：EJ
+[Stage 2: Paris](https://qoj.ac/contest/2551)：DEJ
 
 [Stage 3: Polar](https://qoj.ac/contest/2559)：BEFGIJ
 
@@ -23,7 +23,7 @@ The 4th Universal Cup 做题记录
 
 [Extra Stage 1: Xi'an](https://qoj.ac/contest/2562)：ACK
 
-[Stage 5: Nanjing](https://qoj.ac/contest/2581) EFGLM
+[Stage 5: Nanjing](https://qoj.ac/contest/2581)：BEFGLM
 
 [Extra Stage 2: Wuhan](https://qoj.ac/contest/2609)：BL
 
@@ -159,9 +159,9 @@ $$f_{u,j1,k}+f_{v,j2,j2+k}\to f'_{u,j1,k}$$
 
 考虑后缀和，每次可以 $s+1\to s'$ 或 $\max(s-1,0)\to s'$。要求 $s\le k$。
 
-刻画路径：第奇数次 $s=0$ 时 $-1$ 向下走，并反转之后的路径，直到第偶数次 $s=0$ 时 $-1$ 向上走。这样双射从 $(0,0)$ 到 $(n,i)$，一步右上或右下，不经过 $k+1$ 和 $-k-2$ 的路径。
+构造双射路径：第奇数次 $s=0$ 时 $-1$ 向下走，并反转之后的路径，直到第偶数次 $s=0$ 时 $-1$ 向上走。这样双射从 $(0,0)$ 到 $(n,i)$，一步右上或右下，不经过 $k+1$ 和 $-k-2$ 的路径。
 
-反射容斥，预处理上指标为 $n$ 的前缀和。单次复杂度 $O(\frac{n}{k})$。
+[[ge-lu-ji-shu#^85b7de|反射容斥]]，预处理上指标为 $n$ 的前缀和。单次复杂度 $O(\frac{n}{k})$。
 
 #### [F. This Time I Will Be Lucky](https://qoj.ac/contest/2559/problem/14420)
 
