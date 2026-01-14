@@ -98,8 +98,8 @@ export const defaultListPageLayout: PageLayout = {
 }
 
 // components for the all-notes page
-export const allNotesPageLayout: PageLayout = {
-  beforeBody: [],
+export const allNotesPageLayout: PageLayout = {  
+  beforeBody: [Component.AllNotes()],
   left: [],
   right: [],
 }
