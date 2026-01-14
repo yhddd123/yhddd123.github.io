@@ -23,6 +23,7 @@ import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
+import AllNotes from "./AllNotes"
 
 export { default as FlyingFish } from "./FlyingFish"
 

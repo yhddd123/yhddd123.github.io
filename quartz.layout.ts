@@ -61,6 +61,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.RecentNotes({ 
       limit: 2,
       showTags: false,
+      linkToMore: "all-notes",
     }),
   ],
   right: [
@@ -93,5 +94,12 @@ export const defaultListPageLayout: PageLayout = {
       // sortFn,
     }),
   ],
+  right: [],
+}
+
+// components for the all-notes page
+export const allNotesPageLayout: PageLayout = {
+  beforeBody: [Component.AllNotes()],
+  left: [],
   right: [],
 }
