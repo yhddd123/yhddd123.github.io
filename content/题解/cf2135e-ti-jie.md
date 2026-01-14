@@ -15,7 +15,7 @@ isTop: false
 
 ### E1
 
-设 $f(n,m,l,r)$ 表示从 $(0,0)$ 到 $(n,m)$ 且不碰 $y=x+l,y=x+r$ 的路径数，其中要求 $l\le 0\le r$。则由[[ge-lu-ji-shu#^85b7de|反射容斥]]，$f(n,m,l,r)=\sum_k \binom{n+m}{n+k(r-l)}-\sum_k\binom{n+m}{n+k(r-l)+k}$。只有 $\frac{n}{r-l}$ 个组合数有值。
+设 $f(n,m,l,r)$ 表示从 $(0,0)$ 到 $(n,m)$ 且不碰 $y=x+l,y=x+r$ 的路径数，其中要求 $l\le 0\le r$。则由反射容斥，$f(n,m,l,r)=\sum_k \binom{n+m}{n+k(r-l)}-\sum_k\binom{n+m}{n+k(r-l)+k}$。只有 $\frac{n}{r-l}$ 个组合数有值。
 
 枚举 $\min s_i=l,\max s_i=r$，要求从 $(0,0)$ 到 $(\frac{n+s_n}{2},\frac{n-s_n}{2})$，$+1$ 向右，$-1$ 向上，恰好碰到 $y=-l$ 和 $y=-r$，即 $f(\frac{n+l+r}{2},\frac{n-l-r}{2},-r,-l)+f(\frac{n+l+r}{2},\frac{n-l-r}{2},-r-1,-l+1)-f(\frac{n+l+r}{2},\frac{n-l-r}{2},-r,-l+1)-f(\frac{n+l+r}{2},\frac{n-l-r}{2},-r-1,-l)$。
 

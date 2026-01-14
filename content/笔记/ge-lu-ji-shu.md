@@ -15,7 +15,7 @@ isTop: false
 
 特别的，从 $(0,0)$ 到 $(n,n)$ 不经过 $y=x+1$ 即 $cat_n=\frac{\binom{2n}{n}}{n+1}$。
 
-对于双边界，从 $(0,0)$ 到 $(n,m)$ 不经过 $y=x+l$ 和 $y=x+r$：$\sum_k \binom{n+m}{n-k(r-l)}-\binom{n+m}{n-k(r-l)+r}$。只有 $O(\frac{n+m}{r-l})$ 个位置有值。 ^85b7de
+对于双边界，从 $(0,0)$ 到 $(n,m)$ 不经过 $y=x+l$ 和 $y=x+r$：$\sum_k \binom{n+m}{n-k(r-l)}-\binom{n+m}{n-k(r-l)+r}$。只有 $O(\frac{n+m}{r-l})$ 个位置有值。
 
 对于斜率有理数直线：待补。
 
