@@ -53,6 +53,14 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
     pageBody: Content(),
     ...userOpts,
   }
+  
+  // Special layout for all-notes page
+  const allNotesOpts: FullPageLayout = {
+    ...sharedPageComponents,
+    ...allNotesPageLayout,
+    pageBody: Content(),
+    ...userOpts,
+  }
 
   const { head: Head, header, beforeBody, pageBody, afterBody, left, right, footer: Footer } = opts
   const Header = HeaderConstructor()
@@ -86,7 +94,9 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
 
         // only process home page, non-tag pages, and non-index pages
         if (slug.endsWith("/index") || slug.startsWith("tags/")) continue
-        yield processContent(ctx, tree, file.data, allFiles, opts, resources)
+        // Use special layout for all-notes page
+        const layout = slug === "all-notes" ? allNotesOpts : opts
+        yield processContent(ctx, tree, file.data, allFiles, layout, resources)
       }
 
       if (!containsIndex) {
@@ -114,8 +124,9 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
         const slug = file.data.slug!
         if (!changedSlugs.has(slug)) continue
         if (slug.endsWith("/index") || slug.startsWith("tags/")) continue
-
-        yield processContent(ctx, tree, file.data, allFiles, opts, resources)
+        // Use special layout for all-notes page
+        const layout = slug === "all-notes" ? allNotesOpts : opts
+        yield processContent(ctx, tree, file.data, allFiles, layout, resources)
       }
     },
   }
