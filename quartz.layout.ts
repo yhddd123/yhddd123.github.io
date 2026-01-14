@@ -61,7 +61,8 @@ export const defaultContentPageLayout: PageLayout = {
     Component.RecentNotes({ 
       limit: 2,
       showTags: false,
-      linkToMore: "recent-notes",
+      linkToMore: "recentnote",
+      // filter: (f) => !f.slug?.startsWith("recentnote"), // 排除recentnote文件夹及其内部文件
     }),
   ],
   right: [
@@ -71,6 +72,45 @@ export const defaultContentPageLayout: PageLayout = {
     })),
     Component.Backlinks(),
   ],
+}
+
+// 最近笔记页面的布局
+export const recentNoteLayout: PageLayout = {
+  beforeBody: [
+    Component.Breadcrumbs(),
+    Component.ArticleTitle(),
+    Component.ContentMeta(),
+    Component.ConditionalRender({
+      component: Component.RecentNotes({
+        title: "所有笔记",
+        limit: 100,
+        showTags: true,
+        linkToMore: false,
+        filter: (f) => !f.slug?.startsWith("recentnote"),
+      }),
+      condition: (page) => page.fileData.slug === "recentnote",
+    }),
+  ],
+  left: [
+    Component.PageTitle(),
+    Component.MobileOnly(Component.Spacer()),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        },
+        { Component: Component.Darkmode() },
+        { Component: Component.ReaderMode() },
+      ],
+    }),
+    Component.Explorer({
+      // mapFn,
+      // filterFn,
+      // sortFn,
+    }),
+  ],
+  right: [],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)
