@@ -62,7 +62,7 @@ export const defaultContentPageLayout: PageLayout = {
       limit: 2,
       showTags: false,
       linkToMore: "recentnote",
-      // filter: (f) => !f.slug?.startsWith("recentnote"), // 排除recentnote文件夹及其内部文件
+      filter: (f) => !f.slug?.startsWith("recentnote"), // 排除recentnote文件夹及其内部文件
     }),
   ],
   right: [

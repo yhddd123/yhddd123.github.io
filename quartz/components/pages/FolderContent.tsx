@@ -43,25 +43,17 @@ export default ((opts?: Partial<FolderContentOptions>) => {
           : htmlToJsx(fileData.filePath!, tree)
       ) as ComponentChildren
 
-      const listProps = {
-        ...props,
-        allFiles: allPagesExceptRecentnote,
-        sort: options.sort,
-      }
-
       return (
         <div class="popover-hint">
           <article>{content}</article>
           <div class="page-listing">
-            {options.showFolderCount && (
-              <p>
-                {i18n(cfg.locale).pages.folderContent.itemsUnderFolder({
-                  count: allPagesExceptRecentnote.length,
-                })}
-              </p>
-            )}
+            <p>
+              {i18n(cfg.locale).pages.folderContent.itemsUnderFolder({
+                count: allPagesExceptRecentnote.length,
+              })}
+            </p>
             <div>
-              <PageList {...listProps} />
+              <PageList {...props} allFiles={allPagesExceptRecentnote} sort={options.sort} />
             </div>
           </div>
         </div>
