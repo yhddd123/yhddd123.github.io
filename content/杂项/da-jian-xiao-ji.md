@@ -93,7 +93,7 @@ export const sharedPageComponents: SharedLayout = {
 
 对 Explorer 排序。文件夹字典序，文件按时间倒序，文件夹在文件之前。
 
-，好像这个功能用默认好看点。
+后来又想了一下，好像这个功能用默认好看点。
 
 [frontmatter：文件属性](https://draftz.felixnie.com/Digital-Garden/Sorting-Objects-in-Explorer#add-frontmatter-back)。```title/date/...```。需要重新添加入 ```type ContentDetails``` 中。```\quartz\plugins\emitters\contentIndex.tsx``` 内修改三处。
 
@@ -159,7 +159,7 @@ export const sortFn: Options["sortFn"] = (a, b) => {
 }
 ```
 
-[近期文章](https://quartz.jzhao.xyz/features/recent-notes)。```  Component.RecentNotes({ limit: 5 }),``` ，参数为最近几篇。
+近期文章(https://quartz.jzhao.xyz/features/recent-notes)。可以放在 ```defaultContentPageLayout``` 的 ```right``` 中。```  Component.RecentNotes({ limit: 5 }),``` ，参数为最近几篇。
 
 非 markdown 标准 [分段](https://quartz.jzhao.xyz/plugins/HardLineBreaks)：两行紧贴着为半行。```quartz.config.ts``` 的 ``` transformers``` 部分加 ```Plugin.HardLineBreaks(),```。
 
