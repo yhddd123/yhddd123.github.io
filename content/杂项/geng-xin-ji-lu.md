@@ -11,6 +11,8 @@ isTop: false
 
 至于现在？已经破防！
 
+AI 启动！
+
 配置的常见问题的基本步骤见 [[da-jian-xiao-ji|搭建小记]]。
 
 ---
@@ -30,3 +32,9 @@ isTop: false
 #### 251027
 
 看到一个 [鱼动画](https://yhddd123.github.io/static/js/fish.js)，作为背景动画。
+
+#### 260124
+
+[recent-notes](https://quartz.jzhao.xyz/features/recent-notes) 的 see more 功能。
+
+总之用 AI 就对了。

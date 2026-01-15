@@ -19,3 +19,7 @@ isTop: false
 [Q11401](https://qoj.ac/contest/2061/problem/11401)
 
 [[joisc-ji-lu#^912b96|here]]。
+
+[P13758](https://www.luogu.com.cn/problem/P13758)
+
+[[p13758-ti-jie|here]]。

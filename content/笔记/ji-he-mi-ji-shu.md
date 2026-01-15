@@ -19,9 +19,9 @@ isTop: false
 
 有 $FMT(A+B)=FMT(A)+FMT(B)$ 和 $FMT(f*g)_S=FMT(f)_SFMT(g)_S$。
 
-and 卷积 则是向低维去前缀和？
+and 卷积 则是向低维去前缀和。
 
-这两个卷积根本就不用递归。
+UPD：但是，事实上，FWT 版本的写法常数小得多。
 
 #### xor 卷积
 
@@ -91,8 +91,6 @@ void mulxor(int *a,int *b,int *ans,int n){
 
 弄出占位幂级数，对集合幂级数一维 fmt，对形式幂级数一维做 ln 和 exp。
 
-
-
 把 $x$ 当成集合幂级数，设 $g=exp(f)$，则 $g_S=\sum_{i\ge 0} \frac{(f^i)_S}{i!}$，其中乘法为无交并。exp 的组合意义即有序取 $i$ 个子集再消除顺序，可以对应到 $O(3^n)$ 枚举子集的卷积 $g_S=\sum_{T\subseteq S,lowbit(T)=lowbit(S)} f_Tg_{S\oplus T}$。ln 则为其逆运算。
 
 ### Code
@@ -103,7 +101,7 @@ void fmt(int *a,int n,int w=1){
 		for(int s=0;s<(1<<n);s++)if(s&(1<<i))(a[s]+=a[s^(1<<i)]*w)%=mod;
 	}
 }
-int ff[maxn+1][1<<maxn],gg[maxn+1][1<<maxn],hh[1<<maxn],ni[maxn+1];
+int ff[maxn+1][1<<maxn],gg[maxn+1][1<<maxn],hh[maxn+1],ni[maxn+1];
 void xormul(int *a,int *b,int *c,int n){//a*b=c
 	for(int i=0;i<=n;i++){
 		for(int s=0;s<(1<<n);s++)ff[i][s]=gg[i][s]=0;
@@ -193,3 +191,55 @@ void xorexp(int *a,int *b,int n){//ln(a)=b
 	b[0]=1;for(int s=1;s<(1<<n);s++)b[s]=ff[__builtin_popcount(s)][s];
 }
 ```
+
+### 半在线子集卷积
+
+$$f_S=\sum_{S\subset T} f_Tg_{S-T}$$
+
+按 $|S|$ 从小到大分批转移。复杂度 $O(\sum i^22^i)=O(n^22^n)$。
+
+#### 非质数模数 [exp](https://www.luogu.com.cn/problem/P13843) & [ln](https://www.luogu.com.cn/problem/P13844)
+
+^822222
+
+直接 fmt 然后 $O(n^2)$ 做形式幂级数运算需要求逆元，不一定有。
+
+从组合意义出发。
+
+exp：$f_S=\sum_{T\subset S,lb(S)=lb(T)} g_Tf_{S-T}$。那就挖掉 high bit 然后对剩下的子集卷积即可。
+
+```cpp
+void exp(int *a,int *b,int n){
+	b[0]=1;
+	for(int i=0;i<n;i++)xormul(a+(1<<i),b,b+(1<<i),i);
+}
+```
+
+ln：$f_S=g_S-\sum_{T\subset S,lb(S)=lb(T)}f_Tg_{S-T}$。那就挖掉 high bit 然后对剩下的半在线子集卷积。
+
+```cpp
+void mulself(ull *a,ull *b,int n){
+	for(int i=0;i<=n;i++){
+		for(int s=0;s<(1<<n);s++)ff[i][s]=gg[i][s]=0;
+	}
+	for(int s=0;s<(1<<n);s++)ff[__builtin_popcount(s)][s]=a[s];
+	for(int s=0;s<(1<<n);s++)gg[__builtin_popcount(s)][s]=b[s];
+	for(int i=0;i<=n;i++)fmt(ff[i],1<<n,1);
+	for(int i=0;i<=n;i++)fmt(gg[i],1<<n,1);
+	for(int i=0;i<=n;i++){
+		fmt(gg[i],1<<n,-1);
+		for(int s=0;s<(1<<n);s++)if(__builtin_popcount(s)==i)gg[i][s]=a[s|(1<<n)]-gg[i][s];
+		fmt(gg[i],1<<n,1);
+		for(int j=i+1;j<=n;j++){
+			for(int s=0;s<(1<<n);s++)gg[j][s]+=gg[i][s]*ff[j-i][s];
+		}
+	}
+	for(int i=0;i<=n;i++)fmt(gg[i],1<<n,-1);
+	for(int s=0;s<(1<<n);s++)b[s]=gg[__builtin_popcount(s)][s];
+}
+void ln(ull *a,ull *b,int n){
+	for(int i=0;i<n;i++)mulself(a,b+(1<<i),i);
+}
+```
+
+取模少，快得多！
