@@ -37,8 +37,6 @@ The 3rd Universal Cup 做题记录
 
 大概在 $\frac{2}{3}n\log n$ 级别。线段树维护区间 $[l,r]$ 有什么数，每次随机取出两个数，将左半边设为 $u$，右半边设为 $v$ 询问。如果 $ans=0/2$ 可以将 $u,v$ 放入左右儿子，否则如果这是第一次，就把 $u,v$ 放回去重来，否则一定找得到一个数 $x$，将某半边设为 $x$ 再问一遍。理论上是 $\frac{3}{4}n\log n$，加上剪枝次数就差不多刚好了，偶尔会超。
 
-![](https://yhddd123.github.io/post-images/1729259469582.png)
-
 upd：正解是已知 $u,v$ 在同半边后并查集将 $u,v$ 当作一个点继续做。
 
 ### [D. Collect the Coins](https://contest.ucup.ac/contest/1803/problem/9427)
