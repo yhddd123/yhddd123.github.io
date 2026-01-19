@@ -21,6 +21,8 @@ $f(x)=f_{x_0}+\sum\limits_{n=1}^{+\infty}\frac{f^{(n)}(x_{0})(x - x_{0})^n}{n!}$
 
 ### ln/exp
 
+^b04eea
+
 设 $g=ln(f)$。有 $f_0=1,g_0=0$。
 
 求导，$g'(x)=\frac{f'(x)}{f(x)}$。
@@ -40,6 +42,8 @@ $f(x)=f_{x_0}+\sum\limits_{n=1}^{+\infty}\frac{f^{(n)}(x_{0})(x - x_{0})^n}{n!}$
 两个都可以分治 ntt，一次 $n=10^5$ 小于 $500ms$。
 
 exp 和 单 $\log$ 速度相当，ln 多一倍常数。
+
+过不了只是 poly 板子太烂了。
 
 ### OGF
 
