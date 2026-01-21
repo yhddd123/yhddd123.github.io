@@ -224,26 +224,30 @@ void exp(int *a,int *b,int n){
 ln：$f_S=g_S-\sum_{T\subset S,hb(S)=hb(T)}f_Tg_{S-T}$。那就挖掉 high bit 然后对剩下的半在线子集卷积。
 
 ```cpp
-void mulself(ull *a,ull *b,int n){
+void mulself(int *a,int *b,int n){
 	for(int i=0;i<=n;i++){
 		for(int s=0;s<(1<<n);s++)ff[i][s]=gg[i][s]=0;
 	}
 	for(int s=0;s<(1<<n);s++)ff[__builtin_popcount(s)][s]=a[s];
 	for(int s=0;s<(1<<n);s++)gg[__builtin_popcount(s)][s]=b[s];
-	for(int i=0;i<=n;i++)fmt(ff[i],1<<n,1);
-	for(int i=0;i<=n;i++)fmt(gg[i],1<<n,1);
+	for(int i=0;i<=n;i++)fmt1(ff[i],1<<n);
+	for(int i=0;i<=n;i++)fmt1(gg[i],1<<n);
 	for(int i=0;i<=n;i++){
-		fmt(gg[i],1<<n,-1);
-		for(int s=0;s<(1<<n);s++)if(__builtin_popcount(s)==i)gg[i][s]=a[s|(1<<n)]-gg[i][s];
-		fmt(gg[i],1<<n,1);
+		fmt2(gg[i],1<<n);
+		for(int s=0;s<(1<<n);s++)if(__builtin_popcount(s)==i)gg[i][s]=mod-gg[i][s],inc(gg[i][s],a[s|(1<<n)]);
+		fmt1(gg[i],1<<n);
 		for(int j=i+1;j<=n;j++){
-			for(int s=0;s<(1<<n);s++)gg[j][s]+=gg[i][s]*ff[j-i][s];
+			for(int s=0;s<(1<<n);s++)inc(gg[j][s],1ll*gg[i][s]*ff[j-i][s]%mod);
 		}
 	}
-	for(int i=0;i<=n;i++)fmt(gg[i],1<<n,-1);
+	for(int i=0;i<=n;i++)fmt2(gg[i],1<<n);
 	for(int s=0;s<(1<<n);s++)b[s]=gg[__builtin_popcount(s)][s];
 }
-void ln(ull *a,ull *b,int n){
+void ln(int *a,int *b,int n){
+	// for(int s=1;s<(1<<n);s++){
+		// int k=__lg(s);b[s]=a[s];
+		// for(int t=(s-1)&s;t;t=(t-1)&s)if(t&(1<<k))b[s]-=b[t]*a[s^t];
+	// }
 	for(int i=0;i<n;i++)mulself(a,b+(1<<i),i);
 }
 ```

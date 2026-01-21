@@ -37,4 +37,6 @@ AI 启动！
 
 [recent-notes](https://quartz.jzhao.xyz/features/recent-notes) 的 see more 功能。
 
+[[all-notes|here]]。
+
 总之用 AI 就对了。
