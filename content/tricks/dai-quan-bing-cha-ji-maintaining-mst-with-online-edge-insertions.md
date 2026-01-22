@@ -9,7 +9,7 @@ isTop: false
 ---
 已完成今日 [Maintaining mst with online edge insertions — no LCT needed](https://codeforces.com/blog/entry/130107) 大学习。
 
-> 在线，只加边，维护最小生成树，小常数 $O(\log n)$。
+> 在线，只加边，维护最小生成树，极小常数 $O(\log n)$。
 
 还有一个严格证明复杂度的[论文](https://arxiv.org/pdf/2504.04619)，会快一点，但难写一点。
 

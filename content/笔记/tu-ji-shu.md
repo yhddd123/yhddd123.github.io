@@ -73,6 +73,33 @@ $$f_n=\sum_{i=1}^n (-1)^{i+1}\binom{n}{i}2^{i(n-i)}f_{n-i}$$
 
 $n$ 个点的数和长为 $n-2$ 值域 $[1,n]$ 的序列的双射。取出编号最小的叶子结点删去，将其父亲加 到序列末端。
 
+$O(n)$ code：
+
+```cpp
+void getpurfer(){
+	for(int i=1;i<n;i++)fa[i]=read(),d[fa[i]]++;
+	int nn=0;for(int i=1;i<n;i++)if(d[i]==0){
+		a[++nn]=fa[i];d[fa[i]]--;
+		int u=fa[i];
+		while(d[u]==0&&u<i){
+			a[++nn]=fa[u];d[fa[u]]--;
+			u=fa[u];
+		}
+	}
+}
+void gettree(){
+	for(int i=1;i<=n-2;i++)a[i]=read(),d[a[i]]++;a[n-1]=n,d[n]++;
+	int nn=0;for(int i=1;i<n;i++)if(d[i]==0){
+		fa[i]=a[++nn],d[fa[i]]--;
+		int u=fa[i];
+		while(d[u]==0&&u<i){
+			fa[u]=a[++nn];d[fa[u]]--;
+			u=fa[u];
+		}
+	}
+}
+```
+
 n 个点有标号无根树数量 $n^{n-2}$。确定度数之后 $\frac{(n-2)!}{\prod (d_u-1)!}$。已经形成 $k$ 个连通块后 $(\sum s_i)^{k-2}\prod s_i$。
 
 $n$ 个点，且前 $k$ 个点不能连边的方案数：$n^{n-k-1}(n-k)^{k-1}$。
