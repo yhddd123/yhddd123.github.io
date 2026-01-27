@@ -1,7 +1,7 @@
 ---
 title: '图 k 匹配数'
 date: 2025-04-15 18:50:29
-tags: [笔记,dp]
+tags: [tricks,dp]
 published: true
 hideInList: false
 feature: 
