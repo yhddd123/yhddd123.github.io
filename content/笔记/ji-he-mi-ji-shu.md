@@ -85,6 +85,8 @@ void mulxor(int *a,int *b,int *ans,int n){
 
 逆着做形式幂级数部分就是 [求逆](https://www.luogu.com.cn/problem/P12232)。
 
+还可以拓展。对于只要求一部分无交，可以对 $|S\cap Ban|$ 做占位多项式。见 [CF2070F](https://www.luogu.com.cn/problem/CF2070F)。
+
 ### [exp](https://www.luogu.com.cn/problem/P12230) & [ln](https://www.luogu.com.cn/problem/P12231)
 
 ^de2cbe
@@ -322,3 +324,15 @@ void comp(int *a,int *b,int *c,int n){
 在做 ln exp 上不如普通版本。
 
 但更通用，比如 [k-exp](https://loj.ac/p/154) 之类的题目就不用推 $O(n^2)$ 的式子了。
+
+#### 转置
+
+^4864c7
+
+没完，还可以转置。
+
+[P14270 我们爱森林](https://www.luogu.com.cn/problem/P14270)。
+
+对每个 $i$ 求 $[x^U]F^i$。
+
+选 $i$ 个拼起来，正着加 high bit $2^nn^3$。倒着删 high bit，设 $h_{i,S}$ 已经删 $i$ 次剩 $S$，每次 $T\subseteq S,hb(T)=hb(S),h_{i,S}f_T\to f_{i-1,S-T}$。子集差卷积。

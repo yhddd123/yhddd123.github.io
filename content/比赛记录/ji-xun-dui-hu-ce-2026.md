@@ -7,8 +7,6 @@ hideInList: false
 feature: 
 isTop: false
 ---
-1
-
 ### [IOI 2026 中国国家集训队互测 Round 1](https://qoj.ac/contest/2555)
 
 #### [A. 携春同行](https://qoj.ac/contest/2555/problem/14573)
@@ -23,3 +21,7 @@ isTop: false
 
 ### [IOI 2026 中国国家集训队互测 Round 3](https://qoj.ac/contest/2560)
 #### [A. 火花](https://qoj.ac/contest/2560/problem/14579)
+
+### [IOI 2026 中国国家集训队互测 Round 4](https://qoj.ac/contest/2578)
+
+#### [C. 你的互相追逐的头](https://qoj.ac/contest/2578/problem/14584)

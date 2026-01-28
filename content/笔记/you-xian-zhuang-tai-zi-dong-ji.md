@@ -63,7 +63,7 @@ struct automation{
 		int son[2];
 		bool ok;
 		__int128 nxt;
-	}dft[55];int idx;
+	}dfa[55];int idx;
 	node init(int l,int s){
 		node res; 
 		res.len=l,res.sta=s;
@@ -80,16 +80,16 @@ struct automation{
 	}
 	void init(int _to){
 		to=_to;
-		dft[idx=0]=init(0,0);
+		dfa[idx=0]=init(0,0);
 		for(int id=0;id<=idx;id++){
 			for(int c=0;c<2;c++){
-				int l=dft[id].len+1,s=dft[id].sta|(c<<l-1);
+				int l=dfa[id].len+1,s=dfa[id].sta|(c<<l-1);
 				node nw=init(l,s);
-				int p=-1;for(int j=0;j<=idx;j++)if(nw.nxt==dft[j].nxt)p=j;
-				if(p==-1)dft[++idx]=nw,p=idx;
-				dft[id].son[c]=p;
+				int p=-1;for(int j=0;j<=idx;j++)if(nw.nxt==dfa[j].nxt)p=j;
+				if(p==-1)dfa[++idx]=nw,p=idx;
+				dfa[id].son[c]=p;
 			}
-			// cout<<dft[id].len<<" "<<dft[id].sta<<" "<<dft[id].son[0]<<" "<<dft[id].son[1]<<" a\n";
+			// cout<<dfa[id].len<<" "<<dfa[id].sta<<" "<<dfa[id].son[0]<<" "<<dfa[id].son[1]<<" a\n";
 		}
 		// cout<<idx<<"\n";
 	}
@@ -133,7 +133,7 @@ namespace automation{
 		vector<int> sta;
 		pii son[3];
 		int val;
-	}dft[maxn*6];
+	}dfa[maxn*6];
 	int pw[8]={1,3,9,27,81,243,729,6561};
 	bool operator==(node u,node v){
 		for(int s=0;s<pw[6];s++){
@@ -150,12 +150,12 @@ namespace automation{
 			int tmp=idx;
 			for(int i=lst;i<=tmp;i++){
 				for(int j=0;j<3;j++){
-					node nw=dft[i];
+					node nw=dfa[i];
 					nw.sta.pb(j);nw.val=calc(nw.sta);
 					int p=-1;
-					for(int k=0;k<=idx;k++)if(nw==dft[k]){p=k;break;}
-					if(p==-1)dft[++idx]=nw,p=idx;
-					dft[i].son[j]={p,nw.val-dft[i].val};
+					for(int k=0;k<=idx;k++)if(nw==dfa[k]){p=k;break;}
+					if(p==-1)dfa[++idx]=nw,p=idx;
+					dfa[i].son[j]={p,nw.val-dfa[i].val};
 				}
 			}
 			lst=tmp+1;
@@ -166,22 +166,29 @@ namespace automation{
 		return i+2;
 	}
 	void init(int N){
-		for(int i=1;i<=3;i++)dft[i-1]=dft[i];
-		for(int i=idx;i>=4;i--)dft[i+2]=dft[i];
+		for(int i=1;i<=3;i++)dfa[i-1]=dfa[i];
+		for(int i=idx;i>=4;i--)dfa[i+2]=dfa[i];
 		idx+=2;
 		for(int i=0;i<=idx;i++){
-			for(int j=0;j<3;j++)dft[i].son[j].fi=id(dft[i].son[j].fi);
+			for(int j=0;j<3;j++)dfa[i].son[j].fi=id(dfa[i].son[j].fi);
 		}
 		// for(int i=0;i<=idx;i++)if(i<3||i>=6){
 			// cout<<i<<" ";
-			// for(int j=0;j<3;j++)cout<<dft[i].son[j].fi<<" "<<dft[i].son[j].se<<" ";cout<<"\n";
-			// for(int v:dft[i].sta)cout<<v;cout<<"\n";
+			// for(int j=0;j<3;j++)cout<<dfa[i].son[j].fi<<" "<<dfa[i].son[j].se<<" ";cout<<"\n";
+			// for(int v:dfa[i].sta)cout<<v;cout<<"\n";
 		// }
 		for(int i=30;i<=N;i++){
-			dft[i]=dft[i-18];
-			for(int j=0;j<3;j++)dft[i].son[j].fi+=18;
+			dfa[i]=dfa[i-18];
+			for(int j=0;j<3;j++)dfa[i].son[j].fi+=18;
 		}
 	}
 }
 ```
 
+#### [Q8646](https://qoj.ac/contest/1635/problem/8646)
+
+> 给定一个序列和 $q$ 次询问，自动机转移的字符由询问给出的参数和序列对应位决定。问能不能表示出某个状态。
+
+建出自动机，上数据结构，可能需要观察自动机性质。
+
+[[joisc-ji-lu#^df6867|here]]。

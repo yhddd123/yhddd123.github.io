@@ -1,7 +1,7 @@
 ---
 title: 'P14836 题解'
 date: 2026-01-26 21:52:42
-tags: [题解,dp]
+tags: [题解,计数]
 published: true
 hideInList: false
 feature: 
