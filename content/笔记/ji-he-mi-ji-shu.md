@@ -333,6 +333,44 @@ void comp(int *a,int *b,int *c,int n){
 
 [P14270 我们爱森林](https://www.luogu.com.cn/problem/P14270)。
 
-对每个 $i$ 求 $[x^U]F^i$。
+对每个 $i$ 求 $[x^U]F^iG$。
 
 选 $i$ 个拼起来，正着加 high bit $2^nn^3$。倒着删 high bit，设 $h_{i,S}$ 已经删 $i$ 次剩 $S$，每次 $T\subseteq S,hb(T)=hb(S),h_{i,S}f_T\to f_{i-1,S-T}$。子集差卷积。
+
+```cpp
+void xormul1(int *a,int *c,int n){
+	for(int i=0;i<=n;i++){
+		for(int s=0;s<(1<<n);s++)ff[i][s]=0;
+	}
+	for(int s=0;s<(1<<n);s++)ff[__builtin_popcount(s)][s]=a[s^((1<<n)-1)];
+	for(int i=0;i<=n;i++)fmt1(ff[i],1<<n);
+	for(int s=0;s<(1<<n);s++){
+		for(int i=0;i<=n;i++)tf[i]=ff[i][s];
+		for(int i=0;i<=n;i++)tg[i]=gg[i][s];
+		for(int i=0;i<=n;i++){
+			th[i]=0;
+			for(int j=0;j<=i;j++)inc(th[i],1ll*tf[j]*tg[i-j]%mod);
+		}
+		for(int i=0;i<=n;i++)ff[i][s]=th[i];
+	}
+	for(int i=0;i<=n;i++)fmt2(ff[i],1<<n);
+	for(int s=0;s<(1<<n);s++)inc(c[s^((1<<n)-1)],ff[__builtin_popcount(s)][s]);
+}
+int hh[maxn+1][1<<maxn];
+void comptrans(int *a,int *b,int *c,int n){
+	for(int s=0;s<(1<<n);s++)hh[0][(1<<n)-1-s]=b[s];
+	hh[0][(1<<n)-1]=1;
+	for(int i=n;i;i--){
+		for(int j=0;j<i;j++){
+			for(int s=0;s<(1<<i-1);s++)gg[j][s]=0;
+		}
+		for(int s=0;s<(1<<i-1);s++)gg[__builtin_popcount(s)][s]=a[s+(1<<i-1)];
+		for(int j=0;j<i;j++)fmt1(gg[j],1<<i-1);
+		for(int j=n-i+1;j;j--){
+			xormul1(hh[j-1]+(1<<i-1),hh[j],i-1);
+		}
+	}
+	for(int i=0;i<=n;i++)c[i]=hh[i][0];
+}
+```
+
