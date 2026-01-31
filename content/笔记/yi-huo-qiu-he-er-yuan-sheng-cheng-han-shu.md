@@ -9,6 +9,8 @@ isTop: false
 ---
 以下涉及两种元的乘法，$x^i\times x^j=x^{i\oplus j}$，$y^i\times y^j=y^{i+j}$。
 
+---
+
 #### [CF1906K](https://www.luogu.com.cn/problem/CF1906K)
 
 求 $[x^0]\prod(1+2x^{a_i})$。
@@ -46,3 +48,11 @@ $$h_i=[y^i]\frac{1}{2^v}\sum_s \sum_{a\in T}(-1)^{|s\&a|}(1+y)^{ts_s}(1-y)^{|S|-
 $O(|S|)$ 二项式定理即可。
 
 至于对 $2^{28}$ 的东西求 $ts_s=\sum_{a\in S}[|a\&s|\bmod 2=0]$，bitset，每次加一翻转一个后缀，预处理此时对每个 $a\in S$ 的影响。
+
+---
+
+怎么上面写的都是求 $|a\&S|\bmod 2$ 状物。
+
+原来标题写的是有一维是异或，那其他 FWT 咋办。
+
+一个 or 卷积的[[favourite-problem-set-1#^501544|好题]]。

@@ -9,7 +9,7 @@ isTop: false
 ---
 [AT_xmascon22_f](https://www.luogu.com.cn/problem/AT_xmascon22_f)
 
-> 数 [[tu-k-pi-pei-shu|图 $k$ 匹配数]]。$\bmod 2^{64}$。
+数 [[tu-k-pi-pei-shu|图 $k$ 匹配数]]。$\bmod 2^{64}$。
 
 做这道题的时候已经完全忘了为什么之前做 [Fast as Ryser](https://qoj.ac/contest/449/problem/2068) 的时候没有接着做这道。现在感觉，两个并不是一个级别的题。
 
