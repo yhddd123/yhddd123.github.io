@@ -11,7 +11,9 @@ isTop: false
 
 #### 反射容斥
 
-从 $(0,0)$ 到 $(n,m)$ 始终不与 $y=x+1$ 相交：$\binom{n+m}{n}-\binom{n+m}{n+1}$。将第一个交点翻折过去，不合法的情况等价于从 $(-1,1)$ 到 $(n,m)$。
+从 $(0,0)$ 到 $(n,m)$，无额外限制：$\binom{n+m}{n}$。
+
+从 $(0,0)$ 到 $(n,m)$ 始终不与 $y=x+b$ 相交：$\binom{n+m}{n}-\binom{n+m}{n+b}$。将第一个交点反射过去，不合法的情况等价于从 $(-b,b)$ 到 $(n,m)$。
 
 特别的，从 $(0,0)$ 到 $(n,n)$ 不经过 $y=x+1$ 即 $cat_n=\frac{\binom{2n}{n}}{n+1}$。
 
@@ -29,7 +31,7 @@ isTop: false
 
 转化为计数 $b_i\le a_i$，$b_i$ 不降。对 $b_i$ 容斥，复杂度 $O(n^2)$。
 
-分治 ntt 优化原始 dp。```sovle(l,r)``` 表示传入 $f_{*,a_l}$，返回 $f_{r,*}$ 的一个函数。分治左边得到 $f_{mid,*}$。此时 $mid<x\le r,a_l\le j\le a_{mid}$ 的部分是无限制的矩形，分治 ntt 可得出改矩形的右侧和上侧边界。上侧边界传入右边的分治，返回 $f_{r,*}$ 大于 $a_{mid+1}$ 的部分。
+分治 ntt 优化原始 dp。```sovle(l,r)``` 表示传入 $f_{*,a_l}$，返回 $f_{r,*}$ 的一个函数。分治左边得到 $f_{mid,*}$。此时 $mid<x\le r,a_l\le j\le a_{mid}$ 的部分是无限制的矩形，分治 ntt 可得出改矩形的右侧和上侧边界。上侧边界传入右边的分治，返回 $f_{r,*}$ 大于 $a_{mid+1}$ 的部分。拼起来即得到 $f_{r,*}$。
 
 [Q14730](https://qoj.ac/contest/2609/problem/14730)
 
@@ -106,3 +108,47 @@ vector<int> sovle(int l,int r,int p,vector<int> &dw){
 	return ans;
 }
 ```
+
+#### 拐点
+
+不按论文来了。感觉按论文分别数 右上 和 上右 拐点，似乎并不很好合起来做。不过似乎论文的推法非常自然。
+
+称走路方向变化为一个拐点。数恰好 $k$ 个拐点的格路数。
+
+可以用一个两维独立的递增的 $(p_i,q_i)$ 描述拐点信息。
+
+对于无限制：
+
+$$f(n,m,k)=\left\{ \begin{aligned} 2\binom{n-1}{\frac{k+1}{2}-1}\binom{m-1}{\frac{k+1}{2}-1} & & k\bmod 2=1\\ \binom{n-1}{\frac{k}{2}}\binom{m-1}{\frac{k}{2}-1}+\binom{n-1}{\frac{k}{2}-1}\binom{m-1}{\frac{k}{2}} & & k\bmod 2=0  \end{aligned} \right. $$
+
+不碰到 $y=x+b$ 的格路：不合法的从 $(-b,b)$ 到 $(n,m)$，有可能变成 $k\pm 1$ 个拐点，非常爆炸。逆天的双射是：找到第一个交点，枚举接下来先往上 $i\ge 0$ 步，然后在向右一步，删掉这部分，这样一定剩 $k-1$ 个拐点。$F(n,m,b,k)=f(n,m,k)-\sum_{i\ge 0}f(n-b+1,m-b-i,k-1)$。上指标求和。最后：
+
+$$F(n,m,b,k)=\left\{ \begin{aligned} 2\binom{n-1}{\frac{k+1}{2}-1}\binom{m-1}{\frac{k+1}{2}-1}-\binom{n+b-2}{\frac{k+1}{2}-1}\binom{m-b}{\frac{k+1}{2}-1}-\binom{n+b-2}{\frac{k+1}{2}-2}\binom{m-b}{\frac{k+1}{2}} & & k\bmod 2=1\\ \binom{n-1}{\frac{k}{2}}\binom{m-1}{\frac{k}{2}-1}+\binom{n-1}{\frac{k}{2}-1}\binom{m-1}{\frac{k}{2}}-2\binom{n+b-2}{\frac{k+1}{2}-1}\binom{m-b}{\frac{k+1}{2}} & & k\bmod 2=0  \end{aligned} \right. $$
+
+舒适了。不知道有没有抄错，通过了 [agc070c](https://www.luogu.com.cn/problem/AT_agc070_c)。
+
+```cpp
+int calc(int n,int m,int k){
+	if((!n||!m))return !k;
+	if(k&1){
+		return 2*C(n-1,(k+1)/2-1)*C(m-1,(k+1)/2-1)%mod;
+	}
+	else{
+		return (C(n-1,k/2)*C(m-1,k/2-1)+C(n-1,k/2-1)*C(m-1,k/2))%mod;
+	}
+}
+int calc(int n,int m,int b,int k){
+	if(k&1){
+		k=(k+1)/2;
+		return (2*C(n-1,k-1)*C(m-1,k-1)%mod+2*mod-C(n+b-2,k-1)*C(m-b,k-1)%mod-C(n+b-2,k-2)*C(m-b,k)%mod)%mod;
+	}
+	else{
+		k=k/2;
+		return (C(n-1,k)*C(m-1,k-1)+C(n-1,k-1)*C(m-1,k)+mod-2*C(n+b-2,k-1)*C(m-b,k)%mod)%mod;
+	}
+	// int res=calc(n,m,k);
+	// for(int i=0;b+i<=m;i++)(res+=mod-calc(n+b-1,m-b-i,k-1))%=mod;
+	// return res;
+}
+```
+
