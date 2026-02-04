@@ -25,6 +25,14 @@ isTop: false
 
 设 $dp_{i,j}$ 表示从小到大考虑了 $i$ 个，有 $j$ 段，$dp_{i,j}=-jdp_{i-1,j}+dp_{i-1,j-1}(a_i+1)+((\sum a_k)+i)dp_{i-1,j}$。
 
+#### [agc038e](https://atcoder.jp/contests/agc038/tasks/agc038_e)
+
+min-max 容斥，求 $ans=\sum_{T\subseteq S,T\neq \empty}E(\min (T))$。
+
+期望 $\frac{\sum a_i}{\sum_{i\in S}a_i}$ 步选一次 $S$ 内的数，现在只要考虑 $S$ 内要几步。$E(\min(S))$ 拆为每个途径状态的概率，即对于所有 $c_i<b_i$ 的概率，即 $\binom{\sum c_i}{c1,\ldots ,c_{|S|}}\prod \frac{a_i^{c_i}}{\sum a_i^{c_i}}$。
+
+设 $f_{i,j,k}$ 表示前 $i$ 个，$\sum a$，$\sum c$，枚举 $c_i$，复杂度 $O(n^3)$。
+
 #### [agc058f](https://atcoder.jp/contests/agc058/tasks/agc058_f)
 
 考虑给一个根，每次删一个子树，最后只剩根，展开 $f(T)$，$f(T)=\frac{\prod f(t_i)}{(|t_1|+\ldots+t|k|+1)\ldots(|t_k|+1)1}$。
@@ -39,7 +47,7 @@ isTop: false
 
 ![[agc058f.png]]
 
-#### [agc065d](https://www.luogu.com.cn/problem/AT_agc065_d)
+#### [agc065d](https://atcoder.jp/contests/agc065/tasks/agc065_d)
 
 相邻的边不用管。从 $(1,n)$ 断开，边要求包含或不交。
 
@@ -49,10 +57,16 @@ isTop: false
 
 枚举 $i$ 个相邻的边，$\binom{n}{i}$；长为 $n-1+m-i+1$ 的序列，有 $\frac{1}{n+m-i}$ 的概率，在所有分配负数值和负数位置 $\binom{n-3}{m-i}\binom{n-1+m-i}{m-i}$ 中，满足条件。
 
-#### [agc067d](https://www.luogu.com.cn/problem/AT_agc067_d)
+#### [agc067d](https://atcoder.jp/contests/agc067/tasks/agc067_d)
 
 $i$ 向 $[l_i,i)\cup (i,r_i]$ 连边，要求不存在环。DAG，容斥零入度点。钦定一些 $p_i$，这些 $p_i$ 的 $l/r_{p_i}$ 不能到左右的 $p_i$，间隔任意。
 
 $$f_i=\sum_{0=p_0<p_1<\ldots <p_k<p_{k+1}=n+1}(-1)^{k+1}\prod_i (p_i-p_{i-1})(p_{i+1}-p_i)f_{p_{i+1}-p_i-1}$$
 
 分步转移，$f_i$ 表示 $i$ 个点的答案，$g_i$ 表示钦定到第 $i$ 个点。
+
+#### [agc070c](https://atcoder.jp/contests/agc070/tasks/agc070_c)
+
+先算从 $(0,0)$ 到 $(n,m)$ 不碰 $y=x+1$ 且恰好 $k$ 个拐点的方案。[[ge-lu-ji-shu#^40d3b1|格路计数]]。
+
+然后有 $n-a-b$ 个平局，$a+b-1-k$ 个同向的需要至少插一个，$\binom{n-a-b+i+1}{a+b}$。

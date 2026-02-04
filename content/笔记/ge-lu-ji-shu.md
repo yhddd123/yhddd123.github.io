@@ -111,6 +111,8 @@ vector<int> sovle(int l,int r,int p,vector<int> &dw){
 
 #### 拐点
 
+^40d3b1
+
 不按论文来了。感觉按论文分别数 右上 和 上右 拐点，似乎并不很好合起来做。不过似乎论文的推法非常自然。
 
 称走路方向变化为一个拐点。数恰好 $k$ 个拐点的格路数。
@@ -123,9 +125,13 @@ $$f(n,m,k)=\left\{ \begin{aligned} 2\binom{n-1}{\frac{k+1}{2}-1}\binom{m-1}{\fra
 
 不碰到 $y=x+b$ 的格路：不合法的从 $(-b,b)$ 到 $(n,m)$，有可能变成 $k\pm 1$ 个拐点，非常爆炸。逆天的双射是：找到第一个交点，枚举接下来先往上 $i\ge 0$ 步，然后在向右一步，删掉这部分，这样一定剩 $k-1$ 个拐点。$F(n,m,b,k)=f(n,m,k)-\sum_{i\ge 0}f(n-b+1,m-b-i,k-1)$。上指标求和。最后：
 
-$$F(n,m,b,k)=\left\{ \begin{aligned} 2\binom{n-1}{\frac{k+1}{2}-1}\binom{m-1}{\frac{k+1}{2}-1}-\binom{n+b-2}{\frac{k+1}{2}-1}\binom{m-b}{\frac{k+1}{2}-1}-\binom{n+b-2}{\frac{k+1}{2}-2}\binom{m-b}{\frac{k+1}{2}} & & k\bmod 2=1\\ \binom{n-1}{\frac{k}{2}}\binom{m-1}{\frac{k}{2}-1}+\binom{n-1}{\frac{k}{2}-1}\binom{m-1}{\frac{k}{2}}-2\binom{n+b-2}{\frac{k+1}{2}-1}\binom{m-b}{\frac{k+1}{2}} & & k\bmod 2=0  \end{aligned} \right. $$
+$$F(n,m,b,k)=\left\{ \begin{aligned} 2\binom{n-1}{\frac{k+1}{2}-1}\binom{m-1}{\frac{k+1}{2}-1}-\binom{n+b-2}{\frac{k-1}{2}}\binom{m-b}{\frac{k-1}{2}}-\binom{n+b-2}{\frac{k-1}{2}-1}\binom{m-b}{\frac{k-1}{2}+1} & & k\bmod 2=1\\ \binom{n-1}{\frac{k}{2}}\binom{m-1}{\frac{k}{2}-1}+\binom{n-1}{\frac{k}{2}-1}\binom{m-1}{\frac{k}{2}}-2\binom{n+b-2}{\frac{k}{2}-1}\binom{m-b}{\frac{k}{2}} & & k\bmod 2=0  \end{aligned} \right. $$
 
 舒适了。不知道有没有抄错，通过了 [agc070c](https://www.luogu.com.cn/problem/AT_agc070_c)。
+
+以上应该不能再化简了。
+
+但是非常可以拓展到双边界，[https://gemini.google.com/share/dae6840bcd5d](https://gemini.google.com/share/dae6840bcd5d)。感受就是反射到上面 $n-2$，反射到下面 $m-2$。
 
 ```cpp
 int calc(int n,int m,int k){
@@ -138,13 +144,12 @@ int calc(int n,int m,int k){
 	}
 }
 int calc(int n,int m,int b,int k){
+	if(b<=0||m>=n+b)return 0;
 	if(k&1){
-		k=(k+1)/2;
-		return (2*C(n-1,k-1)*C(m-1,k-1)%mod+2*mod-C(n+b-2,k-1)*C(m-b,k-1)%mod-C(n+b-2,k-2)*C(m-b,k)%mod)%mod;
+		return (2*C(n-1,(k+1)/2-1)*C(m-1,(k+1)/2-1)%mod+2*mod-C(n+b-2,((k-1)/2))*C(m-b,((k-1)/2))%mod-C(n+b-2,((k-1)/2)-1)*C(m-b,((k-1)/2)+1)%mod)%mod;
 	}
 	else{
-		k=k/2;
-		return (C(n-1,k)*C(m-1,k-1)+C(n-1,k-1)*C(m-1,k)+mod-2*C(n+b-2,k-1)*C(m-b,k)%mod)%mod;
+		return (C(n-1,(k/2))*C(m-1,(k/2)-1)+C(n-1,(k/2)-1)*C(m-1,(k/2))+mod-2*C(n+b-2,(k/2)-1)*C(m-b,(k/2))%mod)%mod;
 	}
 	// int res=calc(n,m,k);
 	// for(int i=0;b+i<=m;i++)(res+=mod-calc(n+b-1,m-b-i,k-1))%=mod;
