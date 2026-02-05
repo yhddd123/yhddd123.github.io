@@ -13,6 +13,8 @@ The 4th Universal Cup 做题记录
 
 [Stage 12: Shanghai](https://qoj.ac/contest/2908)：BIKLM
 
+[Stage 14: Hong Kong](https://qoj.ac/contest/3169)：AF
+
 ### [The 4th Universal Cup. Stage 12: Grand Prix of Shanghai](https://qoj.ac/contest/2908)
 
 单挑。场上过了 ABDGHIJK。主要是调不出题，调试傻逼错误至少被硬控了 2h。
@@ -51,8 +53,10 @@ The 4th Universal Cup 做题记录
 
 扫 $r$，维护合法的解，每次找一条增广路，踢掉最左边的匹配点。复杂度 $O(nm)$。
 
-哦，关于这个证明，二分图最大匹配等于矩阵 $A_{i,j}=e_{i,j}x_{i,j}$ 的 rank，随机赋一组值进去算。扫 $r$ 的时候做一个线性基状物，可以把一行的代表元换成时间远的，这也等价于调整一条增广路。
+哦，关于这个证明，二分图最大匹配等于矩阵 $A_{i,j}=e_{i,j}x_{i,j}$ 的 rank，随机赋一组值进去算。扫 $r$ 的时候做一个线性基状物，可以把一行的代表元换成靠后的，这也等价于调整一条增广路。
 
 #### [F. Find the Circuit](https://qoj.ac/contest/3169/problem/15437)
 
-大概就是，第一次
+大概就是，第一次给无向图定向的时候，断环，每个点的出边要么是序列上之前的点，要么是下一个点。
+
+第二次就是每次找到一个 $d_u=1$ 的位置，确定其下一个点，缩起来。

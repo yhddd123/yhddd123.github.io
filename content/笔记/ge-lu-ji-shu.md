@@ -131,7 +131,7 @@ $$F(n,m,b,k)=\left\{ \begin{aligned} 2\binom{n-1}{\frac{k+1}{2}-1}\binom{m-1}{\f
 
 以上应该不能再化简了。
 
-但是非常可以拓展到双边界，[https://gemini.google.com/share/dae6840bcd5d](https://gemini.google.com/share/dae6840bcd5d)。感受就是反射到上面 $n-2$，反射到下面 $m-2$。
+不知道能不能拓展到双边界，这个组合意义有点破防。但是论文的只数一种拐点可以，待补。
 
 ```cpp
 int calc(int n,int m,int k){
