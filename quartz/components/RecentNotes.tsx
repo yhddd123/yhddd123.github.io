@@ -17,12 +17,24 @@ interface Options {
   sort: (f1: QuartzPluginData, f2: QuartzPluginData) => number
 }
 
+function byCreatedDesc(cfg: GlobalConfiguration) {
+  return (f1: QuartzPluginData, f2: QuartzPluginData) => {
+    const d1 = (f1.dates?.created as Date | undefined)?.getTime() ?? -Infinity
+    const d2 = (f2.dates?.created as Date | undefined)?.getTime() ?? -Infinity
+    if (d1 !== d2) return d2 - d1
+    const t1 = f1.frontmatter?.title?.toLowerCase() ?? ""
+    const t2 = f2.frontmatter?.title?.toLowerCase() ?? ""
+    return t1.localeCompare(t2)
+  }
+}
+
 const defaultOptions = (cfg: GlobalConfiguration): Options => ({
-  limit: 3,
+  limit: 2,
   linkToMore: false,
   showTags: true,
-  filter: () => true,
-  sort: byDateAndAlphabetical(cfg),
+  // default to only files with a created date and sort by created desc
+  filter: (f: QuartzPluginData) => !!(f.dates && f.dates.created),
+  sort: byCreatedDesc(cfg),
 })
 
 export default ((userOpts?: Partial<Options>) => {

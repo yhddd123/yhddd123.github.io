@@ -79,7 +79,7 @@ export default ((userOpts?: Partial<Options>) => {
 
               return (
                 <li class="section-li">
-                  <div class="section" style={{ gridTemplateColumns: "fit-content(16em) 3fr 1.33fr" }}>
+                  <div class="section">
                     <p class="meta">
                       <span class="date-label">{dateLabel}: </span>
                       <time datetime={date.toISOString()}>
@@ -118,7 +118,7 @@ export default ((userOpts?: Partial<Options>) => {
   AllNotes.css = `
 .all-notes {
   padding: 2rem;
-  max-width: 1400px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -134,22 +134,12 @@ export default ((userOpts?: Partial<Options>) => {
 .all-notes .date-label {
   font-weight: 600;
   color: var(--secondary);
-  margin-right: 0.5rem;
-  white-space: nowrap;
+  margin-right: 0.25rem;
 }
 
 .all-notes .meta {
   margin: 0.5rem 0;
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  min-width: 280px;
-  overflow-x: auto;
-}
-/* Override the list grid to give more room for the date column specifically on All Notes */
-.all-notes .section {
-  grid-template-columns: fit-content(16em) 3fr 1.33fr;
+  font-size: 0.9rem;
 }
 `
 
