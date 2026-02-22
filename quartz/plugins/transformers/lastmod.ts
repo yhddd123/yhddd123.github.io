@@ -68,6 +68,18 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
 
             const fp = file.data.relativePath!
             const fullFp = file.data.filePath!
+            
+            // For modified: prioritize git (most accurate), then fallback to other sources
+            if (repo) {
+              try {
+                const relativePath = path.relative(repositoryWorkdir, fullFp)
+                modified = await repo.getFileLatestModifiedDateAsync(relativePath)
+              } catch {
+                // If git fails, will use other sources below
+              }
+            }
+            
+            // Standard priority loop for created, and fallback for modified if git failed
             for (const source of opts.priority) {
               if (source === "filesystem") {
                 const st = await fs.promises.stat(fullFp)
@@ -77,18 +89,6 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
                 created ||= file.data.frontmatter.created as MaybeDate
                 modified ||= file.data.frontmatter.modified as MaybeDate
                 published ||= file.data.frontmatter.published as MaybeDate
-              } else if (source === "git" && repo) {
-                try {
-                  const relativePath = path.relative(repositoryWorkdir, fullFp)
-                  modified ||= await repo.getFileLatestModifiedDateAsync(relativePath)
-                } catch {
-                  console.log(
-                    styleText(
-                      "yellow",
-                      `\nWarning: ${file.data.filePath!} isn't yet tracked by git, dates will be inaccurate`,
-                    ),
-                  )
-                }
               }
             }
 
@@ -97,6 +97,17 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
               modified: coerceDate(fp, modified),
               published: coerceDate(fp, published),
             }
+
+            // DEBUG LOG: print dates for each file
+            // console.log('[lastmod-DEBUG]', {
+            //   file: fp,
+            //   created: created,
+            //   modified: modified,
+            //   final_dates: { 
+            //     created: file.data.dates.created?.toISOString(),
+            //     modified: file.data.dates.modified?.toISOString(),
+            //   },
+            // })
           }
         },
       ]

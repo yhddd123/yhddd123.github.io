@@ -25,7 +25,7 @@ The 3rd Universal Cup 做题记录
 
 [Stage 8: Cangqian](https://qoj.ac/contest/1780) BCDEFHIJLM
 
-[Stage 9: Xi'an](https://qoj.ac/contest/1784) AEFGHIJN
+[Stage 9: Xi'an](https://qoj.ac/contest/1784) AEFGHIJMN
 
 [[the-3rd-universal-cup-zuo-ti-ji-lu-2|做题记录 2：Stage 10 - Stage 19]]
 
@@ -628,3 +628,11 @@ lucas 定理，等价于拆成 $p$ 进制数下每一位的组合数之积。设
 ### [J. Graph Changing](https://qoj.ac/contest/1784/problem/9251)
 
 $>3$ 一次后无解，分讨 $n$ 和 $t$。
+
+### [M. Random Variables](https://qoj.ac/contest/1784/problem/9254)
+
+数 $\max \le k$。
+
+设 $f_{i,j}$，容斥掉超过 $k+1$ 的，$f_{i,j}=j(f_{i-1,j}-\binom{i-1}{k}f_{i-k-1,j-1})$。第二维 $\frac{n}{k}$。
+
+复杂度 $O(n^2\ln n)$。

@@ -77,7 +77,7 @@ $i\bmod n$ 向 $n+i\bmod m$ 连边等价于 $i\bmod (n+m)$ 向 $(i+n)\bmod (n+m)
 
 每个点在根在 dfn 序上变化的时候子树大小只有 $\deg u$ 段。现在有 $O\sum deg1u\times deg2_u$ 个矩形的值。
 
-通过把儿子按 $siz_v$ 排序再求 dfn 序，特殊处理掉父亲，再双指针，可以减少为 $O(\sum deg_u$ 个矩形。扫描线。
+通过把儿子按 $siz_v$ 排序再求 dfn 序，特殊处理掉父亲，再双指针，可以减少为 $O(\sum deg_u)$ 个矩形。扫描线。
 
 #### [Q8109](https://qoj.ac/contest/247/problem/8109)
 

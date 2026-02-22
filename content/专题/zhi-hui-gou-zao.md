@@ -9,7 +9,7 @@ hideInList: false
 feature: 
 isTop: false
 ---
-### [P10644](https://www.luogu.com.cn/problem/P10644)
+#### [P10644](https://www.luogu.com.cn/problem/P10644)
 
 [Public NOIP Round #8 D. 矩阵](https://pjudge.ac/contest/1847/problem/21864)
 
@@ -19,7 +19,7 @@ isTop: false
 
 分类讨论是否存在一个不全相同的行、一个不全相同的列。
 
-### [arc189e](https://www.luogu.com.cn/problem/AT_arc189_e)
+#### [arc189e](https://www.luogu.com.cn/problem/AT_arc189_e)
 
 [[arc189e-ti-jie|sol]]。
 
@@ -27,19 +27,19 @@ isTop: false
 
 归纳证明 $mx=2$ 不合法。对于 $n>5$ 时 $mx=3$ 合法。将 $n$ 分为 $4$ 个集合 $X1,X2,X3,X4$。集合内权值为 $3$，集合间权值为 $n=4$ 的权值。可能不合法的方案要求其中一个集合至少大于等于为另外两个集合之和。令 $|X1|\ge |X2|\ge |X3|\ge |X4|\ge |X1|-1$。
 
-### [CF1097E](https://www.luogu.com.cn/problem/CF1097E)
+#### [CF1097E](https://www.luogu.com.cn/problem/CF1097E)
 
 记 $c_n$ 为最大的 $k$ 使得 $\frac{k(k+1)}{2}\le n$。可以构造 $((1),(3,2),(6,5,4),\dotsb)$ 使得 $f_n\ge c_n$。
 
 在 $c_n$ 内划分任意一个排列。设最长上升子序列长为 $len$。如果 $len>k$，取出，$\frac{(k-1)k}{2}\le n-len$。否则由 Dilworth，存在 $len$ 个下降子序列可以拼出原序列，贪心构造。
 
-### [P9731](https://www.luogu.com.cn/problem/P9731)
+#### [P9731](https://www.luogu.com.cn/problem/P9731)
 
 对于 $m=2$，一定有解。连边 $(u,v)$，把奇数度的点连向一个虚点，跑欧拉回路。可以保证原来奇数度的点入度出度差为 $1$。
 
 对于更大的 $m$，当作 $n\times \frac{m}{2}$ 对 $2$ 个的处理，使得左右两边差值 $\le 1$。分治左右两边。
 
-### [P11066](https://www.luogu.com.cn/problem/P11066)
+#### [P11066](https://www.luogu.com.cn/problem/P11066)
 
 分为要向左的点和要向右的点。从后往前做，要向左的点先向右一步，要向右的点直接去要去的位置。再从前往后，要向左的点去要去的位置。问题是，对于只要向右走一步的点，会在这时挡到路。
 
@@ -47,17 +47,17 @@ isTop: false
 
 理论上 $5n$，常数较小。
 
-### [CF538G](https://www.luogu.com.cn/problem/CF538G)
+#### [CF538G](https://www.luogu.com.cn/problem/CF538G)
 
 将坐标轴转 45 度，两维独立。将坐标替换为 $\frac{x+t}{2}$，每次加一或不动。
 
 设一个循环节加 $k$。对于 $\bmod l$ 相邻的位置，$x_i-x_j-(t_i\bmod l-t_j\bmod l)\le k(\frac{t_i}{l}-\frac{t_j}{l})\le x_i-x_j$，解不等式。
 
-### [P7320](https://www.luogu.com.cn/problem/P7320)
+#### [P7320](https://www.luogu.com.cn/problem/P7320)
 
 生成树。要么叶子，要么叶子两两匹配形成路径。dfn 序上有交的叶子对连成的路径有交。
 
-### [agc037d](https://www.luogu.com.cn/problem/AT_agc037_d)
+#### [agc037d](https://www.luogu.com.cn/problem/AT_agc037_d)
 
 正反出发各做一次重排行，相当于把 $[(k-1)\times m+1,k\times m]$ 看做一种颜色的通配符。希望重拍列之后每行变成相同的。
 
@@ -67,7 +67,7 @@ isTop: false
 
 可以由 [loj180](https://loj.ac/p/180) 做到 $O(nm\log n)$。
 
-### [CF2138E2](https://www.luogu.com.cn/problem/CF2138E2)
+#### [CF2138E2](https://www.luogu.com.cn/problem/CF2138E2)
 
 ^6002ee
 
@@ -116,3 +116,45 @@ isTop: false
 要求选法固定的矩形必须相互包含。
 
 一行最多选 $2$ 个，不能同时操作 $i$ 和 $i+1$。但是 $2^i+2^{i+1}=2^{i+2}-2^i$，一定存在合法操作。构造时从低位开始考虑每个 $1$ 连续段。
+
+#### [agc064e](https://www.luogu.com.cn/problem/AT_agc064_e)
+
+记 $s_i=\sum_k a_{i,k}$，$t_i=\sum_k a_{k,i}$。则 $c_{i,j}=s_i+t_j-a_{i,j}$，只要 $c_{i,j}$ 满足一定性质，就能反推一个 $a_{i,j}$。
+
+对 $a_{i,j}$ 一行求和，$s_i=\sum_j a_{i,j}=n\times s_i+\sum_k t_k-\sum_j c_{i,j}$。又因为 $\sum c_{j,k}$ 把整个 $a_{i,j}$ 算了 $2n-1$ 遍，所以 $(n-1)s_i=\sum_j c_{i,j}-\frac{\sum c_{j,k}}{2n-1}$。
+
+只要满足整除，使得存在 $s_i$ 即可。就是：$\sum c_{j,k}\bmod 2n-1\equiv0$，所有 $\sum_k c_{i,k}$ 和 $\sum_kl c_{k,i}$ 模 $n-1$ 同余。
+
+现在是，存在一种构造 $c_{i,j}$ 的方式，满足模 $n-1$ 同余的性质，且可重集就是 $\{a_i+b_j\}$。然后如果再不满足模 $2n-1$ 的性质，就调整一个数即可。
+
+也就是，希望构造 $c_{p_{i,j},q_{i,j}}=a_i+b_j$，使得每行每列之和都是 $\sum a_i+b_j$。要求 $(p_{i,j},q_{i,j})$ 对互不相同。
+
+这个可以是，构造 [正交拉丁方](https://www.zhihu.com/question/1964254729556170187)，对于 $n\neq 2,6$ 都有解，不会。
+
+对于 $n$ 奇数，可以构造：$p_{i,j}=i-j$，$q_{i,j}=i+j$。
+
+对于 $n$ 偶数，再利用一点题目性质，由于模 $n-1$，所以 $n$ 个数有两个同余，分别为 $0$ 和 $\frac{n}{2}$。可以，构造 $a_{0}$ 和 $a_{\frac{n}{2}}$ 分别在两个列中出现 $2$ 次，剩下元素每行每列各一个。那就是 $p_{i,j}=i+j$，$q_{i,j}$ 的第 $0$ 和 $\frac{n}{2}$ 行分别是 $0,\ldots,\frac{n}{2}-1$ 和 $\frac{n}{2},\ldots,n-1$，剩下再按某种方式排。
+
+根本说不清是什么、为什么，下面是 $n=6$ 和 $n=8$ 的 $q_{i,j}$：
+
+```
+0 0 1 1 2 2 
+2 4 0 5 1 3 
+3 2 4 0 5 1 
+5 3 3 4 4 5 
+1 5 2 3 0 4 
+4 1 5 2 3 0 
+```
+
+```
+0 0 1 1 2 2 3 3 
+3 6 0 7 1 4 2 5 
+5 3 6 0 7 1 4 2 
+2 5 3 6 0 7 1 4 
+4 4 5 5 6 6 7 7 
+7 2 4 3 5 0 6 1 
+1 7 2 4 3 5 0 6 
+6 1 7 2 4 3 5 0 
+```
+
+感觉并没有很懂。

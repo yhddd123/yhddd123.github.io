@@ -17,7 +17,7 @@ isTop: false
 
 若 $a_j\le a_i$，可以整除分块。对于 $\lfloor\frac{a_i}{l}\rfloor=\lfloor\frac{a_i}{r}\rfloor$ 的  $O(\sqrt n)$  个区间 $[l,r]$，只考虑 $a_j\in[l,r]$ 且 $j$ 最大的位置。
 
-要维护值域上一个区间中最后一个出现的位置，即需要 $O(n)$ 次 $O(\sqrt n)$ 单点修改 和 $O(n\sqrt n)$ 次 $O(1)$ 区间求 max。如果直接维护 ST 表，从下往上第 $i$ 层要修改 $O(2^i)$ 个位置，一共 $O(n)$ 个位置。分块，块内块间分别建 ST 表，分别 $O(\sqrt n)$ 修改，可以 $O(1)$ 查询。
+要维护值域上一个区间中最后一个出现的位置，即需要 $O(n)$ 次 $O(\sqrt n)$ 单点修改 和 $O(n\sqrt n)$ 次 $O(1)$ 区间求 max，[[dan-dian-xiu-gai-qu-jian-qu-max-de-gen-hao-ping-heng|根号平衡]]。如果直接维护 ST 表，从下往上第 $i$ 层要修改 $O(2^i)$ 个位置，一共 $O(n)$ 个位置。分块，块内块间分别建 ST 表，分别 $O(\sqrt n)$ 修改，可以 $O(1)$ 查询。
 
 对于 $a_j>a_i$，可以根号分治。若 $a_i>\sqrt n$，$\frac{n}{a_i}\le \sqrt n$，可以直接枚举倍数 $k$，只考虑 $a_j\in [ka_i,(k+1)a_i)$ 且 $j$ 最大的位置。否则 $a_i\le \sqrt n$，只考虑 $j\in[pos_{a_i}+1,i-1]$ 的位置，其中 $pos_{a_i}$ 是 $a_i$ 上一次出现的位置，对于每个值只用把整个序列扫一遍。
 
@@ -25,7 +25,7 @@ isTop: false
 
 单用任意一个做法，可以正反各扫一遍，但是存支配对需要 $O(n\sqrt n)$ 空间。
 
-精细实现整除分块，在 [$1,\sqrt n]$ 分别枚举 $l$ 和 $\frac{a_i}{l}$，可以使除法次数减半。
+精细实现整除分块，在 $[1,\sqrt n]$ 分别枚举 $l$ 和 $\frac{a_i}{l}$，可以使除法次数减半。
 
 ```cpp
 int n,m=400001,q,a[maxn];

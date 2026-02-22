@@ -1,3 +1,3 @@
 ---
-title: 所有笔记
+title: all notes
 ---

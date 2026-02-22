@@ -93,8 +93,6 @@ ACAM 上，路径压缩跳 fail 树祖先中最近的终止节点，再传递闭
 
 #### [CF1942H](https://www.luogu.com.cn/problem/CF1942H)
 
-厉害。
-
 $a$ 和 $b,c$ 做二分图匹配，要求每个 $b,c$ 都能被 $a$ 匹配到。$b$ 能匹配儿子和祖先的 $a$，$c$ 能匹配子树和祖先的 $a$。
 
 hall 定理，要求 $\sum_{u\in N(Sb\cup Sc)} a_u-\sum_{u\in Sb}b_u-\sum_{u\in Sc}c_u\ge 0$。设 $f_{u,0/1}$ 表示考虑 $u$ 子树，$a_uu$ 出在 $N(S)$ 中，$u$ 子树有没有全被选入 $N(S)$。

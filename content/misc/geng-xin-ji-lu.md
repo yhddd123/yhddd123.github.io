@@ -37,4 +37,10 @@ AI 启动！
 
 [recent-notes](https://quartz.jzhao.xyz/features/recent-notes) 的 see more 功能。
 
-总之用 AI 就对了。
+要新建一个 allnotes.tsx 写。
+
+[[all-notes|here]]。
+
+##### 260205
+
+see more 加一个按 git 时间的 modified time。

@@ -1,5 +1,5 @@
 ---
-title: '基于 vscode 的 AI 配置'
+title: 'vscode 配置'
 date: 2025-06-23 18:45:34
 tags: []
 published: true

@@ -1,19 +1,19 @@
 ---
 title: '图 k 匹配数'
 date: 2025-04-15 18:50:29
-tags: [笔记,dp]
+tags: [tricks,dp]
 published: true
 hideInList: false
 feature: 
 isTop: false
 ---
-[Q2068](https://qoj.ac/problem/2068)
+[Q2068. Fast as Ryser](https://qoj.ac/problem/2068)
 
 >$n$ 个点的图。记一个匹配的权值为 $c^{|S|}$，求所有匹配的权值和。
 >
 >$n\le 40$。
 
-[AT_xmascon22_f](https://atcoder.jp/contests/xmascon22/tasks/xmascon22_f)
+[AT_xmascon22_f. Fast as Fast as Ryser](https://atcoder.jp/contests/xmascon22/tasks/xmascon22_f)
 
 >$n$ 个点的图，每条边 $a_{u,v}$ 种。对于 $k=1,\dotsb,\frac{n}{2}$，求大小为 $k$ 的匹配的数量。
 >
@@ -69,3 +69,4 @@ void work(){
 }
 ```
 
+没完，
