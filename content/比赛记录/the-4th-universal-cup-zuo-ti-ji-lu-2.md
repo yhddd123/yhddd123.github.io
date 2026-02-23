@@ -17,7 +17,7 @@ The 4th Universal Cup 做题记录
 
 [Stage 15: China](https://qoj.ac/contest/3295)：EL
 
-[Stage 17: St. Petersburg](https://qoj.ac/contest/3384)：FG
+[Stage 17: St. Petersburg](https://qoj.ac/contest/3384)：FGIM
 
 ### [The 4th Universal Cup. Stage 12: Grand Prix of Shanghai](https://qoj.ac/contest/2908)
 
@@ -89,4 +89,26 @@ $n$ 个点 $k$ 个叶子且下标集合为 $S$，与，$n$ 的排列 $k$ 个上�
 
 对每个 $n$ 求 $\sum_{x\in S}\binom{2n-x-1}{n-x}$。
 
-转化为 $(x,1)$ 有一些起点，求所有 $(i,i)$ 的格路数。以第一次去到某个 $(p,p+1)$ 为分界，前面的是$y=x$ 的 [[ge-lu-ji-shu#^103a08|阶梯型格路]]，后面是 $\binom{2(n-p)-1}{n-p}$ 一个卷积。
+转化为 $(x,1)$ 有一些起点，求所有 $(i,i)$ 的格路数。以第一次去到某个 $(p,p+1)$ 为分界，前面的是 $y=x$ 的 [[ge-lu-ji-shu#^103a08|阶梯型格路]]，后面是 $\binom{2(n-p)-1}{n-p}$ 一个卷积。
+
+#### [G. Traffic Lights](https://qoj.ac/contest/3384/problem/17167)
+
+维护每个方向的 min。子树内容易。
+
+在另一个线段树维护每个节点除重儿子以外的最大值，修改和查询的时候只有切换重链时重新查一次子树。
+
+复杂度 $O(n\log^2n)$。
+
+#### [I. Wooden Checker](https://qoj.ac/contest/3384/problem/17169)
+
+合并 $u\to v$，等价于要求  $v$ 为根且 $u$ 到 $u$ 的根的 $pr_u$ 都等于 $pl_v-1$。
+
+直接维护 $rt\to pr_{rt}$ 的路径，每次一直 pop 直到 $u$，然后再拼上 $v\to pr_v$ 的路径。链表维护。
+
+#### [M. Construction Company](https://qoj.ac/contest/3384/problem/17173)
+
+不能同时对两个流。
+
+只考虑 $a$，要求关键任务流量必须为 $1$，否则为 $[0,1]$；剩下的任务同一时刻 $\le b$ 个，至少流掉 $num-b$ 个，所以 $i\to i+1$ 的流量上界 $a+b-num$。
+
+求上下界最小流。
