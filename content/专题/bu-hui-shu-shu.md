@@ -9,6 +9,18 @@ isTop: false
 ---
 1
 
+#### [AT_wtf22_day1_c](https://www.luogu.com.cn/problem/AT_wtf22_day1_c)
+
+黑白染色。不妨设白点更多，删一个子树的过程形如：删若干对异色叶子直到所有叶子都是白色；从子树外获得一个黑叶子，重复以上过程。
+
+设 $num_u$ 表示删光 $u$ 子树至少要从子树外获得这么多个叶子。则删掉子树 $t_1,\ldots,t_k$ 的充要条件是：
+
+- $\sum w_{t_i}=\sum b_{t_i}$
+- 根的颜色不全相同。
+- $\forall t_i,num_{t_i}\le \sum_{i\neq j} siz_{t_j}$
+
+枚举一共删 $s$ 个，树上背包 $i$ 个白 $j$ 个黑，是否出现黑/白的根，一个子树能不能被选为删掉是已知的，复杂度 $O(n^5)$。
+
 #### [AT_wtf22_day2_d](https://atcoder.jp/contests/wtf22-day2-open/tasks/wtf22_day2_d)
 
 先假设 $a_i$ 互相区分，再除掉 $\prod t_i$。
@@ -24,6 +36,12 @@ isTop: false
 一个环的权值还是拆 $\prod$，$a_j+[j\le i]=a_j+1-[j>i]$，如果连续的选 $[j>i]$ 对应一个上升段，段首权值 $a_j+1$，段中间 $-1$。那就对段数，然后把 $j$ 个区分的段分入 $i$ 个环，$S1(j,i)$。
 
 设 $dp_{i,j}$ 表示从小到大考虑了 $i$ 个，有 $j$ 段，$dp_{i,j}=-jdp_{i-1,j}+dp_{i-1,j-1}(a_i+1)+((\sum a_k)+i)dp_{i-1,j}$。
+
+#### [arc202d](https://www.luogu.com.cn/problem/AT_arc202_d)
+
+两维独立。设 $f_i$ 表示 $[1,n]$ 从 $x$ 到 $y$ 走 $t$ 步 $-1/0/1$。容斥有 $i$ 个两维都不动，$ans=\sum (-1)^{t-i}\binom{t}{i}f_i$。
+
+求 $f_i$。若 $n\le \sqrt t$，直接 dp；否则[[ge-lu-ji-shu#^85b7de|反射容斥]] $O(\frac{t}{n})$ 求一项，再卷上选 $j$ 个不动 $\binom{i}{j}$。
 
 #### [agc038e](https://atcoder.jp/contests/agc038/tasks/agc038_e)
 
@@ -56,6 +74,22 @@ min-max 容斥，求 $ans=\sum_{T\subseteq S,T\neq \empty}E(\min (T))$。
 由 Raney，对于一个长为 $n$ 的整数序列 $a_i$，$\sum a_i=1$，$n$ 个循环移位中有且只有一个所有前缀和都 $\ge 0$。
 
 枚举 $i$ 个相邻的边，$\binom{n}{i}$；长为 $n-1+m-i+1$ 的序列，有 $\frac{1}{n+m-i}$ 的概率，在所有分配负数值和负数位置 $\binom{n-3}{m-i}\binom{n-1+m-i}{m-i}$ 中，满足条件。
+
+#### [agc065f](https://www.luogu.com.cn/problem/AT_agc065_f)
+
+^e18fb2
+
+每个点双独立。记集合 $S_u$ 表示 $u$ 为根除了点双以外其他的子树。如果 $|S_u|$ 为偶数，则 $u$ 与点双内的点匹配，否则与外面的匹配。对于一个点双 $|S_u|$ 奇偶性相同。
+
+若都和外面的匹配，则该点双没有要求；否则点双必须是偶环或一条边。
+
+即一个合法的图的生成方式为：从一堆偶环出发，每次选一些连通块，每个连通块出一个点，组成点双，直到连通。
+
+设 $f_{n,m}$ 为 $n$ 个点 $m$ 个点双，$g_n$ 为连通图。$f_{n,1}=g_n-\sum_{i>1} f_{n,i}$。
+
+求 $f_{n,m}$，钦定一个根，圆方树，有 $m$ 个方点，每个代表一个大小 $a_i+1$ 的点双，有 $a_i$ 个儿子。外面 prufer 为 $n^{m-1}\prod a_i$，每个连通块连父亲的不区分，即 $n^{m-1}$。即 $f_{n,m}=\frac{n^{m-1}}{m!}(\sum_{\sum a_i=n-1} \binom{n}{a_1,\ldots,a_m}\prod f_{a_i+1,1})$。
+
+最后算答案，设 $dp_{i,j}$ 表示初始 $i$ 个点 $j$ 个连通块的系数和 $\prod sz_i$。答案为 $\frac{n^{y-1}}{y!}\prod sz_i\sum_{\sum a_i=y-1}\binom{x-1}{a1,\ldots,a_y}\prod f_{a_i+1,1}$。
 
 #### [agc067d](https://atcoder.jp/contests/agc067/tasks/agc067_d)
 
