@@ -86,3 +86,7 @@ void work(){
 ```
 
 例：[Q3304](https://qoj.ac/contest/776/problem/3304)。初始网络为 DAG，流量为 $2$。可以 $O(n)$ 快速求出初始势能，复杂度 $O(n\log n)$。
+
+upd：深刻的卡常技巧：做 SPFA 不是点/边越少越好；算完 $dis$ 用原来费用流的 dfs 可能更好。 ^1e95bb
+
+![[Pasted image 20260226173355.png]]

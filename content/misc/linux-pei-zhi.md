@@ -17,7 +17,7 @@ isTop: false
 
 ---
 
-[[ji-yu-vscode-de-ai-pei-zhi|vscode 配置]]。
+[[vscode-pei-zhi]]。
 
 ---
 

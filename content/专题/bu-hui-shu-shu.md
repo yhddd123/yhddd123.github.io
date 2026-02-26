@@ -65,6 +65,18 @@ min-max 容斥，求 $ans=\sum_{T\subseteq S,T\neq \empty}E(\min (T))$。
 
 ![[agc058f.png]]
 
+#### [agc060d](https://www.luogu.com.cn/problem/AT_agc060_d)
+
+设 $f_S$ 表示恰好 $S$ 处是 $<$；$g_S$ 表示 $S$ 无限制，$S$ 以外都是 $>$。$f_S=\sum_{T\subseteq S}g_T$。
+
+$$ans=\sum_S f^2_S=\sum_{T1,T2}(-1)^{|T1|+|T2|}g_{T1}g_{T2}2^{n-1-|T1|-|T2|+|T1\cap T2|}$$
+
+改成枚举 $S=T1\cap T2$。$ans=2^{n+1}\sum_S (\sum_{S\subseteq T}(\frac{-1}{2}^{|T|+1}g_T)^2$。
+
+$g_S$ 即从 $n$ 个数分给一堆下降序列，即 $\binom{n}{p1,p2-p1,\ldots,n-p_k}$。
+
+即 $g_i=\sum \frac{g_j}{-2(i-j)!}$，$f_i=\sum f_ig^2_{i-j}$。
+
 #### [agc065d](https://atcoder.jp/contests/agc065/tasks/agc065_d)
 
 相邻的边不用管。从 $(1,n)$ 断开，边要求包含或不交。

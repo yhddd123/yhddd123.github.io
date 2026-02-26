@@ -111,6 +111,16 @@ The 4th Universal Cup 做题记录
 
 每次找一个 $u$ 开始暴力拓扑排序。将点打乱随机找 $u$ 开始，跳过不优的点，则每个点只会经过 $\log n$ 次。
 
+#### [J. Yet Another Constructive Problem](https://qoj.ac/contest/2539/problem/14435)
+
+~~杨表是什么？~~
+
+固定 $k$，调整 $m$。
+
+直接对反链流，原始对偶，复杂度 $O(n^2\log^2 n)$。
+
+[[primal-dual-yuan-shi-dui-ou-suan-fa#^1e95bb|优化]]：最短路用桶 $O(m+dis)$。建图用 cdq 分治，还要偏移一下 $mid$ 效果最好（注意点/边数最小做 spfa 不一定优，要避免大度数点）。只有 sqfa 带两个 $\log$。
+
 ### [The 4th Universal Cup. Stage 2: Grand Prix of Paris](https://qoj.ac/contest/2551)
 
 ^416df2
@@ -293,7 +303,7 @@ bfs 序，线段树优化建图跑 2-sat。
 
 ^39fj2r
 
-场上过了 BDFGIJM。A 复制样例少一个 $0$，调不出来，硬是没交上去。
+场上过了 BDFGIJM。A 复制样例少一个 $0$，调不出来，硬是没交上去。三个人凑不出一个会 K 的。
 
 #### [A. Square Kingdom](https://qoj.ac/contest/2641/problem/14940)
 
