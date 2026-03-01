@@ -13,7 +13,7 @@ The 4th Universal Cup 做题记录
 
 [Stage 0: Trial Contest](https://qoj.ac/contest/2041)：CDEFGJM
 
-[Stage 1: Korolyov](https://qoj.ac/contest/2539)：BEG
+[Stage 1: Korolyov](https://qoj.ac/contest/2539)：BEGJ
 
 [Stage 2: Paris](https://qoj.ac/contest/2551)：DEJ
 

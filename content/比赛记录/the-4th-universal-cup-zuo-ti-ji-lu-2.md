@@ -1,10 +1,12 @@
 ---
-title: 'The 4th Universal Cup 做题记录 (2)'
+title: The 4th Universal Cup 做题记录 (2)
 date: 2026-01-11 22:26:57
-tags: [做题记录,acm]
+tags:
+  - 做题记录
+  - acm
 published: true
 hideInList: false
-feature: 
+feature:
 isTop: false
 ---
 The 4th Universal Cup 做题记录
@@ -18,6 +20,8 @@ The 4th Universal Cup 做题记录
 [Stage 15: China](https://qoj.ac/contest/3295)：EL
 
 [Stage 17: St. Petersburg](https://qoj.ac/contest/3384)：FGIM
+
+[Stage 18: Hongō](https://qoj.ac/contest/3420/problem/17247)：ABCHK
 
 ### [The 4th Universal Cup. Stage 12: Grand Prix of Shanghai](https://qoj.ac/contest/2908)
 
@@ -112,3 +116,29 @@ $n$ 个点 $k$ 个叶子且下标集合为 $S$，与，$n$ 的排列 $k$ 个上�
 只考虑 $a$，要求关键任务流量必须为 $1$，否则为 $[0,1]$；剩下的任务同一时刻 $\le b$ 个，至少流掉 $num-b$ 个，所以 $i\to i+1$ 的流量上界 $a+b-num$。
 
 求上下界最小流。
+
+### [The 4th Universal Cup. Stage 18: Grand Prix of Hongō](https://qoj.ac/contest/3420)
+
+场上过了 CEFGJKN。A 被 corner 干爆了，你告诉我这个是蓝？两个多项式都不会。
+
+[C](https://qoj.ac/contest/3420/problem/17248) 结构是一条直线加两个点，或 $6$ 个点。枚举一个点，极角排序以下，枚举第二个点形成直线，另外两个点就是直线反向延长两侧最近的两个。
+
+![[Pasted image 20260301221322.png]]
+
+[K](https://qoj.ac/contest/3420/problem/17256) 总之打表之后发现一个退出的阈值，然后枚举 $O(n)$ 个中点算组合数即可。
+
+#### [A. Apparently Make UTPC](https://qoj.ac/contest/3420/problem/17246)
+
+一坨。
+
+[[at_utpc2025_a-ti-jie|here]]
+
+#### [B. Binary Tree Counting](https://qoj.ac/contest/3420/problem/17247)
+
+[[at_utpc2025_b-ti-jie|here]]
+
+#### [H. Heyawake-like Problem](https://qoj.ac/contest/3420/problem/17253)
+
+服了，怎么想出来的。
+
+![[H_answer.png]]
