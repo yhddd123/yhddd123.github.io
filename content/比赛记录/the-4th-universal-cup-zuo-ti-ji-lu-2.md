@@ -125,7 +125,7 @@ $n$ 个点 $k$ 个叶子且下标集合为 $S$，与，$n$ 的排列 $k$ 个上�
 
 ![[Pasted image 20260301221322.png]]
 
-[K](https://qoj.ac/contest/3420/problem/17256) 总之打表之后发现一个退出的阈值，然后枚举 $O(n)$ 个中点算组合数即可。
+[K](https://qoj.ac/contest/3420/problem/17256) 总之打表之后发现一个退出的阈值，然后枚举 $O(n)$ 个终点算组合数即可。
 
 #### [A. Apparently Make UTPC](https://qoj.ac/contest/3420/problem/17246)
 

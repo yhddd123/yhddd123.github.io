@@ -43,6 +43,32 @@ isTop: false
 
 求 $f_i$。若 $n\le \sqrt t$，直接 dp；否则[[ge-lu-ji-shu#^85b7de|反射容斥]] $O(\frac{t}{n})$ 求一项，再卷上选 $j$ 个不动 $\binom{i}{j}$。
 
+#### [agc019e](https://www.luogu.com.cn/problem/AT_agc019_e)
+
+随机并乘 $(k!)^2$ 等价于给 $a_i,b_j$ 匹配，并决定顺序。
+
+对交换连边，合法的交换等价于从 $A_i=1,B_i=0$ 经过 $A_i=B_i=1$ 到 $A_i=0,B_i=1$ 的链，或 $A_i=B_i=1$ 的环。
+
+现在有 $a$ 个 $A_i=1,B_i=0$ 和 $b$ 个 $A_i=B_i=1$。先给每个链头选一个链尾，再乘 $a!$。一条链上有 $i$ 个 $A_i=B_i=1$ 的话，有 $i!$ 种排法，有 $\frac{1}{(i+1)!}$ 的概率合法。从 $b$ 个选 $i$ 个放到链里，EGF，剩下的 $(b-i)!$。
+
+即 $ans=k!a!\sum_{i=0}^b \binom{b}{i}(b-i)![\frac{x^i}{i!}](\sum \frac{1}{(i+1)!}x^i)^m$。多项式快速幂。
+
+#### [agc021e](https://www.luogu.com.cn/problem/AT_agc021_e)
+
+枚举最后的 $(a,b)$。若 $a<b$ 无解。若 $a\ge b+n$ 一定有解。
+
+否则会有 $a-b$ 个红色多 $1$ 和 $n-a+b$ 个两个颜色相等且蓝色是最后一个。两个颜色相等可以只选成 ```RB```，即序列至少能选出 $n-a+b$ 对，即不能匹配的，每个前缀 $cntb-cnta\le b-(n-a+b)=a-n$。
+
+所以从 $(0,0)$ 到 $(a,b)$ 不超过 $y=x+a-n$。特别的，若 $a=b$，则到 $(a,b-1)$。 
+
+#### [agc033e](https://www.luogu.com.cn/problem/AT_agc033_e)
+
+令 $s_1=1$。设 $s$ 中 $1$ 的极长连续段分别为 $l_1,\ldots,l_k$。
+
+圆上不能存在相邻的 $0$。每个连续段长为奇数，否则存在起点离两端同奇偶。初始放在连续段端点加减 $1$ 要能从另一边离开，每个连续段长度 $\le c_1+1$。对于 $c_i\bmod 2=0$，反复横跳，否则每个连续段长度 $\le c_i$。
+
+前缀和优化。
+
 #### [agc038e](https://atcoder.jp/contests/agc038/tasks/agc038_e)
 
 min-max 容斥，求 $ans=\sum_{T\subseteq S,T\neq \empty}E(\min (T))$。
