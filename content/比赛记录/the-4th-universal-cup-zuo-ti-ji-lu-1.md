@@ -27,7 +27,9 @@ The 4th Universal Cup 做题记录
 
 [Extra Stage 2: Wuhan](https://qoj.ac/contest/2609)：BL
 
-[Stage 6: Shenyang](https://qoj.ac/contest/2641) ADFK
+[Stage 6: Shenyang](https://qoj.ac/contest/2641)：ADFK
+
+[Stage 7: Zhengzhou](https://qoj.ac/contest/2661)：C
 
 [[the-4th-universal-cup-zuo-ti-ji-lu-2|做题记录 2：Stage 10 - Stage 19]]
 
@@ -326,3 +328,9 @@ dfs 生成树，找到第一个有返祖边的点，从次浅的返祖边直接�
 #### [K. Relay Jump](https://qoj.ac/contest/2641/problem/14950)
 
 $a$ 跳过 $b$ 变为 $2b-a$，$\sum v$ 的变化量为 $2(b-a)$。接着跳 $b,c,\ldots$。变化量为 $2(t-s)$。
+
+### [The 4th Universal Cup. Stage 7: Grand Prix of Zhengzhou](https://qoj.ac/contest/2661)
+
+#### [C. Basic Counting Practice Problems](https://qoj.ac/contest/2661/problem/15303)
+
+[[favourite-problem-set-1#^1215b2|here]]

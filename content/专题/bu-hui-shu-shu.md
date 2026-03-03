@@ -77,6 +77,23 @@ min-max 容斥，求 $ans=\sum_{T\subseteq S,T\neq \empty}E(\min (T))$。
 
 设 $f_{i,j,k}$ 表示前 $i$ 个，$\sum a$，$\sum c$，枚举 $c_i$，复杂度 $O(n^3)$。
 
+#### [agc041f](https://www.luogu.com.cn/problem/AT_agc041_f)
+
+钦定有 $k$ 个格子不被覆盖，$(-1)^k$。枚举至少有一个被钦定列 $S$，对于一个长为 $n$ 的行连续段，有 $p$ 列属于 $S$：若没有被钦定的格子，则 $2^{len-p}$；否则枚举钦定了 $i$ 个，$\sum \binom{p}{i}(-1)
+^i=-[p>0]$。
+
+钦定 $T$ 为 $S$ 中实际没有被钦定格子的列，$(-1)^{|T|}$。行连续段若有 $q$ 个属于 $T$，则系数 $\sum_{i=0}^{p-q}\binom{p-q}{i}(-1)^i=-[p>q]$。
+
+建笛卡尔树，树形背包节点 $u$，$p$，是否有 $p=q$。
+
+#### [agc045d](https://www.luogu.com.cn/problem/AT_agc045_d)
+
+策略是沿着置换环问，只要不是自环就可以点亮整个环。即，设 $i$ 为 $[1,m]$ 第一个 $p_i=i$ 的位置，要求 $\forall j<i,p_j\neq j$ 和 $[m+1,n]$ 的每个置换环都包含 $<i$ 的点。
+
+容斥 $[1,i-1]$ 有 $j$ 个 $p_j=j$，剩下有 $i-j-1$ 个没有限制，有 $n-m$ 个要加在之前的 $x\to y$ 之间变成 $x\to i\to y$，有 $\max(m-i,0)$ 个没有限制。
+
+$$ans=\sum_{i=1}^{m+1}\sum_{j=0}^{i-1}\binom{i-1}{j}(a+b+c)!\prod_{k=a+1}^{a+b}\frac{k-1}{k}=\sum_{i=1}^{m+1}\sum_{j=0}^{i-1}\binom{i-1}{j}(n-j-[i\le m])!\frac{i-j-1}{n-m+i-j-1}$$
+
 #### [agc058f](https://atcoder.jp/contests/agc058/tasks/agc058_f)
 
 考虑给一个根，每次删一个子树，最后只剩根，展开 $f(T)$，$f(T)=\frac{\prod f(t_i)}{(|t_1|+\ldots+t|k|+1)\ldots(|t_k|+1)1}$。
