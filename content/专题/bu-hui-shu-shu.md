@@ -88,7 +88,7 @@ min-max 容斥，求 $ans=\sum_{T\subseteq S,T\neq \empty}E(\min (T))$。
 
 #### [agc045d](https://www.luogu.com.cn/problem/AT_agc045_d)
 
-策略是沿着置换环问，只要不是自环就可以点亮整个环。即，设 $i$ 为 $[1,m]$ 第一个 $p_i=i$ 的位置，要求 $\forall j<i,p_j\neq j$ 和 $[m+1,n]$ 的每个置换环都包含 $<i$ 的点。
+策略是沿着置换环问，只要不是自环就可以点亮整个环。那这样有等价于直接从 $1$ 问到 $n$，在第一个自环之前能不能做完。即，设 $i$ 为 $[1,m]$ 第一个 $p_i=i$ 的位置，要求 $\forall j<i,p_j\neq j$ 和 $[m+1,n]$ 的每个置换环都包含 $<i$ 的点。
 
 容斥 $[1,i-1]$ 有 $j$ 个 $p_j=j$，剩下有 $i-j-1$ 个没有限制，有 $n-m$ 个要加在之前的 $x\to y$ 之间变成 $x\to i\to y$，有 $\max(m-i,0)$ 个没有限制。
 
