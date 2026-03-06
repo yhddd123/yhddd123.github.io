@@ -218,68 +218,7 @@ void work(){
 
 > 给无向图定向，求最小边权的强连通图。
 
-[耳分解](https://yhddd123.github.io/post/tu-lun-lian-tong-xing-wen-ti/#%E8%80%B3%E5%88%86%E8%A7%A3)
-
-$f_s$ 表示 $s$ 内定向为强连通图的最小代价，$g_{s,i,j}$ 表示耳的代价加上 $i$ 到 $s$ 除了 $j$ 的所有点乱定向的最小代价。额外记 $sum_{u,s}$ 表示点 $u$ 到 $s$ 的乱定向的最小代价。
-
-转移同状压拆分耳分解，复杂度 $O(2^nn^3)$。
-
-```cpp
-int n,e[18][18];
-int f[1<<18],g[1<<18][18][18];
-int sum[18][1<<18],val[18][18];
-void work(){
-	n=read();
-	for(int i=0;i<n;i++){
-		for(int j=0;j<n;j++){
-			e[i][j]=read();
-			if(e[i][j]==-1)e[i][j]=inf;
-		}
-	}
-	for(int i=0;i<n;i++)for(int j=0;j<n;j++)if(e[i][j]<inf)val[i][j]=min(e[i][j],e[j][i]);
-	for(int i=0;i<n;i++){
-		for(int s=1;s<(1<<n);s++){
-			int lg=__lg(s&(-s));
-			sum[i][s]=sum[i][s^(s&(-s))]+val[i][lg];
-		}
-	}
-	for(int s=0;s<(1<<n);s++){
-		f[s]=inf;
-		for(int i=0;i<n;i++){
-			for(int j=0;j<n;j++)g[s][i][j]=inf;
-		}
-	}
-	for(int i=0;i<n;i++)f[1<<i]=0;
-	for(int s=1;s<(1<<n);s++){
-		for(int i=0;i<n;i++)if(s&(1<<i)){
-			for(int j=0;j<n;j++)if(s&(1<<j)){
-				for(int k=0;k<n;k++)if(!(s&(1<<k))){
-					if(i==j){
-						for(int l=0;l<n;l++)if(!(s&(1<<l))){
-							g[s|(1<<k)][l][j]=min(g[s|(1<<k)][l][j],f[s]+e[i][k]+e[k][l]+sum[k][s^(1<<i)]+sum[l][s^(1<<j)]);
-						}
-					}
-					else g[s][k][j]=min(g[s][k][j],f[s]+e[i][k]+sum[k][s^(1<<i)^(1<<j)]);
-				}
-			}
-		}
-		for(int i=0;i<n;i++)if(!(s&(1<<i))){
-			for(int j=0;j<n;j++)if(s&(1<<j)){
-				for(int k=0;k<n;k++)if(!(s&(1<<k))){
-					g[s|(1<<i)][k][j]=min(g[s|(1<<i)][k][j],g[s][i][j]+e[i][k]+val[i][j]+sum[k][s^(1<<j)]);
-				}
-			}
-		}
-		for(int i=0;i<n;i++)if(!(s&(1<<i))){
-			for(int j=0;j<n;j++)if(s&(1<<j)){
-				f[s|(1<<i)]=min(f[s|(1<<i)],g[s][i][j]+e[i][j]);
-			}
-		}
-	}
-	if(f[(1<<n)-1]==inf)f[(1<<n)-1]=-1;
-	printf("%lld\n",f[(1<<n)-1]);
-}
-```
+[[tu-lun-lian-tong-xing-wen-ti#^9a4d69|耳分解]]。
 
 ### [D. Just Meeting](https://qoj.ac/contest/776/problem/3302)
 

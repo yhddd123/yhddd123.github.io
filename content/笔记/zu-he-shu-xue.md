@@ -17,9 +17,7 @@ $$\begin{Bmatrix}n \\ m\end{Bmatrix}=\begin{Bmatrix}n-1 \\ m-1\end{Bmatrix}+m\be
 
 $$m^n=\sum_{i=0}^n\binom{n}{i}\begin{Bmatrix}n \\ i\end{Bmatrix}i!$$
 
-$$\sum_{i=0}^ni^k=\sum_{j=0}^m\binom{k}{j}j!\binom{n+1}{j+1}$$
-
-$$\binom{n}{m}=\frac{1}{m!}\sum_{i=0}^m(-1)^{m-i}\binom{m}{i}i^n$$
+$$\begin{Bmatrix}n \\ m\end{Bmatrix}=\frac{1}{m!}\sum_{i=0}^m(-1)^{m-i}\binom{m}{i}i^n$$
 
 ### 欧拉数
 

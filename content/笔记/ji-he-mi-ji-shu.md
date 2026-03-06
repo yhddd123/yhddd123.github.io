@@ -217,9 +217,10 @@ $$f_S=\sum_{S\subset T} f_Tg_{S-T}$$
 exp：$f_S=\sum_{T\subset S,hb(S)=hb(T)} g_Tf_{S-T}$。那就挖掉 high bit 然后对剩下的子集卷积即可。
 
 ```cpp
-void exp(int *a,int *b,int n){
-	b[0]=1;
-	for(int i=0;i<n;i++)xormul(a+(1<<i),b,b+(1<<i),i);
+int tmp[1<<maxn];
+void exp(int *a,int n){
+	for(int s=0;s<(1<<n);s++)tmp[s]=a[s],a[s]=0;
+	a[0]=1;for(int i=0;i<n;i++)xormul(tmp+(1<<i),a,a+(1<<i),i);
 }
 ```
 
@@ -245,12 +246,9 @@ void mulself(int *a,int *b,int n){
 	for(int i=0;i<=n;i++)fmt2(gg[i],1<<n);
 	for(int s=0;s<(1<<n);s++)b[s]=gg[__builtin_popcount(s)][s];
 }
-void ln(int *a,int *b,int n){
-	// for(int s=1;s<(1<<n);s++){
-		// int k=__lg(s);b[s]=a[s];
-		// for(int t=(s-1)&s;t;t=(t-1)&s)if(t&(1<<k))b[s]-=b[t]*a[s^t];
-	// }
-	for(int i=0;i<n;i++)mulself(a,b+(1<<i),i);
+void ln(int *a,int n){
+	for(int s=0;s<(1<<n);s++)tmp[s]=a[s],a[s]=0;
+	for(int i=0;i<n;i++)mulself(tmp,a+(1<<i),i);
 }
 ```
 
@@ -338,7 +336,7 @@ void comp(int *a,int *b,int *c,int n){
 选 $i$ 个拼起来，正着加 high bit $2^nn^3$。倒着删 high bit，设 $h_{i,S}$ 已经删 $i$ 次剩 $S$，每次 $T\subseteq S,hb(T)=hb(S),h_{i,S}f_T\to f_{i-1,S-T}$。子集差卷积。
 
 ```cpp
-void xormul1(int *a,int *c,int n){
+void xormul2(int *a,int *c,int n){
 	for(int i=0;i<=n;i++){
 		for(int s=0;s<(1<<n);s++)ff[i][s]=0;
 	}
@@ -367,7 +365,7 @@ void comptrans(int *a,int *b,int *c,int n){
 		for(int s=0;s<(1<<i-1);s++)gg[__builtin_popcount(s)][s]=a[s+(1<<i-1)];
 		for(int j=0;j<i;j++)fmt1(gg[j],1<<i-1);
 		for(int j=n-i+1;j;j--){
-			xormul1(hh[j-1]+(1<<i-1),hh[j],i-1);
+			xormul2(hh[j-1]+(1<<i-1),hh[j],i-1);
 		}
 	}
 	for(int i=0;i<=n;i++)c[i]=hh[i][0];

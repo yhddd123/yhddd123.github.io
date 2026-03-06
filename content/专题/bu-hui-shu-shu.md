@@ -94,6 +94,20 @@ min-max 容斥，求 $ans=\sum_{T\subseteq S,T\neq \empty}E(\min (T))$。
 
 $$ans=\sum_{i=1}^{m+1}\sum_{j=0}^{i-1}\binom{i-1}{j}(a+b+c)!\prod_{k=a+1}^{a+b}\frac{k-1}{k}=\sum_{i=1}^{m+1}\sum_{j=0}^{i-1}\binom{i-1}{j}(n-j-[i\le m])!\frac{i-j-1}{n-m+i-j-1}$$
 
+#### [agc049e](https://www.luogu.com.cn/problem/AT_agc049_e)
+
+内层 dp $f_{i,j}=|a_i-j|+\min f_{i-1,k}+c\times\max(j-k,0)$。
+
+转 01，$nm$ 层，把 $f_{i,0/1}$ 压到状态里。状态只用记 $f_{i,0}-f_{i,1}$，直接把 $f_{i,0}$ 放到权值里。复杂度 $O(n^4)$。
+
+#### [agc055d](https://www.luogu.com.cn/problem/AT_agc055_d)
+
+加强：[P12472](https://www.luogu.com.cn/problem/P12472)。
+
+记 $A=\max s_{a,i}-s_{c,i}$，则要求 $A+B+C\le n$ 且存在 $x$ 个 ```ABC``` 当且仅当 $x\ge A$。
+
+枚举最后的 $A,B$，对 $C$ 有一个限制，同时要求 $A,B$ 要顶到上界。复杂度 $O(n^5)$。
+
 #### [agc058f](https://atcoder.jp/contests/agc058/tasks/agc058_f)
 
 考虑给一个根，每次删一个子树，最后只剩根，展开 $f(T)$，$f(T)=\frac{\prod f(t_i)}{(|t_1|+\ldots+t|k|+1)\ldots(|t_k|+1)1}$。
